@@ -34,7 +34,7 @@ export default function LocationIndexPage() {
         <Hero
           title="Gate Installers Across Surrey"
           subtitle="75 towns covered across every part of the county. Find a specialist for your area and get free quotes with no obligation."
-          image="/images/gates/gate-wrought-iron-open-manor-spring-gardens.png"
+          image="/images/gates/gate-aerial-wrought-iron-closed-topiary-gravel-circle.png"
           onOpenModal={() => setIsModalOpen(true)}
         />
 
