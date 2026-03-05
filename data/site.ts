@@ -52,18 +52,22 @@ export const TESTIMONIALS = [
 
 export const TRUST_BADGES = [
   {
+    icon: 'Award',
     title: 'Verified Specialists Only',
     description: 'Every Surrey installer in our network is a gate specialist with a verified project history, not a general builder who takes occasional gate work',
   },
   {
+    icon: 'ShieldCheck',
     title: 'Insured and Warranted',
     description: 'Public liability cover and written warranties on both the gate and the automation are required from every installer before we refer a single enquiry',
   },
   {
+    icon: 'UserCheck',
     title: 'Free Site Survey Guaranteed',
     description: 'Every installer offers a no-obligation site survey before quoting. No pressure, no commitment required until you are ready to proceed',
   },
   {
+    icon: 'PoundSterling',
     title: '0% Finance Available',
     description: 'Spread your installation cost over 6 to 36 months interest-free through selected Surrey installers in our network, subject to status',
   },
