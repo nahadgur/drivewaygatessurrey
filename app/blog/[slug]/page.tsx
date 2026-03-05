@@ -11,15 +11,15 @@ import { LeadFormModal } from '@/components/LeadFormModal';
 
 // Update these to match your actual live service x location pages
 const SIDEBAR_SERVICE_LINKS = [
-  { label: 'Electric Sliding Gates — Guildford', href: '/services/electric-sliding-gates/guildford/' },
-  { label: 'Electric Swing Gates — Weybridge', href: '/services/electric-swing-gates/weybridge/' },
-  { label: 'Wooden Driveway Gates — Haslemere', href: '/services/wooden-driveway-gates/haslemere/' },
-  { label: 'Metal Driveway Gates — Cobham', href: '/services/metal-driveway-gates/cobham/' },
-  { label: 'Automated Gate Systems — Esher', href: '/services/automated-gate-systems/esher/' },
-  { label: 'Electric Sliding Gates — Woking', href: '/services/electric-sliding-gates/woking/' },
-  { label: 'Electric Swing Gates — Reigate', href: '/services/electric-swing-gates/reigate/' },
-  { label: 'Gate Repair and Maintenance — Epsom', href: '/services/gate-repair-and-maintenance/epsom/' },
-  { label: 'Metal Driveway Gates — Dorking', href: '/services/metal-driveway-gates/dorking/' },
+  { label: 'Electric Sliding Gates in Guildford', href: '/services/electric-sliding-gates/guildford/' },
+  { label: 'Electric Swing Gates in Weybridge', href: '/services/electric-swing-gates/weybridge/' },
+  { label: 'Wooden Driveway Gates in Haslemere', href: '/services/wooden-driveway-gates/haslemere/' },
+  { label: 'Metal Driveway Gates in Cobham', href: '/services/metal-driveway-gates/cobham/' },
+  { label: 'Automated Gate Systems in Esher', href: '/services/automated-gate-systems/esher/' },
+  { label: 'Electric Sliding Gates in Woking', href: '/services/electric-sliding-gates/woking/' },
+  { label: 'Electric Swing Gates in Reigate', href: '/services/electric-swing-gates/reigate/' },
+  { label: 'Gate Repair and Maintenance in Epsom', href: '/services/gate-repair-and-maintenance/epsom/' },
+  { label: 'Metal Driveway Gates in Dorking', href: '/services/metal-driveway-gates/dorking/' },
 ];
 
 function BlogCtaBanner({ onOpenModal }: { onOpenModal: () => void }) {
@@ -35,7 +35,7 @@ function BlogCtaBanner({ onOpenModal }: { onOpenModal: () => void }) {
         <div className="flex-1 text-center md:text-left">
           <p className="text-[10px] font-bold uppercase tracking-widest text-brand-400 mb-1">Free Matching Service</p>
           <h3 className="text-lg md:text-xl font-bold text-white leading-snug mb-1">Ready to get driveway gate quotes?</h3>
-          <p className="text-brand-200 text-sm">Get matched with vetted Surrey installers — no obligation, no cost.</p>
+          <p className="text-brand-200 text-sm">Get matched with vetted Surrey installers, no obligation and no cost.</p>
         </div>
         <div className="flex-shrink-0">
           <button
@@ -78,7 +78,7 @@ function ContentRenderer({ blocks, onOpenModal }: { blocks: ContentBlock[]; onOp
   return (
     <div className="prose prose-gray max-w-none">
       {blocks.map((block, i) => {
-        // Skip image blocks — they render attached to their h2 instead
+        // Skip image blocks, they render attached to their h2 instead
         if (block.type === 'image') return null;
         // Skip internal-link, external-link, cta data blocks
         if (block.type === 'internal-link' || block.type === 'external-link' || block.type === 'cta') return null;
@@ -252,7 +252,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
                 {/* CTA */}
                 <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
                   <h3 className="text-lg font-display font-bold text-gray-900 mb-3">Get your free gate quotes</h3>
-                  <p className="text-gray-500 text-sm mb-5">Compare up to 3 vetted Surrey installers — free, no obligation.</p>
+                  <p className="text-gray-500 text-sm mb-5">Compare up to 3 vetted Surrey installers, free and no obligation.</p>
                   <button onClick={() => setIsModalOpen(true)} className="block w-full btn-primary text-center">
                     Find Installers
                   </button>
@@ -278,7 +278,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
                   </ul>
                 </div>
 
-                {/* Further Reading — external links from article */}
+                {/* Further Reading: external links from article */}
                 {furtherReading.length > 0 && (
                   <div className="bg-gray-50 p-6 rounded-2xl border border-gray-100">
                     <div className="flex items-center gap-2 mb-4">
