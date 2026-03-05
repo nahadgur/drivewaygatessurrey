@@ -22,43 +22,43 @@ const topAreas = ['Guildford', 'Woking', 'Reigate', 'Epsom', 'Farnham', 'Camberl
 const homepageFaqs = [
   {
     question: 'How much do driveway gates cost in Surrey?',
-    answer: 'Surrey gate prices range considerably based on material, size, and automation spec. Hardwood swing gates start from around £2,500 installed. Electric swing gates with full automation typically fall between £3,500 and £10,000. Premium electric sliding gate systems with video intercom and smart access start from £4,500 and can exceed £12,000 for large bespoke installations. The single biggest variable is whether your gate is fabricated to a standard design or built entirely to specification. Most installers in our Surrey network offer 0% finance, so the upfront cost does not have to be the deciding factor.',
+    answer: 'Surrey sits above the national average for gate installation costs, reflecting both the premium end of the residential market and the planning complexity that many projects involve. Expect to pay from £3,000 for a basic hardwood swing gate installation, £4,000 to £12,000 for electric swing gates, and £5,000 to £13,000 for electric sliding systems. Wrought iron gates in the Weybridge, Cobham, and Esher market regularly exceed £15,000 for full estate-grade specifications with underground motors and video access management. The county has a genuine premium tier that most other counties do not. A site survey is the only way to get a reliable figure for your specific project.',
   },
   {
     question: 'Do I need planning permission for driveway gates in Surrey?',
-    answer: 'Most residential driveway gates in Surrey do not require planning permission. Under permitted development, gates up to 2 metres tall that open inward onto your property are generally exempt. The threshold drops to 1 metre if your gate fronts a classified road or public highway. Properties that are listed, within a conservation area, or subject to an Article 4 direction face tighter restrictions. Surrey has a high concentration of designated areas: Green Belt covers much of the county, the Surrey Hills AONB covers the rural south and west, and conservation areas exist in every district. Your installer will confirm the planning position at the site survey. Every installer we work with knows the local rules and will advise you during the site survey.',
+    answer: 'Most Surrey homeowners do not need planning permission for standard driveway gates. Permitted development covers gates up to 2 metres, or 1 metre where the gate fronts a classified road. However, Surrey has an unusually high density of planning designations: the Surrey Hills AONB covers a large part of the county, Green Belt applies to most of the remaining rural land, and conservation areas exist throughout every district. Listed buildings add a further layer of consent requirements. If your property sits within any of these designations, pre-application advice from the relevant planning authority is the right first step. The installers we work with know the local rules and will confirm the position at the site survey.',
   },
   {
     question: 'How long does a driveway gate installation take in Surrey?',
-    answer: 'A standard residential installation takes between 2 and 4 working days from start to finish. Day one is groundwork: post holes, concrete foundations, and electrical conduit. Day two covers gate hanging, motor installation, and initial wiring. The final day handles commissioning, intercom setup, remote programming, and safety testing. Bespoke fabricated gates, particularly wrought iron or hardwood designs made to measure, typically require 3 to 6 weeks of lead time in the workshop before the installation date. Your installer will give you a precise programme at the site survey stage.',
+    answer: 'The physical installation takes 2 to 4 days on a typical residential project. Groundwork — foundations, post setting, and conduit — is done first and needs time to cure before the gate is hung. The gate, motor, and access control equipment follow. Where gates are fabricated to a bespoke design, which is the norm for wrought iron and hardwood in Surrey, the workshop lead time is 3 to 6 weeks before the installation date. Your installer will give you a precise programme at the survey stage, including fabrication lead time if applicable.',
   },
   {
-    question: 'Which type of driveway gate works best for Surrey properties?',
-    answer: 'The right gate depends on your driveway geometry, property style, and security priorities. Electric sliding gates are the strongest choice for short driveways, sloped approaches, and wide entrances over 4 metres, which are common on newer Surrey developments and rural plots. Electric swing gates suit properties with generous swing clearance and remain the most popular choice across the county. Hardwood gates in iroko or oak work beautifully on period homes, farmhouses, and barn conversions throughout rural Surrey. Steel and aluminium gates offer maximum longevity with minimal maintenance and suit modern builds across the Surrey commuter belt. A site survey is always the right starting point.',
+    question: 'Which type of driveway gate works best in Surrey?',
+    answer: 'It depends on which part of Surrey and what kind of property. In North Surrey — Weybridge, Cobham, Esher, Leatherhead — wrought iron swing gates with underground motors are the dominant specification. In the Surrey Hills and the AONB villages, hardwood gates in iroko or oak are the natural choice and often the only material that satisfies planning. In the commuter belt towns — Woking, Camberley, Reigate, Epsom — sliding and swing gates in fabricated steel or aluminium cover most of the market. Sloped driveways across the North Downs are common and often require a sliding system or specific motor engineering that an installer with Surrey experience will know how to handle.',
   },
   {
     question: 'Can automation be added to my existing gates?',
-    answer: 'In the majority of cases, yes. Existing swing or sliding gates can be retrofitted with an electric motor system provided the gate structure and hinges are in sound condition. The typical cost for a quality automation retrofit in Surrey is £1,200 to £3,500, depending on gate weight, type, and the access control package you choose. Installers will check hinge alignment, gate weight, and pillar integrity during the assessment visit. Worn hinges and misaligned posts are common on older installations and are straightforward to address before automation is fitted.',
+    answer: 'Yes, in most cases. Existing swing or sliding gates can be retrofitted with a motor system if the gate structure and hinges are sound and the posts have adequate foundations. Surrey installers carry out a lot of retrofit work, particularly in the North Surrey market where gates are often wrought iron and structurally excellent but manually operated. The typical cost for a quality retrofit in Surrey is £1,400 to £4,000, depending on gate weight, motor type, and what access control you add. Underground motors are available on most retrofit projects with reasonable post access. Your installer will assess feasibility and confirm the right motor at the survey.',
   },
   {
-    question: 'How does your installer matching service work?',
-    answer: 'We operate as an independent matching service, not a gate installation company. Submit your enquiry with your Surrey postcode, gate type, and approximate budget. We identify up to three specialist installers from our vetted network who cover your area and have relevant experience with your gate type. Each installer contacts you directly to arrange a free site survey and provide a detailed written quote. There is no fee to use the service at any point. We receive a referral fee from the installer only once a project is confirmed and underway.',
+    question: 'How does the installer matching service work?',
+    answer: 'We are a matching service, not a gate company. You submit your details — Surrey postcode, gate type, approximate budget — and we identify up to three specialist gate installers from our vetted network who cover your area and have relevant experience with your project type. Each installer contacts you directly to arrange a free site survey. You receive a detailed written quote from each one and choose who to proceed with, or nobody if the timing is not right. There is no fee to use the service at any point. We receive a referral fee from the installer after a project is confirmed.',
   },
   {
-    question: 'What should I look for when choosing a gate installer in Surrey?',
-    answer: 'Track record is everything. Look for an installer who specialises in driveway gates rather than a general builder who takes occasional gate work. They should carry public liability insurance of at least £2 million, offer written warranties covering both the gate structure and the automation system separately, and be able to show you completed installations similar to your project. Ask specifically about their experience with your gate type. Every installer in our network is screened against these standards before we refer any enquiries to them.',
+    question: 'What should I look for in a Surrey gate installer?',
+    answer: 'Specialisation matters more than anything else. Look for a firm that installs gates as their primary trade and has a verifiable history of completed residential projects in Surrey. They should carry public liability insurance of at least £2 million, provide written warranties covering the gate and the automation separately, and be able to demonstrate specific experience with your gate type — whether that is wrought iron, hardwood in an AONB setting, or a sliding system on a sloped driveway. Surrey-specific planning knowledge is a genuine differentiator: an installer who has worked regularly in the county will know the AONB rules, the conservation area requirements, and how to design a gate that will pass local authority scrutiny.',
   },
   {
-    question: 'Are electric driveway gates safe around children and pets?',
-    answer: 'Electric gates installed to current UK standards are very safe. All automated gate systems must comply with BS EN 12453 and the Machinery Directive, which mandate safety edges on the leading face of the gate, photocell beams across the opening to detect obstructions, and auto-reverse functionality that stops and reverses the gate if it meets resistance. Competent installers commission and test every safety system before handover and provide documentation. Our network only includes firms who install and commission to the required standards.',
+    question: 'Are electric driveway gates safe for children and pets?',
+    answer: 'When installed and commissioned to UK standards they are very safe. BS EN 12453 and the Machinery Directive both apply to automated gate systems and mandate photocell beams across the full opening, safety edges on the leading gate face, and auto-reverse that stops and reverses the gate if it meets resistance mid-travel. A competent installer commissions and tests every safety system before handover and provides written documentation of the test results. The installers in our Surrey network commission to the required standard on every project as a non-negotiable part of handover.',
   },
   {
-    question: 'What maintenance do driveway gates need?',
-    answer: 'Annual servicing is the baseline for any automated gate system. A service covers motor lubrication, drive mechanism inspection, safety sensor calibration, hinge adjustment, track cleaning on sliding systems, battery backup testing, and a full structural check. Hardwood gates require re-oiling or re-staining every one to two years. Powder-coated metal gates need very little beyond an occasional wash with mild detergent. The cost of annual servicing in Surrey is typically £130 to £220, which is a fraction of what an unmaintained motor replacement costs.',
+    question: 'What maintenance do electric gates need?',
+    answer: 'Annual servicing is the baseline for any automated gate system. A proper service covers motor and gearbox lubrication, drive mechanism inspection, hinge condition and adjustment, safety sensor recalibration and testing, track cleaning on sliding systems, battery backup load testing, and a full structural check of the gate and posts. Hardwood gates need re-oiling every one to two years. Powder-coated metal gates need nothing beyond an occasional wash. The cost of annual servicing in Surrey is typically £130 to £220. Skipping servicing and waiting for a failure costs significantly more and usually involves an emergency callout on top of the repair.',
   },
   {
-    question: 'What happens to my electric gates during a power cut?',
-    answer: 'Every properly specified automated gate system includes a manual release that allows the gate to be operated by hand when mains power is unavailable. Most modern motor units also incorporate a battery backup module that maintains full automatic operation for between 20 and 50 cycles after the power fails. For rural Surrey properties where power interruptions are more frequent, your installer can specify a solar charging panel to keep the battery topped up indefinitely without relying on the mains supply at all.',
+    question: 'What happens to my gates during a power cut?',
+    answer: 'Every properly specified automated gate includes a manual release that allows hand operation when mains power is unavailable. Most modern motor units also carry a battery backup module that maintains automatic operation for 20 to 50 gate cycles after the power fails — enough to cover most short outages without switching to manual. For rural Surrey properties on less reliable supply networks, your installer can specify a solar charging panel to keep the battery topped up independently of the mains supply. This is a common addition on installations in the Surrey Hills and the more remote Green Belt villages.',
   },
 ];
 
@@ -101,8 +101,8 @@ export default function HomePage() {
       <main className="flex-grow">
 
         <Hero
-          title="Driveway Gates Surrey: Vetted Installers, Free Quotes"
-          subtitle="Compare experienced, fully insured driveway gate specialists across Surrey. Electric sliding gates, swing gates, hardwood, wrought iron, and automation for every property type and budget."
+          title="Driveway Gates Surrey: Specialist Installers, Free Quotes"
+          subtitle="Surrey gate specialists for every property type — from wrought iron estate gates in Weybridge and Cobham to hardwood installations in the Surrey Hills AONB. Free site surveys, no obligation."
           image="/images/gates/gate-hero-wrought-iron-sunset-cobblestone.png"
           onOpenModal={() => setIsModalOpen(true)}
         />
@@ -148,30 +148,30 @@ export default function HomePage() {
         <section className="section-padding bg-gray-50">
           <div className="container-width">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">Why Surrey Homeowners Use Us</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">We do the vetting so you do not have to. Every installer in our network is screened before they receive a single referral.</p>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">Why Surrey Homeowners Use This Service</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">Surrey has plenty of people who will quote for gates. Finding one who genuinely specialises, knows the county&apos;s planning rules, and will still be answering the phone in five years is the hard part. We do that work for you.</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
                   icon: <Award className="w-6 h-6" />,
-                  title: '50+ Installations Minimum',
-                  desc: 'No general builders. No handymen who do the occasional gate. Every firm in our network specialises in residential gate installation and has the project history to prove it.',
+                  title: 'Gate Specialists Only',
+                  desc: 'Every firm in our network installs gates as their primary trade. We do not refer general builders, landscapers, or groundwork contractors who take gate work when it comes their way.',
                 },
                 {
                   icon: <Shield className="w-6 h-6" />,
-                  title: 'Insured and Warranted',
-                  desc: 'Full public liability cover as standard. Written warranties on the gate structure and the automation system are provided separately, not as a blanket guarantee that covers nothing.',
+                  title: 'Surrey Planning Knowledge',
+                  desc: 'AONB, Green Belt, conservation areas, listed buildings — Surrey has more planning designations than most counties. Our installers know which rules apply where before they arrive on site.',
                 },
                 {
                   icon: <Clock className="w-6 h-6" />,
-                  title: 'Survey Within the Week',
-                  desc: 'Most Surrey installers in our network can offer a free site survey slot within 7 days, including evenings and Saturdays for working homeowners.',
+                  title: 'Free Survey, No Commitment',
+                  desc: 'Every installer in our network carries out a proper site survey before quoting. No remote estimates, no surprises on the day. You decide whether to proceed after you have seen the quote.',
                 },
                 {
                   icon: <Star className="w-6 h-6" />,
-                  title: 'Up to 3 Free Quotes',
-                  desc: 'Compare independent quotes side by side. You choose who to go with, or nobody if the timing is not right. Zero pressure at every stage.',
+                  title: 'Three Independent Quotes',
+                  desc: 'We match you with up to three specialists covering your area. You own the process — compare quotes on your own terms with no pressure from us or from the installers we introduce.',
                 },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
@@ -188,8 +188,8 @@ export default function HomePage() {
         <section className="section-padding bg-white">
           <div className="container-width">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">Gate Types We Cover Across Surrey</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">Electric sliding, swing, hardwood, wrought iron, full automation retrofits, and repair. Specialist installers for every gate type and every Surrey property.</p>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">Every Gate Type, Every Surrey Property</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">Wrought iron for the stockbroker belt. Hardwood for the Hills. Aluminium sliding for compact commuter driveways. Specialists for every material and every brief.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {services.map(service => (
@@ -215,8 +215,8 @@ export default function HomePage() {
         <section className="section-padding bg-gray-50">
           <div className="container-width">
             <div className="text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">Gate Installers Across the Whole County</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">From the M25 corridor in the west to the Surrey Hills in the east, our network covers every part of the county. Browse by area below.</p>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">Covering Every Part of Surrey</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">North Surrey stockbroker belt to the Surrey Hills AONB in the south. Farnham in the west to Oxted and Caterham in the east. Our network covers the whole county.</p>
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mb-8">
               {topAreas.map(area => (
@@ -242,8 +242,8 @@ export default function HomePage() {
         <section className="section-padding bg-white">
           <div className="container-width">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">Surrey Driveway Gate Installation Costs</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">Realistic price ranges based on completed Surrey installations. Every project is different, and a site survey gives you the precise figure.</p>
+              <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">What Surrey Gate Installations Actually Cost in 2026</h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">Prices based on completed Surrey installations. Surrey sits above the national average — these ranges reflect the county market, not generic UK figures.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {pricingTiers.map(tier => (
@@ -274,24 +274,24 @@ export default function HomePage() {
           <div className="container-width">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">How It Works</h2>
-              <p className="text-gray-600 max-w-xl mx-auto">Three steps from enquiry to a free site survey with a vetted Surrey gate installer. The whole process takes less than two minutes to start.</p>
+              <p className="text-gray-600 max-w-xl mx-auto">From your first enquiry to a written quote in hand — three straightforward steps, no fees, no obligation at any point.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
                 {
                   step: '1',
-                  title: 'Submit Your Enquiry',
-                  desc: 'Tell us your Surrey postcode, the gate type you are considering, and your approximate budget. No commitment required. We just need enough information to make a good match.',
+                  title: 'Tell Us About Your Project',
+                  desc: 'Give us your postcode, the type of gate you have in mind, and a rough budget range. Two minutes is all it takes. We use that information to identify the right specialists for your specific site and specification.',
                 },
                 {
                   step: '2',
-                  title: 'We Match You With Specialists',
-                  desc: 'We identify up to three vetted installers from our Surrey network who cover your area and have specific experience with your gate type. They reach out to arrange a free site survey.',
+                  title: 'We Introduce the Right Installers',
+                  desc: 'We select up to three vetted Surrey gate specialists whose experience matches your project. Each one contacts you to arrange a free site visit at a time that suits you — no cold calls, no salespeople.',
                 },
                 {
                   step: '3',
-                  title: 'Compare Quotes and Choose',
-                  desc: 'Each installer visits your property, assesses the site, and provides a detailed written quote. You compare them on your own terms with no pressure and no obligation.',
+                  title: 'Review Quotes and Decide',
+                  desc: 'After the site surveys, each installer provides a detailed written quote. You compare them at your own pace. There is no obligation to proceed and no pressure from us at any stage.',
                 },
               ].map(item => (
                 <div key={item.step} className="text-center">
