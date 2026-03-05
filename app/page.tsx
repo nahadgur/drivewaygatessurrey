@@ -103,7 +103,7 @@ export default function HomePage() {
         <Hero
           title="Driveway Gates Surrey: Specialist Installers, Free Quotes"
           subtitle="Surrey gate specialists for every property type, from wrought iron estate gates in Weybridge and Cobham to hardwood installations in the Surrey Hills AONB. Free site surveys, no obligation."
-          image="/images/gates/gate-hero-wrought-iron-sunset-cobblestone.png"
+          image="/images/gates/gate-wrought-iron-open-manor-brick-pillars.png"
           onOpenModal={() => setIsModalOpen(true)}
         />
 
@@ -134,11 +134,11 @@ export default function HomePage() {
               </div>
               <div className="grid grid-cols-2 gap-4">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/gates/gate-wrought-iron-open-manor-tree-lined.png" alt="Ornate wrought iron driveway gates open on an Surrey estate" className="rounded-2xl object-cover w-full h-48 col-span-2" loading="lazy" />
+                <img src="/images/gates/gate-wrought-iron-open-stone-pillars-lanterns-estate.png" alt="Ornate wrought iron driveway gates open on an Surrey estate" className="rounded-2xl object-cover w-full h-48 col-span-2" loading="lazy" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/gates/gate-aluminium-sliding-vertical-bar-stone-pillars.png" alt="Modern aluminium sliding gate between stone pillars" className="rounded-2xl object-cover w-full h-36" loading="lazy" />
+                <img src="/images/gates/gate-aluminium-sliding-horizontal-modern-new-build.png" alt="Modern aluminium sliding gate between stone pillars" className="rounded-2xl object-cover w-full h-36" loading="lazy" />
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/images/gates/gate-wooden-oak-swing-cottage-flowers.png" alt="Hardwood iroko driveway gate on an Surrey country property" className="rounded-2xl object-cover w-full h-36" loading="lazy" />
+                <img src="/images/gates/gate-wooden-painted-cream-roses-surrey-hills.png" alt="Hardwood iroko driveway gate on an Surrey country property" className="rounded-2xl object-cover w-full h-36" loading="lazy" />
               </div>
             </div>
           </div>
