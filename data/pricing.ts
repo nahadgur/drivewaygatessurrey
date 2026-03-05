@@ -5,13 +5,13 @@ export interface PricingTier {
   price?: string;
   features?: string[];
   popular?: boolean;
-  slug: string;
-  treatment: string;
-  priceFrom: number;
-  priceTo: number;
-  typicalDuration: string;
-  alignerSets: string;
-  description: string;
+  slug?: string;
+  treatment?: string;
+  priceFrom?: number;
+  priceTo?: number;
+  typicalDuration?: string;
+  alignerSets?: string;
+  description?: string;
 }
 
 export const PRICING: Record<string, PricingTier[]> = {
