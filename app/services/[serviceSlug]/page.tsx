@@ -188,7 +188,7 @@ const serviceContent: Record<string, { intro: string[]; benefits: { title: strin
 export default function ServicePage({ params }: { params: { serviceSlug: string } }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
-  const [showLocations, setShowLocations] = useState(false);
+  const [showLocations, setShowLocations] = useState(true);
   const service = getServiceBySlug(params.serviceSlug);
   if (!service) notFound();
 
