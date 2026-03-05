@@ -45,10 +45,10 @@ export default function BlogIndexPage() {
           <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
             <p className="text-[10px] font-bold uppercase tracking-widest text-brand-400 mb-3">Expert Advice</p>
             <h1 className="text-3xl md:text-5xl font-display font-bold text-white max-w-3xl leading-tight mb-4">
-              Driveway Gate Guides for Surrey Homeowners
+              Surrey Driveway Gate Advice and Guides
             </h1>
             <p className="text-brand-100 text-sm md:text-base max-w-xl">
-              Straight-talking advice on gate types, materials, automation, planning rules, and getting the best value across Surrey.
+              Planning rules, material choices, automation options, pricing, and installer selection. Written for Surrey properties.
             </p>
           </div>
         </div>
@@ -194,10 +194,10 @@ export default function BlogIndexPage() {
                 <div className="flex-1">
                   <p className="text-[10px] font-bold uppercase tracking-widest text-brand-400 mb-2">Free Service</p>
                   <h3 className="text-xl md:text-2xl font-display font-bold text-white mb-2">
-                    Ready to Get Quotes for Your Driveway Gates?
+                    Ready to Find a Surrey Gate Installer?
                   </h3>
                   <p className="text-brand-200 text-sm">
-                    We match Surrey homeowners with vetted, insured gate installers. Free, no obligation.
+                    Free site surveys, written quotes, up to three specialists. No fees, no obligation.
                   </p>
                 </div>
                 <div className="flex-shrink-0">
