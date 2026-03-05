@@ -107,3 +107,7 @@ export const FAQS_LOCATION = [
     answer: 'Installers in our Surrey network who regularly work in the Surrey Hills AONB, the Green Belt villages, and the historic towns of Guildford, Farnham, and Godalming are familiar with the planning requirements for these areas. They can advise on whether a planning application is required, help you design a gate that is sympathetic to the area character, and support a pre-application enquiry to the local authority where needed.',
   },
 ];
+
+// Aliases for component compatibility
+export const testimonials = TESTIMONIALS;
+export const trustBadges = TRUST_BADGES;
