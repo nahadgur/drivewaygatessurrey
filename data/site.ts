@@ -9,30 +9,35 @@ export const siteConfig = {
 
 export const TESTIMONIALS = [
   {
+    id: '1',
     name: 'Richard A.',
     location: 'Weybridge',
     rating: 5,
     text: 'We had three quotes within a week of submitting the enquiry. The installer we chose fabricated a pair of bespoke powder-coated steel gates to match the existing railings, fitted underground motors, and installed a video intercom with smartphone access. The whole job was handled cleanly and the gates have been faultless since. Would not hesitate to recommend.',
   },
   {
+    id: '2',
     name: 'Caroline M.',
     location: 'Guildford',
     rating: 5,
     text: 'After getting nowhere with a couple of local builders who were not really gate specialists, I used this service and was matched with someone who clearly knew what they were doing. They advised on the right motor for our heavy oak gates, sorted a minor hinge issue we had not noticed, and the automation has worked perfectly for over a year now.',
   },
   {
+    id: '3',
     name: 'James and Fiona T.',
     location: 'Cobham',
     rating: 5,
     text: 'We specified a full entrance treatment: wrought iron gates with matching side railings, brick piers with lighting, underground motors, and a video intercom system. The installer managed the whole project from design drawings to commissioning. The result is exactly what we wanted and the quality of the ironwork is exceptional.',
   },
   {
+    id: '4',
     name: 'David H.',
     location: 'Reigate',
     rating: 5,
     text: 'Called out for an emergency repair when the motor on our sliding gate failed on a Sunday. The engineer was with us by Monday morning, diagnosed the control board fault on the first visit, and had parts fitted by the following afternoon. Straight pricing, no attempt to oversell a replacement when a repair was the right answer.',
   },
   {
+    id: '5',
     name: 'Sarah L.',
     location: 'Haslemere',
     rating: 5,
