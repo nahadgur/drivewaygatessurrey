@@ -1,11 +1,17 @@
 // data/pricing.ts — Driveway Gates Surrey
 
 export interface PricingTier {
-  name: string;
-  price: string;
-  description: string;
-  features: string[];
+  name?: string;
+  price?: string;
+  features?: string[];
   popular?: boolean;
+  slug: string;
+  treatment: string;
+  priceFrom: number;
+  priceTo: number;
+  typicalDuration: string;
+  alignerSets: string;
+  description: string;
 }
 
 export const PRICING: Record<string, PricingTier[]> = {
