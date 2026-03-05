@@ -30,11 +30,11 @@ const homepageFaqs = [
   },
   {
     question: 'How long does a driveway gate installation take in Surrey?',
-    answer: 'The physical installation takes 2 to 4 days on a typical residential project. Groundwork — foundations, post setting, and conduit — is done first and needs time to cure before the gate is hung. The gate, motor, and access control equipment follow. Where gates are fabricated to a bespoke design, which is the norm for wrought iron and hardwood in Surrey, the workshop lead time is 3 to 6 weeks before the installation date. Your installer will give you a precise programme at the survey stage, including fabrication lead time if applicable.',
+    answer: 'The physical installation takes 2 to 4 days on a typical residential project. Groundwork (foundations, post setting, and conduit) is done first and needs time to cure before the gate is hung. The gate, motor, and access control equipment follow. Where gates are fabricated to a bespoke design, which is the norm for wrought iron and hardwood in Surrey, the workshop lead time is 3 to 6 weeks before the installation date. Your installer will give you a precise programme at the survey stage, including fabrication lead time if applicable.',
   },
   {
     question: 'Which type of driveway gate works best in Surrey?',
-    answer: 'It depends on which part of Surrey and what kind of property. In North Surrey — Weybridge, Cobham, Esher, Leatherhead — wrought iron swing gates with underground motors are the dominant specification. In the Surrey Hills and the AONB villages, hardwood gates in iroko or oak are the natural choice and often the only material that satisfies planning. In the commuter belt towns — Woking, Camberley, Reigate, Epsom — sliding and swing gates in fabricated steel or aluminium cover most of the market. Sloped driveways across the North Downs are common and often require a sliding system or specific motor engineering that an installer with Surrey experience will know how to handle.',
+    answer: 'It depends on which part of Surrey and what kind of property. In North Surrey (Weybridge, Cobham, Esher, Leatherhead), wrought iron swing gates with underground motors are the dominant specification. In the Surrey Hills and the AONB villages, hardwood gates in iroko or oak are the natural choice and often the only material that satisfies planning. In the commuter belt towns (Woking, Camberley, Reigate, Epsom), sliding and swing gates in fabricated steel or aluminium cover most of the market. Sloped driveways across the North Downs are common and often require a sliding system or specific motor engineering that an installer with Surrey experience will know how to handle.',
   },
   {
     question: 'Can automation be added to my existing gates?',
@@ -42,11 +42,11 @@ const homepageFaqs = [
   },
   {
     question: 'How does the installer matching service work?',
-    answer: 'We are a matching service, not a gate company. You submit your details — Surrey postcode, gate type, approximate budget — and we identify up to three specialist gate installers from our vetted network who cover your area and have relevant experience with your project type. Each installer contacts you directly to arrange a free site survey. You receive a detailed written quote from each one and choose who to proceed with, or nobody if the timing is not right. There is no fee to use the service at any point. We receive a referral fee from the installer after a project is confirmed.',
+    answer: 'We are a matching service, not a gate company. You submit your details (Surrey postcode, gate type, approximate budget) and we identify up to three specialist gate installers from our vetted network who cover your area and have relevant experience with your project type. Each installer contacts you directly to arrange a free site survey. You receive a detailed written quote from each one and choose who to proceed with, or nobody if the timing is not right. There is no fee to use the service at any point. We receive a referral fee from the installer after a project is confirmed.',
   },
   {
     question: 'What should I look for in a Surrey gate installer?',
-    answer: 'Specialisation matters more than anything else. Look for a firm that installs gates as their primary trade and has a verifiable history of completed residential projects in Surrey. They should carry public liability insurance of at least £2 million, provide written warranties covering the gate and the automation separately, and be able to demonstrate specific experience with your gate type — whether that is wrought iron, hardwood in an AONB setting, or a sliding system on a sloped driveway. Surrey-specific planning knowledge is a genuine differentiator: an installer who has worked regularly in the county will know the AONB rules, the conservation area requirements, and how to design a gate that will pass local authority scrutiny.',
+    answer: 'Specialisation matters more than anything else. Look for a firm that installs gates as their primary trade and has a verifiable history of completed residential projects in Surrey. They should carry public liability insurance of at least £2 million, provide written warranties covering the gate and the automation separately, and be able to demonstrate specific experience with your gate type, whether that is wrought iron, hardwood in an AONB setting, or a sliding system on a sloped driveway. Surrey-specific planning knowledge is a genuine differentiator: an installer who has worked regularly in the county will know the AONB rules, the conservation area requirements, and how to design a gate that will pass local authority scrutiny.',
   },
   {
     question: 'Are electric driveway gates safe for children and pets?',
@@ -58,7 +58,7 @@ const homepageFaqs = [
   },
   {
     question: 'What happens to my gates during a power cut?',
-    answer: 'Every properly specified automated gate includes a manual release that allows hand operation when mains power is unavailable. Most modern motor units also carry a battery backup module that maintains automatic operation for 20 to 50 gate cycles after the power fails — enough to cover most short outages without switching to manual. For rural Surrey properties on less reliable supply networks, your installer can specify a solar charging panel to keep the battery topped up independently of the mains supply. This is a common addition on installations in the Surrey Hills and the more remote Green Belt villages.',
+    answer: 'Every properly specified automated gate includes a manual release that allows hand operation when mains power is unavailable. Most modern motor units also carry a battery backup module that maintains automatic operation for 20 to 50 gate cycles after the power fails, which covers most short outages without switching to manual. For rural Surrey properties on less reliable supply networks, your installer can specify a solar charging panel to keep the battery topped up independently of the mains supply. This is a common addition on installations in the Surrey Hills and the more remote Green Belt villages.',
   },
 ];
 
@@ -102,7 +102,7 @@ export default function HomePage() {
 
         <Hero
           title="Driveway Gates Surrey: Specialist Installers, Free Quotes"
-          subtitle="Surrey gate specialists for every property type — from wrought iron estate gates in Weybridge and Cobham to hardwood installations in the Surrey Hills AONB. Free site surveys, no obligation."
+          subtitle="Surrey gate specialists for every property type, from wrought iron estate gates in Weybridge and Cobham to hardwood installations in the Surrey Hills AONB. Free site surveys, no obligation."
           image="/images/gates/gate-hero-wrought-iron-sunset-cobblestone.png"
           onOpenModal={() => setIsModalOpen(true)}
         />
@@ -161,7 +161,7 @@ export default function HomePage() {
                 {
                   icon: <Shield className="w-6 h-6" />,
                   title: 'Surrey Planning Knowledge',
-                  desc: 'AONB, Green Belt, conservation areas, listed buildings — Surrey has more planning designations than most counties. Our installers know which rules apply where before they arrive on site.',
+                  desc: 'AONB, Green Belt, conservation areas, listed buildings. Surrey has more planning designations than most counties. Our installers know which rules apply where before they arrive on site.',
                 },
                 {
                   icon: <Clock className="w-6 h-6" />,
@@ -171,7 +171,7 @@ export default function HomePage() {
                 {
                   icon: <Star className="w-6 h-6" />,
                   title: 'Three Independent Quotes',
-                  desc: 'We match you with up to three specialists covering your area. You own the process — compare quotes on your own terms with no pressure from us or from the installers we introduce.',
+                  desc: 'We match you with up to three specialists covering your area. You own the process: compare quotes on your own terms with no pressure from us or from the installers we introduce.',
                 },
               ].map((item, i) => (
                 <div key={i} className="bg-white rounded-2xl p-6 border border-gray-100 shadow-sm">
@@ -243,7 +243,7 @@ export default function HomePage() {
           <div className="container-width">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">What Surrey Gate Installations Actually Cost in 2026</h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">Prices based on completed Surrey installations. Surrey sits above the national average — these ranges reflect the county market, not generic UK figures.</p>
+              <p className="text-gray-600 max-w-2xl mx-auto">Prices based on completed Surrey installations. Surrey sits above the national average and these ranges reflect the county market, not generic UK figures.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {pricingTiers.map(tier => (
@@ -274,7 +274,7 @@ export default function HomePage() {
           <div className="container-width">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-4">How It Works</h2>
-              <p className="text-gray-600 max-w-xl mx-auto">From your first enquiry to a written quote in hand — three straightforward steps, no fees, no obligation at any point.</p>
+              <p className="text-gray-600 max-w-xl mx-auto">From your first enquiry to a written quote in hand: three straightforward steps, no fees, no obligation at any point.</p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {[
@@ -286,7 +286,7 @@ export default function HomePage() {
                 {
                   step: '2',
                   title: 'We Introduce the Right Installers',
-                  desc: 'We select up to three vetted Surrey gate specialists whose experience matches your project. Each one contacts you to arrange a free site visit at a time that suits you — no cold calls, no salespeople.',
+                  desc: 'We select up to three vetted Surrey gate specialists whose experience matches your project. Each one contacts you to arrange a free site visit at a time that suits you, with no cold calls and no salespeople.',
                 },
                 {
                   step: '3',
