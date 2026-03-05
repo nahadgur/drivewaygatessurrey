@@ -19,8 +19,8 @@ export default function ServicesIndexPage() {
       <Header onOpenModal={() => setIsModalOpen(true)} />
       <main className="flex-grow">
         <Hero
-          title="Driveway Gate Types for Surrey Homes"
-          subtitle="From electric sliding gates to traditional hardwood swing gates, find the right option for your property and get matched with a specialist Surrey installer."
+          title="Surrey Driveway Gate Services"
+          subtitle="Wrought iron, hardwood, fabricated steel, aluminium sliding, full automation, and repair. Specialists for every gate type and every Surrey property."
           image="/images/gates/gate-aluminium-sliding-modern-dark-brick-2.png"
           showCta={false}
           showTrust={false}
