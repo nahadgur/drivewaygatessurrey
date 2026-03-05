@@ -32,8 +32,8 @@ export default function LocationIndexPage() {
       <Header onOpenModal={() => setIsModalOpen(true)} />
       <main className="flex-grow">
         <Hero
-          title="Find Gate Installers in Your Area"
-          subtitle="Access Surrey's most trusted network of driveway gate specialists. Vetted for experience, verified for quality."
+          title="Gate Installers Across Surrey"
+          subtitle="75 towns covered across every part of the county. Find a specialist for your area and get free quotes with no obligation."
           image="/images/gates/gate-wrought-iron-open-manor-spring-gardens.png"
           onOpenModal={() => setIsModalOpen(true)}
         />
