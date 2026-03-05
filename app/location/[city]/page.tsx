@@ -70,7 +70,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
                   Driveway Gates in <span className="text-brand-400">{cityName}</span>
                 </h1>
                 <p className="text-xl text-gray-300 leading-relaxed">
-                  Compare the most experienced driveway gate installers in {cityName}. Every installer in our network has completed 50 or more residential gate projects. Get matched for free below.
+                  Surrey gate specialists serving {cityName}. Every installer in our network focuses on residential gates as their primary trade, with a verified project history before we refer a single enquiry their way.
                 </p>
               </div>
               <div>
@@ -90,10 +90,10 @@ export default function CityPage({ params }: { params: { city: string } }) {
                 </h2>
                 <div className="prose prose-gray max-w-none text-gray-600 space-y-4">
                   <p>
-                    Finding the right gate installer in {cityName} takes more than a quick search. The residential gate market in Surrey includes both dedicated specialists and general builders who take gate work occasionally. The difference in outcome is significant: a specialist brings experience with ground conditions, motor specification, planning compliance, and post engineering that a generalist simply does not have. Every installer we refer in {cityName} has completed a minimum of 50 residential gate installations and carries full public liability insurance as standard.
+                    Surrey has a more complex gate market than most counties. The North Downs and Surrey Hills create sloped driveways that require specific motor and hinge engineering. The AONB and the county's dense network of conservation areas add a planning dimension that many installers are not equipped to handle. The premium North Surrey market around Weybridge, Cobham, and Esher sets expectations around wrought iron, underground motors, and access management that general builders cannot meet. Every installer we refer in {cityName} specialises in residential gates, carries full public liability insurance, and has the project history to back their experience up.
                   </p>
                   <p>
-                    The process starts with a free site survey. Your installer visits the property, measures the opening, checks the available swing or slide clearance, assesses ground and foundation conditions, and discusses the material and design options that suit the property and budget. You receive a detailed written quote covering all elements of the installation with no hidden additions. There is no fee for the survey and no obligation to proceed.
+                    Each installer we introduce offers a free site survey with no commitment required. They visit the property, assess the driveway geometry and ground conditions, confirm the planning position if relevant, and provide a fully itemised written quote. You compare quotes from up to three specialists and decide whether and when to proceed. There is no fee to use the service at any stage.
                   </p>
                 </div>
               </section>
