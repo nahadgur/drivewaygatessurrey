@@ -40,12 +40,12 @@ export function Footer() {
             <h4 className="text-white font-semibold mb-4">Popular Locations</h4>
             <ul className="space-y-2 text-sm">
               {[
-                { label: 'Gates in Chelmsford', href: '/location/chelmsford/' },
-                { label: 'Gates in Brentwood', href: '/location/brentwood/' },
-                { label: 'Gates in Southend-on-Sea', href: '/location/southend-on-sea/' },
-                { label: 'Gates in Colchester', href: '/location/colchester/' },
-                { label: 'Gates in Epping', href: '/location/epping/' },
-                { label: 'Gates in Shenfield', href: '/location/shenfield/' },
+                { label: 'Gates in Guildford', href: '/location/guildford/' },
+                { label: 'Gates in Weybridge', href: '/location/weybridge/' },
+                { label: 'Gates in Cobham', href: '/location/cobham/' },
+                { label: 'Gates in Woking', href: '/location/woking/' },
+                { label: 'Gates in Reigate', href: '/location/reigate/' },
+                { label: 'Gates in Epsom', href: '/location/epsom/' },
               ].map(link => (
                 <li key={link.href}>
                   <Link href={link.href} className="hover:text-brand-400 transition-colors">{link.label}</Link>

@@ -11,15 +11,15 @@ import { LeadFormModal } from '@/components/LeadFormModal';
 
 // Update these to match your actual live service x location pages
 const SIDEBAR_SERVICE_LINKS = [
-  { label: 'Electric Sliding Gates — Chelmsford', href: '/services/electric-sliding-gates/chelmsford/' },
-  { label: 'Electric Swing Gates — Brentwood', href: '/services/electric-swing-gates/brentwood/' },
-  { label: 'Wooden Driveway Gates — Colchester', href: '/services/wooden-driveway-gates/colchester/' },
-  { label: 'Metal Driveway Gates — Loughton', href: '/services/metal-driveway-gates/loughton/' },
-  { label: 'Automated Gate Systems — Chigwell', href: '/services/automated-gate-systems/chigwell/' },
-  { label: 'Electric Sliding Gates — Southend-on-Sea', href: '/services/electric-sliding-gates/southend-on-sea/' },
-  { label: 'Electric Swing Gates — Saffron Walden', href: '/services/electric-swing-gates/saffron-walden/' },
-  { label: 'Gate Repair and Maintenance — Braintree', href: '/services/gate-repair-and-maintenance/braintree/' },
-  { label: 'Metal Driveway Gates — Epping', href: '/services/metal-driveway-gates/epping/' },
+  { label: 'Electric Sliding Gates — Guildford', href: '/services/electric-sliding-gates/guildford/' },
+  { label: 'Electric Swing Gates — Weybridge', href: '/services/electric-swing-gates/weybridge/' },
+  { label: 'Wooden Driveway Gates — Haslemere', href: '/services/wooden-driveway-gates/haslemere/' },
+  { label: 'Metal Driveway Gates — Cobham', href: '/services/metal-driveway-gates/cobham/' },
+  { label: 'Automated Gate Systems — Esher', href: '/services/automated-gate-systems/esher/' },
+  { label: 'Electric Sliding Gates — Woking', href: '/services/electric-sliding-gates/woking/' },
+  { label: 'Electric Swing Gates — Reigate', href: '/services/electric-swing-gates/reigate/' },
+  { label: 'Gate Repair and Maintenance — Epsom', href: '/services/gate-repair-and-maintenance/epsom/' },
+  { label: 'Metal Driveway Gates — Dorking', href: '/services/metal-driveway-gates/dorking/' },
 ];
 
 function BlogCtaBanner({ onOpenModal }: { onOpenModal: () => void }) {

@@ -17,7 +17,7 @@ import { LeadFormModal } from '@/components/LeadFormModal';
 import { FAQSchema } from '@/components/FAQSchema';
 import { siteConfig } from '@/data/site';
 
-const topAreas = ['Chelmsford', 'Brentwood', 'Southend-on-Sea', 'Colchester', 'Epping', 'Basildon', 'Rayleigh', 'Billericay', 'Loughton', 'Chigwell', 'Shenfield', 'Maldon'];
+const topAreas = ['Guildford', 'Woking', 'Reigate', 'Epsom', 'Farnham', 'Camberley', 'Weybridge', 'Cobham', 'Esher', 'Leatherhead', 'Dorking', 'Haslemere'];
 
 const homepageFaqs = [
   {
@@ -26,7 +26,7 @@ const homepageFaqs = [
   },
   {
     question: 'Do I need planning permission for driveway gates in Surrey?',
-    answer: 'Most residential driveway gates in Surrey do not require planning permission. Under permitted development, gates up to 2 metres tall that open inward onto your property are generally exempt. The threshold drops to 1 metre if your gate fronts a classified road or public highway. Properties that are listed, within a conservation area, or subject to an Article 4 direction face tighter restrictions. Several Surrey districts, including Epping Forest, Chelmsford, and Colchester, have specific design guidance in sensitive areas. Every installer we work with knows the local rules and will advise you during the site survey.',
+    answer: 'Most residential driveway gates in Surrey do not require planning permission. Under permitted development, gates up to 2 metres tall that open inward onto your property are generally exempt. The threshold drops to 1 metre if your gate fronts a classified road or public highway. Properties that are listed, within a conservation area, or subject to an Article 4 direction face tighter restrictions. Surrey has a high concentration of designated areas: Green Belt covers much of the county, the Surrey Hills AONB covers the rural south and west, and conservation areas exist in every district. Your installer will confirm the planning position at the site survey. Every installer we work with knows the local rules and will advise you during the site survey.',
   },
   {
     question: 'How long does a driveway gate installation take in Surrey?',
@@ -34,7 +34,7 @@ const homepageFaqs = [
   },
   {
     question: 'Which type of driveway gate works best for Surrey properties?',
-    answer: 'The right gate depends on your driveway geometry, property style, and security priorities. Electric sliding gates are the strongest choice for short driveways, sloped approaches, and wide entrances over 4 metres, which are common on newer Surrey developments and rural plots. Electric swing gates suit properties with generous swing clearance and remain the most popular choice across the county. Hardwood gates in iroko or oak work beautifully on period homes, farmhouses, and barn conversions throughout rural Surrey. Steel and aluminium gates offer maximum longevity with minimal maintenance and suit modern builds from Brentwood to Colchester. A site survey is always the right starting point.',
+    answer: 'The right gate depends on your driveway geometry, property style, and security priorities. Electric sliding gates are the strongest choice for short driveways, sloped approaches, and wide entrances over 4 metres, which are common on newer Surrey developments and rural plots. Electric swing gates suit properties with generous swing clearance and remain the most popular choice across the county. Hardwood gates in iroko or oak work beautifully on period homes, farmhouses, and barn conversions throughout rural Surrey. Steel and aluminium gates offer maximum longevity with minimal maintenance and suit modern builds across the Surrey commuter belt. A site survey is always the right starting point.',
   },
   {
     question: 'Can automation be added to my existing gates?',
@@ -54,7 +54,7 @@ const homepageFaqs = [
   },
   {
     question: 'What maintenance do driveway gates need?',
-    answer: 'Annual servicing is the baseline for any automated gate system. A service covers motor lubrication, drive mechanism inspection, safety sensor calibration, hinge adjustment, track cleaning on sliding systems, battery backup testing, and a full structural check. Hardwood gates require re-oiling or re-staining every one to two years. Powder-coated metal gates need very little beyond an occasional wash with mild detergent. The cost of annual servicing in Surrey is typically £120 to £200, which is a fraction of what an unmaintained motor replacement costs.',
+    answer: 'Annual servicing is the baseline for any automated gate system. A service covers motor lubrication, drive mechanism inspection, safety sensor calibration, hinge adjustment, track cleaning on sliding systems, battery backup testing, and a full structural check. Hardwood gates require re-oiling or re-staining every one to two years. Powder-coated metal gates need very little beyond an occasional wash with mild detergent. The cost of annual servicing in Surrey is typically £130 to £220, which is a fraction of what an unmaintained motor replacement costs.',
   },
   {
     question: 'What happens to my electric gates during a power cut?',
@@ -115,17 +115,17 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
-                  The Smarter Way to Find a Gate Installer in Surrey
+                  Gate Installers in Surrey Who Actually Specialise in Gates
                 </h2>
                 <div className="space-y-5 text-gray-600 leading-relaxed">
                   <p>
-                    Finding a genuinely good gate installer in Surrey takes more than a Google search. The market is full of general builders who take occasional gate work alongside everything else. The results speak for themselves: misaligned posts, underpowered motors, and automation that fails within two years.
+                    Surrey has no shortage of tradespeople who will quote for driveway gates. It has a much smaller number who do it as their primary trade, understand the planning sensitivities of the Surrey Hills AONB and the county&apos;s conservation areas, know how to handle the sloped driveways common across the North Downs, and can specify the kind of wrought iron and underground motor installations that the premium end of the county market expects.
                   </p>
                   <p>
-                    Driveway Gates Surrey exists to solve that problem. We have built a network of dedicated gate installation specialists, firms that do this work every day across every corner of the county. From the commuter belt in Brentwood and Loughton to the coastal properties of Frinton and Mersea Island, our installers understand Surrey driveways, Surrey ground conditions, and Surrey planning requirements.
+                    The gap between those two groups is where most gate problems originate. Posts set without adequate foundation for the motor load. Motors undersized for the gate weight. Automation commissioned without the BS EN 12453 safety testing that a proper handover requires. We built this service to close that gap: every installer in our network is a gate specialist first, with a verified history of completed residential projects before we refer a single enquiry their way.
                   </p>
                   <p>
-                    Every firm in our network has completed a minimum of 50 residential gate installations, holds full public liability cover, and provides written warranties on both the gate and the automation. You get up to three independent quotes, a free site survey with each one, and no obligation to proceed. The matching service costs you nothing at any stage.
+                    Submit your details and we match you with up to three vetted Surrey installers who cover your area and have relevant experience with your gate type. Each one offers a free site survey and a detailed written quote. You compare them and decide. There is no cost to you at any stage and no obligation to proceed.
                   </p>
                 </div>
                 <button onClick={() => setIsModalOpen(true)} className="btn-primary mt-8">
@@ -316,27 +316,27 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
               <div>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
-                  Driveway Gates Built for Surrey Properties
+                  Surrey Has More Planning Designations Than Most Counties. Our Installers Know Them.
                 </h2>
                 <div className="space-y-5 text-gray-600 leading-relaxed">
                   <p>
-                    Surrey is one of the most varied counties in the south of England for residential property. The western edge, covering Loughton, Chigwell, and Buckhurst Hill, sits in the Green Belt and is characterised by large detached homes on generous plots, where wrought iron estate gates and full automation with video intercom are the standard expectation.
+                    The Surrey Hills AONB covers a broad sweep of the county from the Hampshire border to the Kent border. Green Belt designation applies to the majority of the county&apos;s land area. Conservation areas exist in every district town and in dozens of villages. Listed buildings are widespread across the rural parishes and historic market towns of Guildford, Farnham, Godalming, and Reigate. A gate project in Surrey is frequently a planning question as much as an engineering one.
                   </p>
                   <p>
-                    Mid Surrey, covering Chelmsford, Brentwood, and Shenfield, mixes modern new-build developments with Victorian and Edwardian properties, creating demand for everything from slim aluminium sliding gates on compact driveways to bespoke hardwood gates on older homes with period detailing.
+                    Installers in our network who work regularly in the AONB, the Green Belt villages, and the conservation area streets of the county&apos;s towns understand which authority to approach, which permitted development rules apply, and how to design a gate that will pass scrutiny in a designated area without compromising on what the homeowner actually wants.
                   </p>
                   <p>
-                    Coastal and rural Surrey presents different challenges entirely. Salt air demands the right material specification, rural plot sizes often allow for grander gate designs, and agricultural ground conditions require experienced groundwork. Our installers know these differences and account for them from the first site visit.
+                    Beyond planning, Surrey&apos;s terrain creates installation requirements that flat-county experience does not prepare an installer for. Sloped driveways across the North Downs and Surrey Hills need specific hinge geometry and motor specification. Clay and chalk subsoils in different parts of the county affect foundation design. Properties on the premium North Surrey belt carry expectations around underground motors, wrought iron, and access management that a general builder&apos;s gate experience does not cover.
                   </p>
                 </div>
               </div>
               <div className="space-y-4">
                 {[
-                  { label: 'West Surrey: Loughton, Chigwell, Epping, Waltham Abbey', detail: 'Large plots, Green Belt properties, high-specification automation and video access control' },
-                  { label: 'Mid Surrey: Chelmsford, Brentwood, Shenfield, Ingatestone', detail: 'Period and new-build mix, sliding and swing gates, strong demand for bespoke hardwood' },
-                  { label: 'South Surrey: Rayleigh, Billericay, Basildon, Southend', detail: 'Urban and suburban driveways, space-efficient sliding systems, competitive pricing' },
-                  { label: 'North Surrey: Colchester, Halstead, Saffron Walden', detail: 'Rural and market town properties, traditional wrought iron and hardwood popular' },
-                  { label: 'Coastal Surrey: Mersea, Frinton, Burnham-on-Crouch', detail: 'Salt-resistant material specification essential, rural plot scale, larger gate designs' },
+                  { label: 'North Surrey: Weybridge, Cobham, Esher, Leatherhead', detail: 'Stockbroker belt properties, high-specification wrought iron and underground motors, premium automation' },
+                  { label: 'West Surrey: Guildford, Godalming, Farnham, Haslemere', detail: 'AONB and conservation area properties, hardwood and wrought iron, planning-sensitive installations' },
+                  { label: 'Central Surrey: Woking, Camberley, Frimley, Bagshot', detail: 'Commuter belt mix of period and modern, sliding and swing gates, full automation popular' },
+                  { label: 'East Surrey: Reigate, Redhill, Oxted, Caterham', detail: 'North Downs properties, period homes, conservation villages, bespoke hardwood and metal gates' },
+                  { label: 'South Surrey: Dorking, Cranleigh, Horley, Haslemere', detail: 'Surrey Hills AONB, rural barn conversions and farmhouses, hardwood and traditional ironwork' },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 p-4 bg-gray-50 rounded-xl border border-gray-100">
                     <CheckCircle className="w-5 h-5 text-brand-500 flex-shrink-0 mt-0.5" />
