@@ -21,7 +21,7 @@ export default function ServicesIndexPage() {
         <Hero
           title="Surrey Driveway Gate Services"
           subtitle="Wrought iron, hardwood, fabricated steel, aluminium sliding, full automation, and repair. Specialists for every gate type and every Surrey property."
-          image="/images/gates/gate-aluminium-sliding-modern-dark-brick-2.png"
+          image="/images/gates/gate-aluminium-sliding-horizontal-modern-new-build.png"
           showCta={false}
           showTrust={false}
         />
