@@ -59,7 +59,7 @@ const serviceContent: Record<string, { intro: string[]; benefits: { title: strin
       { title: 'Underground Motor Option', desc: 'The concealed motor approach is more widely specified in Surrey than most counties. On premium properties in Weybridge, Cobham, and Esher, underground motors are the standard choice rather than the exception.' },
       { title: 'Accommodates Pedestrian Access', desc: 'A half-width pedestrian leaf or integrated wicket allows foot access without triggering the full gate cycle. Useful on properties with regular foot traffic from staff, deliveries, or family members who do not drive.' },
     ],
-    candidateIntro: "Electric swing gates are usually the right fit if:",
+    candidateIntro: "Swing gates suit most Surrey residential properties where the driveway allows it:",
     candidates: [
       "Your driveway has adequate depth for gate leaves to swing fully inward without blocking parking or the road",
       "The gradient is manageable with standard hinge engineering, or the driveway is flat",
@@ -283,7 +283,7 @@ export default function ServicePage({ params }: { params: { serviceSlug: string 
                   <div>
                     <h2 className="text-2xl md:text-3xl font-display font-bold text-gray-900 mb-2">Find {service.title} Installers Across Surrey</h2>
                     <p className="text-gray-600">
-                      We have vetted installers for {service.title.toLowerCase()} in over {totalCities} areas across Surrey.
+                      Surrey specialists for {service.title.toLowerCase()} covering {totalCities} towns and areas across the county.
                     </p>
                   </div>
                   <button
@@ -354,7 +354,7 @@ export default function ServicePage({ params }: { params: { serviceSlug: string 
                   </ul>
                 </div>
                 <p className="text-gray-600 text-sm mt-4">
-                  The best way to find out is a free site survey. Your installer will assess your driveway, discuss options, and give you a clear recommendation based on your property layout, budget, and preferences.
+                  A site survey is always the right starting point. Your installer will assess the driveway, check planning position if relevant, and give you a firm recommendation based on what the site actually allows.
                 </p>
               </section>
 
