@@ -3,7 +3,7 @@
 export const siteConfig = {
   name: 'Driveway Gates Surrey',
   tagline: 'Surrey Gate Installers, Vetted and Ready',
-  url: 'https://www.drivewaygatessurrey.co.uk',
+  url: 'https://www.drivewaygatessurrey.uk',
   description: 'Find vetted driveway gate installers across Surrey. Compare free quotes for electric sliding gates, swing gates, hardwood gates, metal gates, automation systems, and repairs.',
 };
 
