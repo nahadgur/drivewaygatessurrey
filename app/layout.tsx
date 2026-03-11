@@ -63,7 +63,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': 'HomeAndConstructionBusiness',
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/android-chrome-512x512.png`,
+    logo: `${siteConfig.url}/icon-512x512.png`,
     description: siteConfig.description,
     areaServed: {
       '@type': 'State',
