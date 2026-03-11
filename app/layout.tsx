@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   alternates: { canonical: siteConfig.url },
   robots: { index: true, follow: true },
+  verification: {
+    google: 'BZ06Ie51Fvg9VOX2DO_coCDz6ijU9ozLRkTW6gIOFWM',
+  },
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -52,7 +55,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': 'Organization',
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/android-chrome-512x512.png`,
+    logo: `${siteConfig.url}/icon-512x512.png`,
   };
 
   const localBusinessSchema = {
@@ -92,16 +95,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       </head>
       <body className="min-h-screen flex flex-col">
-        {/* Replace G-XXXXXXXXXX with your GA4 measurement ID */}
-        {/*
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" strategy="afterInteractive" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-TSR9FSETF5" strategy="afterInteractive" />
         <Script id="gtag-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-XXXXXXXXXX');`}
+          gtag('config', 'G-TSR9FSETF5');`}
         </Script>
-        */}
         {children}
       </body>
     </html>
