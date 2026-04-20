@@ -16,6 +16,12 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
   const [isSuccess, setIsSuccess] = useState(false);
   const [shouldRender, setShouldRender] = useState(isOpen);
   const [animationState, setAnimationState] = useState<'idle' | 'entering' | 'exiting'>('idle');
+  const [formData, setFormData] = useState({
+    fullName: '',
+    email: '',
+    phone: '',
+    location: '',
+  });
 
   useEffect(() => {
     if (isOpen) {
@@ -33,19 +39,19 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
 
   if (!shouldRender) return null;
 
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      const form = e.currentTarget;
-      const fullName = (form.elements[0] as HTMLInputElement).value;
-      const email = (form.elements[1] as HTMLInputElement).value;
-      const location = (form.elements[2] as HTMLInputElement).value;
-
       const payload = {
-        fullName,
-        email,
-        location,
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        location: formData.location,
         page: window.location.href,
         source: 'Driveway Gates Surrey',
       };
@@ -56,7 +62,7 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
       });
 
       const text = await res.text();
-      let data: any = {};
+      let data: { ok?: boolean; error?: string } = {};
       try { data = JSON.parse(text); } catch {}
 
       if (data && data.ok === false) throw new Error(data.error || 'Submission failed');
@@ -116,9 +122,12 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
               </div>
 
               <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-                <input required type="text" placeholder="Full name" className={inputClass} />
-                <input required type="email" placeholder="Email address" className={inputClass} />
-                <input required type="text" placeholder="Your Surrey town or postcode" className={inputClass} />
+                <input required name="fullName" type="text" value={formData.fullName} onChange={handleChange} placeholder="Full name" className={inputClass} />
+                <div className="grid grid-cols-2 gap-3">
+                  <input required name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="Phone number" className={inputClass} />
+                  <input required name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Email address" className={inputClass} />
+                </div>
+                <input required name="location" type="text" value={formData.location} onChange={handleChange} placeholder="Your Surrey town or postcode" className={inputClass} />
 
                 <button
                   type="submit"
