@@ -1,0 +1,746 @@
+{
+  "_meta": {
+    "generated_at": "2026-04-21",
+    "purpose": "Structured local context inputs for the per-city content rewrite phase. Consumed by the rewrite prompt to produce bespoke intros per (city, service) pair on the 52 surviving service x location pages and 37 city hubs.",
+    "rules": "Every factual field here is sourced and verifiable. Named entities (estates, conservation areas, parishes, developers) must be accurate. Where a fact was not confidently verified, the field value is the string 'verify' and the rewrite prompt is instructed to skip that fact. Do not fabricate planning authority names, AONB coverage, conservation area designations, named developers, or notable streets. When in doubt, leave a field blank or 'verify' rather than guess.",
+    "fields": {
+      "district": "Local planning authority (the borough/district council that handles planning applications).",
+      "aonb": "Relationship to Surrey Hills AONB (National Landscape). 'in' = sits within the AONB. 'edge' = on the boundary or partially within. 'adjacent' = close to but outside. 'none' = no meaningful proximity.",
+      "green_belt": "Relationship to Metropolitan Green Belt. 'in' = village or much of the settlement sits within. 'surrounded' = settlement edge is defined by Green Belt. 'none' = not applicable.",
+      "conservation_area": "Does the settlement have one or more designated conservation areas? true/false/partial. Named areas listed in conservation_area_named.",
+      "conservation_area_named": "Named conservation areas within the settlement. Empty array if none.",
+      "archetype": "Dominant market archetype. One of: 'stockbroker-belt', 'commuter-new-build', 'aonb-village', 'period-market-town', 'rural-farmhouse', 'suburban-established', 'estate-belt'.",
+      "dominant_material": "The gate material with the strongest local demand and appropriateness. Options: 'wrought-iron', 'mild-steel-painted', 'aluminium', 'hardwood-iroko', 'hardwood-oak', 'accoya', 'mixed'. Multiple allowed.",
+      "local_context": "Short list of verifiable local context notes. Named estates, planning quirks, property archetypes, transport features. Each entry should be a standalone factual phrase.",
+      "sloped_driveway_prevalence": "'common', 'variable', 'rare'. Based on topography: North Downs and Surrey Hills cities = common; flat commuter belt = rare.",
+      "price_bracket": "'ultra-prime', 'premium', 'upper-mid', 'mid', 'commuter'. Reflects typical gate installation spend in the market, not house prices."
+    }
+  },
+
+  "abinger-hammer": {
+    "name": "Abinger Hammer",
+    "district": "Mole Valley",
+    "aonb": "in",
+    "green_belt": "in",
+    "conservation_area": true,
+    "conservation_area_named": ["Abinger Hammer"],
+    "archetype": "aonb-village",
+    "dominant_material": ["hardwood-oak", "hardwood-iroko", "accoya"],
+    "local_context": [
+      "Sits in the Vale of Holmesdale between Dorking and Guildford within the Surrey Hills AONB",
+      "The River Tillingbourne flows through the village",
+      "Adjacent to Leith Hill and the Greensand Ridge",
+      "Part of Abinger civil parish, Mole Valley district",
+      "Rural character with listed buildings, tight conservation controls on boundary treatments"
+    ],
+    "sloped_driveway_prevalence": "common",
+    "price_bracket": "upper-mid"
+  },
+
+  "ashtead": {
+    "name": "Ashtead",
+    "district": "Mole Valley",
+    "aonb": "adjacent",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Ashtead Village", "verify"],
+    "archetype": "suburban-established",
+    "dominant_material": ["wrought-iron", "mild-steel-painted"],
+    "local_context": [
+      "Affluent commuter village in Mole Valley between Leatherhead and Epsom",
+      "Home to Ashtead Common National Nature Reserve, a 200-acre ancient wood pasture",
+      "Significant Edwardian and inter-war residential stock with established gardens",
+      "Fast rail links to London Waterloo (about 45 minutes)"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "premium"
+  },
+
+  "banstead": {
+    "name": "Banstead",
+    "district": "Reigate and Banstead",
+    "aonb": "adjacent",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Banstead Village", "verify"],
+    "archetype": "suburban-established",
+    "dominant_material": ["wrought-iron", "mild-steel-painted"],
+    "local_context": [
+      "Sits on the North Downs within the Reigate and Banstead borough",
+      "Banstead Downs and Banstead Heath are large open spaces under Green Belt protection",
+      "Established 1930s to 1950s residential development with generous plot sizes",
+      "High proportion of detached properties with gate-ready carriage drives"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "upper-mid"
+  },
+
+  "brockham": {
+    "name": "Brockham",
+    "district": "Mole Valley",
+    "aonb": "in",
+    "green_belt": "in",
+    "conservation_area": true,
+    "conservation_area_named": ["Brockham Green"],
+    "archetype": "aonb-village",
+    "dominant_material": ["hardwood-oak", "hardwood-iroko"],
+    "local_context": [
+      "Picturesque village with one of Surrey's largest traditional village greens",
+      "Sits at the foot of Box Hill within the Surrey Hills AONB",
+      "The River Mole flows through the village",
+      "Strong conservation controls around the green and period cottages"
+    ],
+    "sloped_driveway_prevalence": "common",
+    "price_bracket": "upper-mid"
+  },
+
+  "camberley": {
+    "name": "Camberley",
+    "district": "Surrey Heath",
+    "aonb": "none",
+    "green_belt": "surrounded",
+    "conservation_area": "partial",
+    "conservation_area_named": ["verify"],
+    "archetype": "commuter-new-build",
+    "dominant_material": ["mild-steel-painted", "aluminium"],
+    "local_context": [
+      "Home to the Royal Military Academy Sandhurst (just over the Berkshire border)",
+      "Significant modern residential development and active housing market",
+      "M3 junction and direct rail to London Waterloo",
+      "Mixed housing stock from Victorian villas to modern new-build estates"
+    ],
+    "sloped_driveway_prevalence": "rare",
+    "price_bracket": "upper-mid"
+  },
+
+  "caterham": {
+    "name": "Caterham",
+    "district": "Tandridge",
+    "aonb": "in",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Caterham Valley", "verify"],
+    "archetype": "suburban-established",
+    "dominant_material": ["wrought-iron", "mild-steel-painted"],
+    "local_context": [
+      "Sits on the southern slopes of the North Downs within the Surrey Hills AONB",
+      "Historically a Guards depot and Victorian spa town",
+      "Steep hillside streets create sloped driveway geometry",
+      "Conservation area coverage in older parts of the town"
+    ],
+    "sloped_driveway_prevalence": "common",
+    "price_bracket": "upper-mid"
+  },
+
+  "chiddingfold": {
+    "name": "Chiddingfold",
+    "district": "Waverley",
+    "aonb": "partial",
+    "green_belt": "in",
+    "conservation_area": true,
+    "conservation_area_named": ["Chiddingfold (designated 1973, extended 1981 and 1982)"],
+    "archetype": "aonb-village",
+    "dominant_material": ["hardwood-oak", "hardwood-iroko", "accoya"],
+    "local_context": [
+      "The majority of the civil parish lies within the Surrey Hills AONB",
+      "Village core occupies a Low Weald valley on heavy Wealden clay",
+      "Historic village centred on The Green, with Grade I 13th-century St Mary's Church and the Grade II* Crown Inn",
+      "One of the largest parishes in Surrey at approximately 2,800 hectares",
+      "Chiddingfold Forest is a Site of Special Scientific Interest",
+      "Conservation area originally designated 1973 under the Civic Amenities Act"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "premium"
+  },
+
+  "cobham": {
+    "name": "Cobham",
+    "district": "Elmbridge",
+    "aonb": "none",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Cobham Village", "Stoke D'Abernon"],
+    "archetype": "stockbroker-belt",
+    "dominant_material": ["wrought-iron", "mild-steel-painted"],
+    "local_context": [
+      "One of the most exclusive residential addresses in Surrey, in Elmbridge district",
+      "Named private gated estates include Fairmile Estate, Eaton Park Estate, Oxshott Way Estate, and Burwood Park",
+      "Fairmile Avenue, Mizen Way, Icklingham Road, and Eaton Park Road are among the most exclusive addresses",
+      "Cobham and Stoke d'Abernon station runs direct to London Waterloo in about 38 minutes",
+      "Chelsea FC's training ground is at Stoke d'Abernon",
+      "ACS International School and Danes Hill School attract international buyers",
+      "Painshill Park is a Grade I listed 18th-century landscape garden"
+    ],
+    "sloped_driveway_prevalence": "rare",
+    "price_bracket": "ultra-prime"
+  },
+
+  "cranleigh": {
+    "name": "Cranleigh",
+    "district": "Waverley",
+    "aonb": "adjacent",
+    "green_belt": "in",
+    "conservation_area": true,
+    "conservation_area_named": ["Cranleigh Village", "verify"],
+    "archetype": "rural-farmhouse",
+    "dominant_material": ["hardwood-iroko", "hardwood-oak", "mild-steel-painted"],
+    "local_context": [
+      "Often described as one of the largest villages in England",
+      "Sits in the Low Weald south of the Surrey Hills AONB",
+      "Rural character with significant agricultural hinterland",
+      "Strong craft and independent retail high street"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "upper-mid"
+  },
+
+  "dorking": {
+    "name": "Dorking",
+    "district": "Mole Valley",
+    "aonb": "in",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Dorking Town Centre", "verify"],
+    "archetype": "period-market-town",
+    "dominant_material": ["hardwood-oak", "wrought-iron", "hardwood-iroko"],
+    "local_context": [
+      "Market town surrounded by the Surrey Hills AONB",
+      "Box Hill, Ranmore Common, and Leith Hill all within the Dorking hinterland",
+      "Leith Hill at 294m is the highest point in south-east England",
+      "The River Mole runs through the town via the famous North Downs gap",
+      "Significant listed building stock, Grade I Dorking Caves"
+    ],
+    "sloped_driveway_prevalence": "common",
+    "price_bracket": "premium"
+  },
+
+  "dunsfold": {
+    "name": "Dunsfold",
+    "district": "Waverley",
+    "aonb": "partial",
+    "green_belt": "in",
+    "conservation_area": true,
+    "conservation_area_named": ["Dunsfold Village Green", "verify"],
+    "archetype": "aonb-village",
+    "dominant_material": ["hardwood-oak", "hardwood-iroko", "accoya"],
+    "local_context": [
+      "Rural Waverley village with one of Surrey's classic village greens",
+      "Grade I 13th-century Church of St Mary and All Saints",
+      "Dunsfold Aerodrome (former Top Gear test track) is nearby",
+      "Low Weald clay geology, traditional timber-framed cottages"
+    ],
+    "sloped_driveway_prevalence": "rare",
+    "price_bracket": "upper-mid"
+  },
+
+  "elstead": {
+    "name": "Elstead",
+    "district": "Waverley",
+    "aonb": "partial",
+    "green_belt": "in",
+    "conservation_area": true,
+    "conservation_area_named": ["Elstead Village Green", "verify"],
+    "archetype": "aonb-village",
+    "dominant_material": ["hardwood-oak", "hardwood-iroko"],
+    "local_context": [
+      "Waverley village on the River Wey between Farnham and Godalming",
+      "Grade I St James's Church dating from the 13th century",
+      "Thursley Common National Nature Reserve is adjacent",
+      "Traditional village green and surrounding listed cottages"
+    ],
+    "sloped_driveway_prevalence": "rare",
+    "price_bracket": "upper-mid"
+  },
+
+  "epsom": {
+    "name": "Epsom",
+    "district": "Epsom and Ewell",
+    "aonb": "adjacent",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Epsom Town Centre", "Epsom Common", "verify"],
+    "archetype": "suburban-established",
+    "dominant_material": ["wrought-iron", "mild-steel-painted"],
+    "local_context": [
+      "Administrative centre of Epsom and Ewell borough",
+      "Home to Epsom Downs Racecourse and the Derby Festival",
+      "Extensive Edwardian and inter-war detached housing stock",
+      "Epsom Common is a Site of Special Scientific Interest"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "upper-mid"
+  },
+
+  "esher": {
+    "name": "Esher",
+    "district": "Elmbridge",
+    "aonb": "none",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Esher Village", "verify"],
+    "archetype": "stockbroker-belt",
+    "dominant_material": ["wrought-iron", "mild-steel-painted"],
+    "local_context": [
+      "One of the three stockbroker-belt towns of Elmbridge (with Weybridge and Cobham)",
+      "Sandown Park Racecourse is within the town",
+      "Claremont Landscape Garden is a Grade I listed 18th-century landscape",
+      "Fast rail to London Waterloo in under 30 minutes",
+      "Premium detached residential stock on large plots"
+    ],
+    "sloped_driveway_prevalence": "rare",
+    "price_bracket": "ultra-prime"
+  },
+
+  "ewell": {
+    "name": "Ewell",
+    "district": "Epsom and Ewell",
+    "aonb": "none",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Ewell Village", "verify"],
+    "archetype": "suburban-established",
+    "dominant_material": ["wrought-iron", "mild-steel-painted"],
+    "local_context": [
+      "Historic village that has retained its centre around the spring-fed Hogsmill River source",
+      "Bourne Hall is a Grade II listed building housing the local museum",
+      "Nonsuch Park is a Grade II* registered historic park",
+      "Mixed housing stock from period cottages to 1930s detached"
+    ],
+    "sloped_driveway_prevalence": "rare",
+    "price_bracket": "upper-mid"
+  },
+
+  "farnham": {
+    "name": "Farnham",
+    "district": "Waverley",
+    "aonb": "in",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": [
+      "Farnham Town Centre (designated 1970)",
+      "Shepheard and Flock (designated 2020 to 2021)"
+    ],
+    "archetype": "period-market-town",
+    "dominant_material": ["hardwood-oak", "wrought-iron", "hardwood-iroko"],
+    "local_context": [
+      "Historic Georgian market town on the Surrey-Hampshire border, within the Surrey Hills AONB",
+      "388 listed buildings in the town centre",
+      "44 Grade II* listed buildings in Farnham, the highest concentration in Waverley district",
+      "Castle Street has 17 Grade II* listed buildings, described by architectural historian Alec Clifton-Taylor as one of England's most visually delightful streets",
+      "Farnham Castle, Grade I listed, built 1138 AD by Henry de Blois",
+      "Strong craft heritage, home to the University for the Creative Arts and the Crafts Study Centre"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "premium"
+  },
+
+  "fetcham": {
+    "name": "Fetcham",
+    "district": "Mole Valley",
+    "aonb": "adjacent",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Fetcham Village", "verify"],
+    "archetype": "suburban-established",
+    "dominant_material": ["wrought-iron", "mild-steel-painted"],
+    "local_context": [
+      "Village adjoining Leatherhead in Mole Valley district",
+      "On the edge of the Surrey Hills AONB near Box Hill",
+      "Fetcham Downs is a Site of Special Scientific Interest",
+      "Affluent commuter belt with substantial detached housing stock"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "premium"
+  },
+
+  "godalming": {
+    "name": "Godalming",
+    "district": "Waverley",
+    "aonb": "in",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Godalming Town Centre", "verify"],
+    "archetype": "period-market-town",
+    "dominant_material": ["hardwood-oak", "hardwood-iroko", "wrought-iron"],
+    "local_context": [
+      "Historic market town in Waverley, within the Surrey Hills AONB",
+      "The first town in the world to have electric street lighting (1881)",
+      "Significant listed building stock in the centre",
+      "Home to Charterhouse School"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "premium"
+  },
+
+  "gomshall": {
+    "name": "Gomshall",
+    "district": "Guildford",
+    "aonb": "in",
+    "green_belt": "in",
+    "conservation_area": false,
+    "conservation_area_named": [],
+    "archetype": "aonb-village",
+    "dominant_material": ["hardwood-oak", "hardwood-iroko"],
+    "local_context": [
+      "Village in the Shere civil parish, Guildford borough",
+      "Sits within the Surrey Hills AONB on the River Tillingbourne",
+      "On the North Downs Way between Shere and Dorking",
+      "Rural character, predominantly period and rural residential stock"
+    ],
+    "sloped_driveway_prevalence": "common",
+    "price_bracket": "upper-mid"
+  },
+
+  "guildford": {
+    "name": "Guildford",
+    "district": "Guildford",
+    "aonb": "in",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Guildford Town Centre", "verify"],
+    "archetype": "period-market-town",
+    "dominant_material": ["mixed"],
+    "local_context": [
+      "County town of Surrey, sits within the Surrey Hills AONB",
+      "The High Street runs up a steep hill from the River Wey",
+      "Guildford Castle (Grade I) and the historic cobbled High Street",
+      "Mix of period centre and substantial modern residential suburbs",
+      "Named by Experian in 2013 as the luxury shopping capital of the UK"
+    ],
+    "sloped_driveway_prevalence": "common",
+    "price_bracket": "premium"
+  },
+
+  "haslemere": {
+    "name": "Haslemere",
+    "district": "Waverley",
+    "aonb": "in",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Haslemere Town Centre", "verify"],
+    "archetype": "period-market-town",
+    "dominant_material": ["hardwood-oak", "hardwood-iroko", "accoya"],
+    "local_context": [
+      "Surrey Hills AONB town on the Surrey-West Sussex-Hampshire border",
+      "Adjacent to the Devil's Punch Bowl, a natural amphitheatre of heathland",
+      "Hindhead and Haslemere are the most elevated towns in Surrey",
+      "Exposed rural positions favour Accoya and high-grade hardwood",
+      "Strong craft and arts heritage"
+    ],
+    "sloped_driveway_prevalence": "common",
+    "price_bracket": "premium"
+  },
+
+  "horley": {
+    "name": "Horley",
+    "district": "Reigate and Banstead",
+    "aonb": "none",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["verify"],
+    "archetype": "commuter-new-build",
+    "dominant_material": ["hardwood-iroko", "hardwood-oak", "mild-steel-painted"],
+    "local_context": [
+      "Commuter town north of Gatwick Airport",
+      "Major new-build developments include The Acres (710 homes by Barratt, David Wilson Homes, and Bovis Homes) and Westvale Park (1,510 homes by Crest Nicholson, Persimmon, Taylor Wimpey, and A2Dominion)",
+      "Direct rail to London Victoria",
+      "Metropolitan Green Belt surrounds the town"
+    ],
+    "sloped_driveway_prevalence": "rare",
+    "price_bracket": "mid"
+  },
+
+  "kingswood": {
+    "name": "Kingswood",
+    "district": "Reigate and Banstead",
+    "aonb": "adjacent",
+    "green_belt": "in",
+    "conservation_area": true,
+    "conservation_area_named": ["Kingswood Village", "verify"],
+    "archetype": "estate-belt",
+    "dominant_material": ["wrought-iron", "mild-steel-painted"],
+    "local_context": [
+      "Affluent Reigate and Banstead village between Tadworth and Lower Kingswood",
+      "Home to Kingswood Golf Club and significant golf course estate properties",
+      "Extensive detached housing stock with large plots and carriage drives",
+      "Adjacent to Walton Heath, one of England's premier golf courses"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "premium"
+  },
+
+  "leatherhead": {
+    "name": "Leatherhead",
+    "district": "Mole Valley",
+    "aonb": "edge",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Leatherhead Town Centre", "verify"],
+    "archetype": "period-market-town",
+    "dominant_material": ["wrought-iron", "mild-steel-painted", "hardwood-oak"],
+    "local_context": [
+      "Mole Valley town on the River Mole, at the famous gap in the North Downs",
+      "Administrative centre of Mole Valley district",
+      "Historic town centre with listed buildings",
+      "Adjacent to Box Hill and the Surrey Hills AONB to the south"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "upper-mid"
+  },
+
+  "leigh": {
+    "name": "Leigh",
+    "district": "Reigate and Banstead",
+    "aonb": "none",
+    "green_belt": "in",
+    "conservation_area": true,
+    "conservation_area_named": ["Leigh Village Green", "verify"],
+    "archetype": "rural-farmhouse",
+    "dominant_material": ["hardwood-oak", "mild-steel-painted"],
+    "local_context": [
+      "Small rural village in Reigate and Banstead borough, south of Reigate",
+      "Traditional village green and surrounding period cottages",
+      "Low Weald clay geology",
+      "Predominantly agricultural setting with detached rural properties"
+    ],
+    "sloped_driveway_prevalence": "rare",
+    "price_bracket": "upper-mid"
+  },
+
+  "lightwater": {
+    "name": "Lightwater",
+    "district": "Surrey Heath",
+    "aonb": "none",
+    "green_belt": "surrounded",
+    "conservation_area": "verify",
+    "conservation_area_named": ["verify"],
+    "archetype": "commuter-new-build",
+    "dominant_material": ["mild-steel-painted", "aluminium", "hardwood-iroko"],
+    "local_context": [
+      "Surrey Heath village between Bagshot and Camberley",
+      "Lightwater Country Park is a 58-hectare open space with heathland habitat",
+      "Predominantly post-war and modern residential development",
+      "Convenient access to M3 junction 3"
+    ],
+    "sloped_driveway_prevalence": "rare",
+    "price_bracket": "mid"
+  },
+
+  "lingfield": {
+    "name": "Lingfield",
+    "district": "Tandridge",
+    "aonb": "adjacent",
+    "green_belt": "in",
+    "conservation_area": true,
+    "conservation_area_named": ["Lingfield Village", "verify"],
+    "archetype": "rural-farmhouse",
+    "dominant_material": ["hardwood-oak", "hardwood-iroko"],
+    "local_context": [
+      "Tandridge village near the Surrey-Kent-Sussex border",
+      "Home to Lingfield Park Racecourse",
+      "Historic village centre with medieval church and Grade II* listed buildings",
+      "Low Weald geology, traditional rural-residential character"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "upper-mid"
+  },
+
+  "oxted": {
+    "name": "Oxted",
+    "district": "Tandridge",
+    "aonb": "in",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Old Oxted", "verify"],
+    "archetype": "period-market-town",
+    "dominant_material": ["hardwood-oak", "wrought-iron"],
+    "local_context": [
+      "Market town on the southern slopes of the North Downs within the Surrey Hills AONB",
+      "Administrative centre of Tandridge district",
+      "Old Oxted conservation area retains medieval village character",
+      "Direct rail to London Victoria and London Bridge",
+      "Metropolitan Green Belt surrounds the town"
+    ],
+    "sloped_driveway_prevalence": "common",
+    "price_bracket": "premium"
+  },
+
+  "peaslake": {
+    "name": "Peaslake",
+    "district": "Guildford",
+    "aonb": "in",
+    "green_belt": "in",
+    "conservation_area": true,
+    "conservation_area_named": ["Peaslake"],
+    "archetype": "aonb-village",
+    "dominant_material": ["hardwood-oak", "hardwood-iroko", "accoya"],
+    "local_context": [
+      "Village in the Shere civil parish, Guildford borough",
+      "Sits at the heart of the Surrey Hills AONB adjacent to the 3,000-acre Hurtwood Forest",
+      "A mecca for walkers and mountain bikers via the Hurtwood tracks",
+      "Dense conservation area protection; very strict controls on boundary and gate design",
+      "Home to the Hurtwood Inn and the locally famous Peaslake Village Stores"
+    ],
+    "sloped_driveway_prevalence": "common",
+    "price_bracket": "premium"
+  },
+
+  "redhill": {
+    "name": "Redhill",
+    "district": "Reigate and Banstead",
+    "aonb": "adjacent",
+    "green_belt": "surrounded",
+    "conservation_area": "partial",
+    "conservation_area_named": ["verify"],
+    "archetype": "commuter-new-build",
+    "dominant_material": ["mild-steel-painted", "hardwood-iroko", "aluminium"],
+    "local_context": [
+      "Identified in the Reigate and Banstead local plan as a focus for growth and regeneration",
+      "Direct rail to London Victoria and Gatwick",
+      "Mixed housing stock from Victorian terraces to major new-build developments",
+      "Metropolitan Green Belt surrounds the town"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "mid"
+  },
+
+  "reigate": {
+    "name": "Reigate",
+    "district": "Reigate and Banstead",
+    "aonb": "in",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Reigate Town Centre", "verify"],
+    "archetype": "period-market-town",
+    "dominant_material": ["hardwood-oak", "hardwood-iroko", "wrought-iron"],
+    "local_context": [
+      "Historic market town at the foot of the North Downs within the Surrey Hills AONB",
+      "Reigate Castle (now ruins within Castle Grounds) and Priory Park at the town's core",
+      "Listed building stock concentrated around the High Street and Bell Street",
+      "Metropolitan Green Belt surrounds the town",
+      "Direct rail to London Victoria and London Bridge"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "premium"
+  },
+
+  "shere": {
+    "name": "Shere",
+    "district": "Guildford",
+    "aonb": "in",
+    "green_belt": "in",
+    "conservation_area": true,
+    "conservation_area_named": ["Shere"],
+    "archetype": "aonb-village",
+    "dominant_material": ["hardwood-oak", "hardwood-iroko"],
+    "local_context": [
+      "Village in Guildford borough at the heart of the Surrey Hills AONB",
+      "Widely described as one of England's most beautiful villages",
+      "Used as a filming location for 'The Holiday' (2006)",
+      "Grade I listed St James's Church and Grade II* listed cottages along Middle Street and Lower Street",
+      "Conservation area with very strict boundary and gate design controls",
+      "Rural character with the Tillingbourne running through the village"
+    ],
+    "sloped_driveway_prevalence": "common",
+    "price_bracket": "premium"
+  },
+
+  "tadworth": {
+    "name": "Tadworth",
+    "district": "Reigate and Banstead",
+    "aonb": "adjacent",
+    "green_belt": "in",
+    "conservation_area": true,
+    "conservation_area_named": ["verify"],
+    "archetype": "estate-belt",
+    "dominant_material": ["wrought-iron", "mild-steel-painted"],
+    "local_context": [
+      "Affluent Reigate and Banstead village between Banstead and Kingswood",
+      "Adjacent to Walton Heath Golf Club, which has hosted the European Open",
+      "Established detached residential stock with generous plots",
+      "Surrounded by Green Belt including Walton Downs and the North Downs"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "premium"
+  },
+
+  "walton-on-thames": {
+    "name": "Walton-on-Thames",
+    "district": "Elmbridge",
+    "aonb": "none",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Walton-on-Thames Town Centre", "verify"],
+    "archetype": "suburban-established",
+    "dominant_material": ["wrought-iron", "mild-steel-painted", "aluminium"],
+    "local_context": [
+      "Thames-side town in Elmbridge district adjacent to Weybridge",
+      "Riverside detached and period housing stock",
+      "Ashley Park, Burwood Park (partly), and Oatlands are affluent residential enclaves",
+      "Direct rail to London Waterloo in about 30 minutes"
+    ],
+    "sloped_driveway_prevalence": "rare",
+    "price_bracket": "premium"
+  },
+
+  "weybridge": {
+    "name": "Weybridge",
+    "district": "Elmbridge",
+    "aonb": "none",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["Weybridge Town Centre", "verify"],
+    "archetype": "stockbroker-belt",
+    "dominant_material": ["wrought-iron"],
+    "local_context": [
+      "The most exclusive of the Elmbridge stockbroker-belt towns, often referred to as British Beverly Hills",
+      "St George's Hill is a 964-acre private gated estate with around 450 homes, established 1911 by builder W G Tarrant, access controlled by 24-hour manned security",
+      "St George's Hill has ANPR and controlled card access at secondary gates; minimum plot size is one acre with 20 percent build limit",
+      "Burwood Park is a second significant private estate in Weybridge",
+      "Direct rail to London Waterloo in about 30 minutes",
+      "Home to Brooklands Museum on the site of the original Brooklands motor racing circuit"
+    ],
+    "sloped_driveway_prevalence": "rare",
+    "price_bracket": "ultra-prime"
+  },
+
+  "witley": {
+    "name": "Witley",
+    "district": "Waverley",
+    "aonb": "in",
+    "green_belt": "in",
+    "conservation_area": true,
+    "conservation_area_named": ["Witley Village", "verify"],
+    "archetype": "aonb-village",
+    "dominant_material": ["hardwood-oak", "hardwood-iroko"],
+    "local_context": [
+      "Waverley village within the Surrey Hills AONB, between Godalming and Haslemere",
+      "Grade I All Saints Church dating from the 11th century",
+      "Witley Park, a Victorian country house estate, is nearby",
+      "Rural character with substantial period property stock",
+      "Home to King Edward's School Witley"
+    ],
+    "sloped_driveway_prevalence": "variable",
+    "price_bracket": "premium"
+  },
+
+  "woking": {
+    "name": "Woking",
+    "district": "Woking",
+    "aonb": "none",
+    "green_belt": "surrounded",
+    "conservation_area": true,
+    "conservation_area_named": ["verify"],
+    "archetype": "commuter-new-build",
+    "dominant_material": ["mild-steel-painted", "aluminium", "hardwood-iroko"],
+    "local_context": [
+      "Largest town in west Surrey, major commuter hub",
+      "Direct rail to London Waterloo in about 25 minutes",
+      "The Shah Jahan Mosque (1889) is the UK's first purpose-built mosque",
+      "Significant modern residential development around the town centre",
+      "Metropolitan Green Belt surrounds the town"
+    ],
+    "sloped_driveway_prevalence": "rare",
+    "price_bracket": "upper-mid"
+  }
+}

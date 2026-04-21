@@ -45,7 +45,7 @@ export function Hero({ title, subtitle, image, showCta = true, showTrust = true,
 
           {showTrust && (
             <div className="flex flex-wrap gap-6 text-sm font-medium text-gray-300">
-              {['50+ Installs Per Installer', 'Free Site Surveys', '4.9 Star Rated'].map(item => (
+              {['Verified Gate Specialists', 'Free Site Surveys', 'Fully Insured Network'].map(item => (
                 <div key={item} className="flex items-center gap-2">
                   <CheckCircle className="w-5 h-5 text-brand-400" />
                   <span>{item}</span>
