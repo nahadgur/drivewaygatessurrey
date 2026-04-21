@@ -11,7 +11,6 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { Hero } from '@/components/Hero';
 import { TrustBadges } from '@/components/TrustBadges';
-import { Testimonials } from '@/components/Testimonials';
 import { FAQ } from '@/components/FAQ';
 import { LeadFormModal } from '@/components/LeadFormModal';
 import { FAQSchema } from '@/components/FAQSchema';
@@ -71,28 +70,23 @@ export default function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           '@context': 'https://schema.org',
-          '@type': 'LocalBusiness',
-          '@id': siteConfig.url,
-          name: siteConfig.name,
-          description: siteConfig.description,
+          '@type': 'Service',
+          '@id': `${siteConfig.url}/#referral-service`,
+          name: 'Driveway gate installer referral and matching service',
+          description: 'Free service matching Surrey homeowners with vetted, insured driveway gate installers. Up to three quotes from independent specialists, no obligation.',
+          provider: { '@id': `${siteConfig.url}/#organization` },
           url: siteConfig.url,
-          logo: `${siteConfig.url}/android-chrome-512x512.png`,
-          image: `${siteConfig.url}/android-chrome-512x512.png`,
           areaServed: {
             '@type': 'AdministrativeArea',
-            name: 'Surrey',
+            name: 'Surrey, United Kingdom',
           },
-          serviceType: [
-            'Electric Sliding Gate Installation',
-            'Electric Swing Gate Installation',
-            'Wooden Driveway Gate Installation',
-            'Metal Driveway Gate Installation',
-            'Automated Gate Systems',
-            'Gate Repair and Maintenance',
-          ],
-          priceRange: '££',
-          currenciesAccepted: 'GBP',
-          paymentAccepted: 'Cash, Credit Card, Bank Transfer, Finance',
+          serviceType: 'Driveway gate installer referral and matching service',
+          offers: {
+            '@type': 'Offer',
+            price: '0',
+            priceCurrency: 'GBP',
+            description: 'Free matching service for homeowners. You are connected with an independent UK gate installer who agrees their own fees directly with you.',
+          },
         }) }}
       />
       <FAQSchema faqs={homepageFaqs} />
@@ -161,7 +155,7 @@ export default function HomePage() {
                 {
                   icon: <Shield className="w-6 h-6" />,
                   title: 'Surrey Planning Knowledge',
-                  desc: 'AONB, Green Belt, conservation areas, listed buildings. Surrey has more planning designations than most counties. Our installers know which rules apply where before they arrive on site.',
+                  desc: 'AONB, Green Belt, conservation areas, listed buildings. Surrey has more planning designations than most counties. Installers in our network know which rules apply where before they arrive on site.',
                 },
                 {
                   icon: <Clock className="w-6 h-6" />,
@@ -267,8 +261,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        <Testimonials />
-
         {/* How It Works */}
         <section className="section-padding bg-gray-50">
           <div className="container-width">
@@ -316,7 +308,7 @@ export default function HomePage() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
               <div>
                 <h2 className="text-3xl md:text-4xl font-display font-bold text-gray-900 mb-6">
-                  Surrey Has More Planning Designations Than Most Counties. Our Installers Know Them.
+                  Surrey Has More Planning Designations Than Most Counties. Installers in Our Network Know Them.
                 </h2>
                 <div className="space-y-5 text-gray-600 leading-relaxed">
                   <p>

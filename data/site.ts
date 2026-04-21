@@ -1,54 +1,23 @@
-// data/site.ts — Driveway Gates Surrey
+// data/site.ts - Driveway Gates Surrey
 
 export const siteConfig = {
   name: 'Driveway Gates Surrey',
   tagline: 'Surrey Gate Installers, Vetted and Ready',
   url: 'https://www.drivewaygatessurrey.uk',
   description: 'Find vetted driveway gate installers across Surrey. Compare free quotes for electric sliding gates, swing gates, hardwood gates, metal gates, automation systems, and repairs.',
+  contactEmail: 'hello@drivewaygatessurrey.uk',
 };
 
-export const TESTIMONIALS = [
-  {
-    id: '1',
-    name: 'Richard A.',
-    location: 'Weybridge',
-    service: 'Electric Sliding Gates',
-    rating: 5,
-    text: 'We had three quotes within a week of submitting the enquiry. The installer we chose fabricated a pair of bespoke powder-coated steel gates to match the existing railings, fitted underground motors, and installed a video intercom with smartphone access. The whole job was handled cleanly and the gates have been faultless since. Would not hesitate to recommend.',
-  },
-  {
-    id: '2',
-    name: 'Caroline M.',
-    location: 'Guildford',
-    service: 'Gate Automation',
-    rating: 5,
-    text: 'After getting nowhere with a couple of local builders who were not really gate specialists, I used this service and was matched with someone who clearly knew what they were doing. They advised on the right motor for our heavy oak gates, sorted a minor hinge issue we had not noticed, and the automation has worked perfectly for over a year now.',
-  },
-  {
-    id: '3',
-    name: 'James and Fiona T.',
-    location: 'Cobham',
-    service: 'Metal Driveway Gates',
-    rating: 5,
-    text: 'We specified a full entrance treatment: wrought iron gates with matching side railings, brick piers with lighting, underground motors, and a video intercom system. The installer managed the whole project from design drawings to commissioning. The result is exactly what we wanted and the quality of the ironwork is exceptional.',
-  },
-  {
-    id: '4',
-    name: 'David H.',
-    location: 'Reigate',
-    service: 'Gate Repair',
-    rating: 5,
-    text: 'Called out for an emergency repair when the motor on our sliding gate failed on a Sunday. The engineer was with us by Monday morning, diagnosed the control board fault on the first visit, and had parts fitted by the following afternoon. Straight pricing, no attempt to oversell a replacement when a repair was the right answer.',
-  },
-  {
-    id: '5',
-    name: 'Sarah L.',
-    location: 'Haslemere',
-    service: 'Wooden Driveway Gates',
-    rating: 5,
-    text: 'Rural property on the edge of the Surrey Hills so the aesthetic mattered as much as the function. The installer helped us specify iroko hardwood gates that suit the character of the house, added automation without it looking industrial, and understood the planning sensitivities in this area. Exactly the right fit for what we needed.',
-  },
-];
+// Testimonials intentionally empty. Reintroduce only with real,
+// documented consent from named customers.
+export const TESTIMONIALS: Array<{
+  id: string;
+  name: string;
+  location: string;
+  service: string;
+  rating: number;
+  text: string;
+}> = [];
 
 export const TRUST_BADGES = [
   {
@@ -63,7 +32,7 @@ export const TRUST_BADGES = [
   },
   {
     icon: 'UserCheck',
-    title: 'Free Site Survey Guaranteed',
+    title: 'Free Site Survey, No Commitment',
     description: 'Every installer offers a no-obligation site survey before quoting. No pressure, no commitment required until you are ready to proceed',
   },
   {
@@ -76,7 +45,7 @@ export const TRUST_BADGES = [
 export const FAQS_HOME = [
   {
     question: 'How is using this service different from finding an installer yourself?',
-    answer: 'The difference is the vetting. Any installer can appear in a Google search. Every installer we refer has been assessed against specific criteria: a minimum of 50 completed residential gate installations, active public liability insurance, and a track record of providing written warranties on both the gate and the automation. We also monitor ongoing customer feedback and remove firms whose standards slip. You get the benefit of that due diligence without spending hours researching it yourself.',
+    answer: 'The difference is the vetting. Any installer can appear in a Google search. Every installer we refer has been assessed against specific criteria: a verified project history of completed residential gate installations, active public liability insurance, and a track record of providing written warranties on both the gate and the automation. We also monitor ongoing customer feedback and remove firms whose standards slip. You get the benefit of that due diligence without spending hours researching it yourself.',
   },
   {
     question: 'How do you match me with the right Surrey installer?',
@@ -110,7 +79,7 @@ export const FAQS_SERVICES = [
 export const FAQS_LOCATION = [
   {
     question: 'How do you vet installers before adding them to your Surrey network?',
-    answer: 'We require evidence of at least 50 completed residential gate installations before any installer is accepted into the network. We check that public liability insurance is current and covers the full scope of gate installation work. We confirm that written warranties are offered on both the gate and the automation as a standard practice, not an optional extra. We monitor customer feedback on an ongoing basis and remove any firm whose quality or responsiveness falls below our standards.',
+    answer: 'We require evidence of a verified residential gate project history before any installer is accepted into the network. We check that public liability insurance is current and covers the full scope of gate installation work. We confirm that written warranties are offered on both the gate and the automation as a standard practice, not an optional extra. We monitor customer feedback on an ongoing basis and remove any firm whose quality or responsiveness falls below our standards.',
   },
   {
     question: 'Do you cover my area of Surrey?',

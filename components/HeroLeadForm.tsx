@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
-import { CheckCircle } from 'lucide-react';
+import { useState, useId } from 'react';
+import Link from 'next/link';
+import { CheckCircle, AlertCircle, X } from 'lucide-react';
 
 interface HeroLeadFormProps {
   city?: string;
@@ -21,22 +22,38 @@ const GOOGLE_SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbzO3JHqZBfqP95SeuyFCwFWDfzxShx7n-jcS3M4aqc-iY-h5zYMHQMZKrDBzuehEGlB/exec';
 
 export function HeroLeadForm({ city, service }: HeroLeadFormProps) {
+  const consentId = useId();
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
     phone: '',
     location: city || '',
     treatment: service || '',
+    consent: false,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const target = e.target;
+    const name = target.name;
+    if (target instanceof HTMLInputElement && target.type === 'checkbox') {
+      setFormData({ ...formData, [name]: target.checked });
+    } else {
+      setFormData({ ...formData, [name]: target.value });
+    }
+    if (errorMessage) setErrorMessage(null);
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!formData.consent) {
+      setErrorMessage('Please tick the consent box so we can share your details with an installer in our network.');
+      return;
+    }
+    setErrorMessage(null);
     setIsSubmitting(true);
     try {
       const payload = {
@@ -65,7 +82,7 @@ export function HeroLeadForm({ city, service }: HeroLeadFormProps) {
     } catch (err) {
       console.error(err);
       setIsSubmitting(false);
-      alert('Something went wrong. Please try again.');
+      setErrorMessage('Something went wrong sending your enquiry. Please try again, or email hello@drivewaygatessurrey.uk.');
     }
   };
 
@@ -100,15 +117,78 @@ export function HeroLeadForm({ city, service }: HeroLeadFormProps) {
         </p>
       </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
-        <input required name="fullName" type="text" value={formData.fullName} onChange={handleChange} placeholder="Full Name *" className={inputClass} />
+      {errorMessage && (
+        <div
+          role="alert"
+          className="mb-4 flex items-start gap-3 p-3 rounded-xl bg-red-50 border border-red-100 text-red-700 text-sm"
+        >
+          <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" aria-hidden="true" />
+          <div className="flex-1">{errorMessage}</div>
+          <button
+            type="button"
+            onClick={() => setErrorMessage(null)}
+            className="text-red-500 hover:text-red-700"
+            aria-label="Dismiss error"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3" noValidate>
+        <label className="sr-only" htmlFor="hlf-fullName">Full name</label>
+        <input
+          id="hlf-fullName"
+          required
+          name="fullName"
+          type="text"
+          autoComplete="name"
+          value={formData.fullName}
+          onChange={handleChange}
+          placeholder="Full Name *"
+          className={inputClass}
+        />
 
         <div className="grid grid-cols-2 gap-3">
-          <input required name="phone" type="tel" value={formData.phone} onChange={handleChange} placeholder="Phone Number *" className={inputClass} />
-          <input required name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Email Address *" className={inputClass} />
+          <div>
+            <label className="sr-only" htmlFor="hlf-phone">Phone number</label>
+            <input
+              id="hlf-phone"
+              required
+              name="phone"
+              type="tel"
+              autoComplete="tel"
+              value={formData.phone}
+              onChange={handleChange}
+              placeholder="Phone Number *"
+              className={inputClass}
+            />
+          </div>
+          <div>
+            <label className="sr-only" htmlFor="hlf-email">Email address</label>
+            <input
+              id="hlf-email"
+              required
+              name="email"
+              type="email"
+              autoComplete="email"
+              value={formData.email}
+              onChange={handleChange}
+              placeholder="Email Address *"
+              className={inputClass}
+            />
+          </div>
         </div>
 
-        <select required name="treatment" value={formData.treatment} onChange={handleChange} className={inputClass + " appearance-none cursor-pointer"}>
+        <label className="sr-only" htmlFor="hlf-treatment">Gate type</label>
+        <select
+          id="hlf-treatment"
+          required
+          name="treatment"
+          value={formData.treatment}
+          onChange={handleChange}
+          className={inputClass + " appearance-none cursor-pointer"}
+        >
           <option value="" disabled>What type of gate? *</option>
           {GATE_TYPES.map(t => (
             <option key={t} value={t}>{t}</option>
@@ -116,8 +196,35 @@ export function HeroLeadForm({ city, service }: HeroLeadFormProps) {
         </select>
 
         {!city && (
-          <input required name="location" type="text" value={formData.location} onChange={handleChange} placeholder="Your Surrey town or postcode *" className={inputClass} />
+          <>
+            <label className="sr-only" htmlFor="hlf-location">Surrey town or postcode</label>
+            <input
+              id="hlf-location"
+              required
+              name="location"
+              type="text"
+              autoComplete="postal-code"
+              value={formData.location}
+              onChange={handleChange}
+              placeholder="Your Surrey town or postcode *"
+              className={inputClass}
+            />
+          </>
         )}
+
+        <label htmlFor={consentId} className="flex items-start gap-3 mt-1 text-xs text-gray-600 leading-relaxed cursor-pointer select-none">
+          <input
+            id={consentId}
+            type="checkbox"
+            name="consent"
+            checked={formData.consent}
+            onChange={handleChange}
+            className="mt-0.5 h-4 w-4 rounded border-gray-300 text-brand-600 focus:ring-brand-500"
+          />
+          <span>
+            I agree that my details will be shared with a carefully selected UK gate installer in our network who will contact me directly. See our <Link href="/privacy/" className="text-brand-600 hover:underline">privacy policy</Link>.
+          </span>
+        </label>
 
         <button
           disabled={isSubmitting}
@@ -128,7 +235,7 @@ export function HeroLeadForm({ city, service }: HeroLeadFormProps) {
         </button>
 
         <div className="flex items-center justify-center gap-4 pt-1">
-          {['100% Free', 'No Spam', '24hr Response'].map(item => (
+          {['Free Service', 'No Spam', '24hr Response'].map(item => (
             <span key={item} className="flex items-center gap-1 text-xs text-green-600 font-medium">
               <span className="w-1.5 h-1.5 bg-green-500 rounded-full" />
               {item}
