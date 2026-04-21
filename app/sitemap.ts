@@ -3,6 +3,11 @@ import type { MetadataRoute } from 'next';
 import { services } from '@/data/services';
 import { LOCATIONS, toSlug } from '@/data/locations';
 import { siteConfig } from '@/data/site';
+import {
+  isServiceLocationIndexed,
+  isLocationHubIndexed,
+  isServiceHubIndexed,
+} from '@/data/indexing-tiers';
 
 // Static lastModified constants. Do not replace with new Date().
 // Inflated freshness signals from dynamic sitemap dates are discounted by Google.
@@ -30,29 +35,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${base}/terms/`, lastModified: LEGAL_MODIFIED, changeFrequency: 'yearly', priority: 0.3 },
   ];
 
-  const servicePages: MetadataRoute.Sitemap = services.map(s => ({
-    url: `${base}/services/${s.slug}/`,
-    lastModified: SERVICE_MODIFIED,
-    changeFrequency: 'yearly' as const,
-    priority: 0.8,
-  }));
+  // Service hubs: all kept (county-level "<service> Surrey" queries).
+  const servicePages: MetadataRoute.Sitemap = services
+    .filter((s) => isServiceHubIndexed(s.slug))
+    .map((s) => ({
+      url: `${base}/services/${s.slug}/`,
+      lastModified: SERVICE_MODIFIED,
+      changeFrequency: 'yearly' as const,
+      priority: 0.8,
+    }));
 
-  const locationPages: MetadataRoute.Sitemap = allCities.map(city => ({
-    url: `${base}/location/${toSlug(city)}/`,
-    lastModified: LOCATION_MODIFIED,
-    changeFrequency: 'yearly' as const,
-    priority: 0.6,
-  }));
+  // Location hubs: only the ~27 cities that have at least one indexed service
+  // combination. Everything else gets noindex via generateMetadata and stays
+  // out of the sitemap.
+  const locationPages: MetadataRoute.Sitemap = allCities
+    .filter((city) => isLocationHubIndexed(toSlug(city)))
+    .map((city) => ({
+      url: `${base}/location/${toSlug(city)}/`,
+      lastModified: LOCATION_MODIFIED,
+      changeFrequency: 'yearly' as const,
+      priority: 0.6,
+    }));
 
+  // Service x location combinations: only the survivors
+  // (26 wooden + 26 metal = 52 combination pages).
   const serviceLocationPages: MetadataRoute.Sitemap = [];
   for (const service of services) {
     for (const city of allCities) {
-      serviceLocationPages.push({
-        url: `${base}/services/${service.slug}/${toSlug(city)}/`,
-        lastModified: SERVICE_LOCATION_MODIFIED,
-        changeFrequency: 'yearly' as const,
-        priority: 0.4,
-      });
+      const citySlug = toSlug(city);
+      if (isServiceLocationIndexed(service.slug, citySlug)) {
+        serviceLocationPages.push({
+          url: `${base}/services/${service.slug}/${citySlug}/`,
+          lastModified: SERVICE_LOCATION_MODIFIED,
+          changeFrequency: 'yearly' as const,
+          priority: 0.4,
+        });
+      }
     }
   }
 
