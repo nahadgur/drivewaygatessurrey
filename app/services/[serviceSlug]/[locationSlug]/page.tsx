@@ -7,6 +7,7 @@ import { FAQS_SERVICES, siteConfig } from '@/data/site';
 import { isServiceLocationIndexed } from '@/data/indexing-tiers';
 import { buildBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { buildFaqSchema, buildReferralServiceSchema, buildWebPageSchema } from '@/lib/schema';
+import { getServiceLocationIntro } from '@/data/cityServiceContent';
 import { ServiceLocationClient } from './ServiceLocationClient';
 
 export function generateStaticParams() {
@@ -57,6 +58,7 @@ export default function ServiceLocationPage({
   const pageUrl = `${siteConfig.url}/services/${service.slug}/${params.locationSlug}/`;
   const indexed = isServiceLocationIndexed(service.slug, params.locationSlug);
   const combinedFaqs = [...(service.faqs || []), ...FAQS_SERVICES];
+  const intro = getServiceLocationIntro(service.id, params.locationSlug, cityName);
 
   // Only emit JSON-LD schema graph for indexed pages. Noindex pages have
   // no reason to advertise themselves to search engines.
@@ -111,7 +113,7 @@ export default function ServiceLocationPage({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
         />
       )}
-      <ServiceLocationClient params={params} />
+      <ServiceLocationClient params={params} intro={intro} />
     </>
   );
 }

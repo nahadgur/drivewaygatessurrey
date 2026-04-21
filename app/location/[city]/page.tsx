@@ -6,6 +6,7 @@ import { FAQS_SERVICES, FAQS_LOCATION, siteConfig } from '@/data/site';
 import { isLocationHubIndexed } from '@/data/indexing-tiers';
 import { buildBreadcrumbSchema } from '@/lib/breadcrumbs';
 import { buildFaqSchema, buildReferralServiceSchema, buildWebPageSchema } from '@/lib/schema';
+import { getCityHubIntro } from '@/data/cityServiceContent';
 import { LocationHubClient } from './LocationHubClient';
 
 export function generateStaticParams() {
@@ -36,6 +37,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
   const pageUrl = `${siteConfig.url}/location/${params.city}/`;
   const indexed = isLocationHubIndexed(params.city);
   const cityFaqs = [...FAQS_LOCATION, ...FAQS_SERVICES];
+  const intro = getCityHubIntro(params.city, cityName);
 
   let graph: object | null = null;
 
@@ -87,7 +89,7 @@ export default function CityPage({ params }: { params: { city: string } }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(graph) }}
         />
       )}
-      <LocationHubClient params={params} />
+      <LocationHubClient params={params} intro={intro} />
     </>
   );
 }

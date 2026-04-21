@@ -18,9 +18,14 @@ import { LeadFormModal } from '@/components/LeadFormModal';
 
 interface LocationHubClientProps {
   params: { city: string };
+  // intro is supplied by the server page.tsx via getCityHubIntro().
+  // Bespoke per-city hub content lives in data/cityServiceContent.ts;
+  // cities without bespoke copy fall through to the generic hub intro
+  // defined in that same file.
+  intro: string[];
 }
 
-export function LocationHubClient({ params }: LocationHubClientProps) {
+export function LocationHubClient({ params, intro }: LocationHubClientProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const cityName = getCityBySlug(params.city);
   if (!cityName) notFound();
@@ -70,12 +75,7 @@ export function LocationHubClient({ params }: LocationHubClientProps) {
               Driveway Gate Installers in {cityName}
             </h2>
             <div className="prose prose-gray max-w-none text-gray-600 space-y-4 text-base leading-relaxed">
-              <p>
-                Surrey has a more complex gate market than most counties. The North Downs and Surrey Hills create sloped driveways that require specific motor and hinge engineering. The AONB and the county&apos;s dense network of conservation areas add a planning dimension that many installers are not equipped to handle. The premium North Surrey market around Weybridge, Cobham, and Esher sets expectations around wrought iron, underground motors, and access management that general builders cannot meet. Every installer we refer in {cityName} specialises in residential gates, carries full public liability insurance, and has the project history to back their experience up.
-              </p>
-              <p>
-                Each installer we introduce offers a free site survey with no commitment required. They visit the property, assess the driveway geometry and ground conditions, confirm the planning position if relevant, and provide a fully itemised written quote. You compare quotes from up to three specialists and decide whether and when to proceed. There is no fee to use the service at any stage.
-              </p>
+              {intro.map((p, i) => <p key={i}>{p}</p>)}
             </div>
           </section>
 
