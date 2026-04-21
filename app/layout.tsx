@@ -1,8 +1,25 @@
 // app/layout.tsx
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { DM_Sans, Fraunces } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/data/site';
+
+// Body / sans font. DM Sans (variable).
+const dmSans = DM_Sans({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-sans',
+  weight: 'variable',
+});
+
+// Display / heading font. Fraunces (variable, optical size + weight).
+const fraunces = Fraunces({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-display',
+  weight: 'variable',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -15,6 +32,11 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   verification: {
     google: 'BZ06Ie51Fvg9VOX2DO_coCDz6ijU9ozLRkTW6gIOFWM',
+    other: {
+      // Bing Webmaster Tools verification. Placeholder until the real code
+      // is added to siteConfig.bingSiteVerification in data/site.ts.
+      'msvalidate.01': siteConfig.bingSiteVerification,
+    },
   },
   icons: {
     icon: [
@@ -31,13 +53,13 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     locale: 'en_GB',
-    images: [{ url: '/android-chrome-512x512.png', width: 512, height: 512, alt: siteConfig.name }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: siteConfig.name }],
   },
   twitter: {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
-    images: ['/android-chrome-512x512.png'],
+    images: ['/og-image.png'],
   },
 };
 
@@ -45,62 +67,41 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const websiteSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
+    '@id': `${siteConfig.url}/#website`,
     name: siteConfig.name,
     alternateName: siteConfig.tagline,
     url: siteConfig.url,
+    publisher: { '@id': `${siteConfig.url}/#organization` },
+    inLanguage: 'en-GB',
   };
 
   const organizationSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: siteConfig.name,
-    url: siteConfig.url,
-    logo: `${siteConfig.url}/icon-512x512.png`,
-  };
-
-  const localBusinessSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'HomeAndConstructionBusiness',
+    '@id': `${siteConfig.url}/#organization`,
     name: siteConfig.name,
     url: siteConfig.url,
     logo: `${siteConfig.url}/icon-512x512.png`,
     description: siteConfig.description,
     areaServed: {
-      '@type': 'State',
-      name: 'Surrey',
-      containedInPlace: {
-        '@type': 'Country',
-        name: 'United Kingdom',
-      },
+      '@type': 'AdministrativeArea',
+      name: 'Surrey, United Kingdom',
     },
-    serviceType: [
-      'Electric Sliding Gate Installation',
-      'Electric Swing Gate Installation',
-      'Wooden Driveway Gate Installation',
-      'Metal Driveway Gate Installation',
-      'Gate Automation Installation',
-      'Gate Repair and Maintenance',
-    ],
-    priceRange: '££',
-    currenciesAccepted: 'GBP',
-    paymentAccepted: 'Cash, Credit Card, Bank Transfer',
-    openingHours: 'Mo-Sa 08:00-18:00',
   };
 
   return (
-    <html lang="en-GB">
+    <html lang="en-GB" className={`${dmSans.variable} ${fraunces.variable}`}>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }} />
       </head>
       <body className="min-h-screen flex flex-col">
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-TSR9FSETF5" strategy="afterInteractive" />
+        <Script src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaId}`} strategy="afterInteractive" />
         <Script id="gtag-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
           gtag('js', new Date());
-          gtag('config', 'G-TSR9FSETF5');`}
+          gtag('config', '${siteConfig.gaId}');`}
         </Script>
         {children}
       </body>

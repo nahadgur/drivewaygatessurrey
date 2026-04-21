@@ -6,6 +6,11 @@ export const siteConfig = {
   url: 'https://www.drivewaygatessurrey.uk',
   description: 'Find vetted driveway gate installers across Surrey. Compare free quotes for electric sliding gates, swing gates, hardwood gates, metal gates, automation systems, and repairs.',
   contactEmail: 'hello@drivewaygatessurrey.uk',
+  gaId: 'G-TSR9FSETF5',
+  // Replace with the real Bing Webmaster verification code.
+  // Sign up at https://www.bing.com/webmasters, add the site,
+  // select Meta tag verification, copy the content="..." value here.
+  bingSiteVerification: 'REPLACE_WITH_BING_VERIFICATION_CODE',
 };
 
 // Testimonials intentionally empty. Reintroduce only with real,

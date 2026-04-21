@@ -1,25 +1,10 @@
 import Link from 'next/link';
 import { ChevronRight } from 'lucide-react';
-import { siteConfig } from '@/data/site';
-
-interface BreadcrumbItem {
-  label: string;
-  href?: string;
-}
+import { buildBreadcrumbSchema, type BreadcrumbItem } from '@/lib/breadcrumbs';
 
 export function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
-  const allItems = [{ label: 'Home', href: '/' }, ...items];
-
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": allItems.map((item, i) => ({
-      "@type": "ListItem",
-      "position": i + 1,
-      "name": item.label,
-      ...(item.href ? { "item": `${siteConfig.url}${item.href}` } : {})
-    }))
-  };
+  const allItems: BreadcrumbItem[] = [{ label: 'Home', href: '/' }, ...items];
+  const schema = buildBreadcrumbSchema(items);
 
   return (
     <nav aria-label="Breadcrumb" className="mb-6">

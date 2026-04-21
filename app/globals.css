@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap');
+/*
+ * Fonts loaded via next/font in app/layout.tsx:
+ *   DM Sans   -> --font-sans    (body)
+ *   Fraunces  -> --font-display (headings)
+ *
+ * tailwind.config.js reads these CSS variables in its fontFamily config,
+ * so font-sans, font-body, and font-display utilities resolve correctly.
+ */
 
 :root {
   --brand-50: #F7F5F0;
