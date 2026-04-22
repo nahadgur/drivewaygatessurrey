@@ -125,44 +125,72 @@ export function HomeClient() {
             EDITORIAL HERO
             H1 targets the primary query directly.
             Lede carries entity coverage for Google in natural prose.
-            16:10 image keeps the CTA above the fold on mobile.
+            Mobile-first: image below copy, 16:10, CTA above fold.
+            Desktop (lg+): two-column layout — copy left, taller image right.
             ============================================================ */}
-        <section className="editorial-container pt-6 pb-10">
-          <h1 className="font-display text-[2.2rem] md:text-[2.8rem] leading-[0.98] tracking-tight text-teal-ink mb-4" style={{ fontWeight: 400 }}>
-            Driveway Gates<br />
-            in <span className="italic-voice">Surrey.</span>
-          </h1>
+        <section className="editorial-container-wide pt-6 pb-10 md:pt-10 md:pb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-8 lg:gap-16 lg:items-center">
 
-          <p className="font-prose text-[17px] md:text-[18px] leading-[1.5] text-teal-ink/85 mb-3 max-w-prose-editorial">
-            A vetted network of Surrey driveway gate installers. Hand-forged wrought iron in Weybridge and Cobham. Hardwood gates in Farnham, Guildford, and the Surrey Hills. Electric and sliding gates across the county.
-          </p>
-          <p className="font-prose text-[17px] md:text-[18px] leading-[1.5] text-teal-ink/85 mb-7 max-w-prose-editorial">
-            Free site survey, three written quotes, no obligation.
-          </p>
+            {/* LEFT COLUMN: H1, lede, CTA */}
+            <div>
+              <h1 className="font-display text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] leading-[0.98] tracking-tight text-teal-ink mb-4 md:mb-6" style={{ fontWeight: 400 }}>
+                Driveway Gates<br />
+                in <span className="italic-voice">Surrey.</span>
+              </h1>
 
-          {/* Hero image — 16:10 landscape. Uses Next.js Image for optimisation. */}
-          <div className="relative w-full overflow-hidden mb-5" style={{ aspectRatio: '16/10' }}>
-            <Image
-              src="/images/gates/gate-wrought-iron-open-manor-brick-pillars.png"
-              alt="Ornate wrought iron driveway gates opened between brick piers on a Surrey manor house"
-              fill
-              priority
-              sizes="(min-width: 768px) 640px, 100vw"
-              className="object-cover"
-            />
-          </div>
-          <div className="flex items-center justify-end mb-7">
-            <div className="font-editorial italic text-[13px] text-teal-ink/70">
-              Wrought iron installation, Weybridge
+              <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 mb-3 max-w-prose-editorial">
+                A vetted network of Surrey driveway gate installers. Hand-forged wrought iron in Weybridge and Cobham. Hardwood gates in Farnham, Guildford, and the Surrey Hills. Electric and sliding gates across the county.
+              </p>
+              <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 mb-7 max-w-prose-editorial">
+                Free site survey, three written quotes, no obligation.
+              </p>
+
+              {/* Mobile: image lives between copy and CTA, above fold */}
+              <div className="lg:hidden">
+                <div className="relative w-full overflow-hidden mb-3" style={{ aspectRatio: '16/10' }}>
+                  <Image
+                    src="/images/gates/gate-wrought-iron-open-manor-brick-pillars.png"
+                    alt="Ornate wrought iron driveway gates opened between brick piers on a Surrey manor house"
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 100vw, 640px"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex items-center justify-end mb-7">
+                  <div className="font-editorial italic text-[13px] text-teal-ink/70">
+                    Wrought iron installation, Weybridge
+                  </div>
+                </div>
+              </div>
+
+              <PrimaryCTA
+                label="Get Three Free Quotes"
+                onClick={openModal}
+                leftMeta="Free site survey"
+                rightMeta="Reply within 4 hours"
+              />
+            </div>
+
+            {/* RIGHT COLUMN (desktop only): taller image */}
+            <div className="hidden lg:block">
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/5' }}>
+                <Image
+                  src="/images/gates/gate-wrought-iron-open-manor-brick-pillars.png"
+                  alt="Ornate wrought iron driveway gates opened between brick piers on a Surrey manor house"
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 600px, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex items-center justify-end mt-3">
+                <div className="font-editorial italic text-[13px] text-teal-ink/70">
+                  Wrought iron installation, Weybridge
+                </div>
+              </div>
             </div>
           </div>
-
-          <PrimaryCTA
-            label="Get Three Free Quotes"
-            onClick={openModal}
-            leftMeta="Free site survey"
-            rightMeta="Reply within 4 hours"
-          />
         </section>
 
         {/* ============================================================
@@ -198,12 +226,12 @@ export function HomeClient() {
             service hubs. Each item names the cities where it's strongest.
             ============================================================ */}
         <section className="bg-paper">
-          <div className="editorial-container py-10 md:py-14">
+          <div className="editorial-container-wide py-10 md:py-16">
             <SectionHeader
               title="Surrey gate services"
               subtitle="Six specialisms, one vetted network."
             />
-            <div>
+            <div className="md:grid md:grid-cols-2 md:gap-x-12">
               {SERVICE_INDEX.map((s) => (
                 <ServiceCard key={s.href} {...s} />
               ))}
@@ -214,14 +242,15 @@ export function HomeClient() {
         {/* ============================================================
             AREAS WE COVER
             16-city grid + "view all 37" anchor. Big internal-link boost.
+            Desktop: 4-column grid for a tighter visual block.
             ============================================================ */}
         <section className="bg-white border-y border-teal-line">
-          <div className="editorial-container py-10 md:py-14">
+          <div className="editorial-container-wide py-10 md:py-16">
             <SectionHeader
               title="Areas we cover"
               subtitle="Installers active across Surrey's boroughs."
             />
-            <div className="grid grid-cols-2 gap-x-6 gap-y-0">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 lg:gap-x-10 gap-y-0">
               {FEATURED_LOCATIONS.map((city) => (
                 <LocationPill key={city} name={city} href={`/location/${toSlug(city)}/`} />
               ))}
@@ -241,12 +270,12 @@ export function HomeClient() {
             "Why Us" section, re-voiced for the editorial register.
             ============================================================ */}
         <section className="bg-paper">
-          <div className="editorial-container py-10 md:py-14">
+          <div className="editorial-container-wide py-10 md:py-16">
             <SectionHeader
               title="Why Surrey homeowners use this service"
               subtitle="Specialists, not generalists. Surrey-specific knowledge, not a national call centre."
             />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mt-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 md:gap-y-8 mt-2">
               {WHY_US.map((w, i) => (
                 <div key={i} className="py-5 border-t border-teal-ink">
                   <div className="text-[11px] tracking-[0.2em] uppercase text-teal-brand font-medium mb-3">

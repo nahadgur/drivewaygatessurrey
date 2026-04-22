@@ -32,9 +32,20 @@ body {
    COMPONENT LAYER
    ========================================================= */
 @layer components {
-  /* Standard mobile-first container with editorial padding. */
+  /* Standard editorial container.
+     Mobile-first, widens at md+ for desktop. Used for text-focused sections
+     (prose, FAQs, legal, CTA cards). Caps at ~720px so editorial prose
+     doesn't run too long to read comfortably. */
   .editorial-container {
-    @apply px-5 max-w-[640px] mx-auto w-full;
+    @apply px-5 md:px-8 max-w-[640px] md:max-w-[720px] mx-auto w-full;
+  }
+
+  /* Wider editorial container for sections that use grids or two-column
+     layouts (hero with sidebar form, service index, location grids).
+     Caps at ~1200px — wide enough to give grids breathing room without
+     becoming a full-bleed layout. */
+  .editorial-container-wide {
+    @apply px-5 md:px-8 max-w-[640px] md:max-w-[1200px] mx-auto w-full;
   }
 
   /* Section spacing rhythm for mobile-first pages. */

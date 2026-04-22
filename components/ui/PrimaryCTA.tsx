@@ -20,7 +20,7 @@ export function PrimaryCTA({
   rightMeta = 'Reply within 4 hours',
 }: PrimaryCTAProps) {
   return (
-    <div>
+    <div className="max-w-[440px]">
       {href ? (
         <Button href={href} variant="primary" fullWidth showArrow>{label}</Button>
       ) : (

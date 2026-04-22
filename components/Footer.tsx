@@ -39,7 +39,7 @@ const FOOTER_NAV = [
 export function Footer() {
   return (
     <footer className="bg-paper border-t border-teal-line mt-auto">
-      <div className="editorial-container py-10">
+      <div className="editorial-container-wide py-10 md:py-14">
         <div className="border-b border-teal-line pb-8 mb-8">
           <div className="font-display text-[1.8rem] leading-tight tracking-tight text-teal-ink mb-1" style={{ fontWeight: 400 }}>
             Driveway Gates in <span className="italic-voice">Surrey.</span>

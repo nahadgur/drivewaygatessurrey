@@ -57,9 +57,9 @@ export function Header({ onOpenModal }: HeaderProps) {
   }, [menuOpen]);
 
   return (
-    <header className="editorial-container pt-5 pb-4 border-b border-teal-ink sticky top-0 bg-paper z-30">
-      <div className="flex items-end justify-between">
-        <Link href="/" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-brand">
+    <header className="editorial-container-wide pt-5 pb-4 border-b border-teal-ink sticky top-0 bg-paper z-30">
+      <div className="flex items-end justify-between gap-6">
+        <Link href="/" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-brand flex-shrink-0">
           <div className="font-display text-[1.35rem] leading-none tracking-tight text-teal-ink" style={{ fontWeight: 500 }}>
             Driveway Gates Surrey
           </div>
@@ -67,11 +67,36 @@ export function Header({ onOpenModal }: HeaderProps) {
             vetted installers, free quotes
           </div>
         </Link>
+
+        {/* Desktop inline nav — hidden on mobile */}
+        <nav className="hidden lg:flex items-center gap-8 ml-auto">
+          <Link href="/services/" className="font-display text-[15px] text-teal-ink hover:text-teal-brand transition-colors" style={{ fontWeight: 500 }}>
+            Services
+          </Link>
+          <Link href="/location/" className="font-display text-[15px] text-teal-ink hover:text-teal-brand transition-colors" style={{ fontWeight: 500 }}>
+            Areas
+          </Link>
+          <Link href="/blog/" className="font-display text-[15px] text-teal-ink hover:text-teal-brand transition-colors" style={{ fontWeight: 500 }}>
+            Blog
+          </Link>
+          <Link href="/contact/" className="font-display text-[15px] text-teal-ink hover:text-teal-brand transition-colors" style={{ fontWeight: 500 }}>
+            Contact
+          </Link>
+          <button
+            onClick={() => onOpenModal?.()}
+            className="btn-primary !py-2.5 !px-5 !text-[13px]"
+          >
+            <span>Get Quotes</span>
+            <ArrowUpRight className="w-4 h-4" strokeWidth={1.5} />
+          </button>
+        </nav>
+
+        {/* Mobile/tablet hamburger — hidden on lg+ */}
         <button
           onClick={() => setMenuOpen(true)}
           aria-label="Open menu"
           aria-expanded={menuOpen}
-          className="mb-1 p-1 -mr-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-brand"
+          className="lg:hidden mb-1 p-1 -mr-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-brand"
         >
           <Menu className="w-5 h-5" strokeWidth={1.5} />
         </button>

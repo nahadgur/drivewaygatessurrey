@@ -36,17 +36,17 @@ export default function ServicesIndexPage() {
 
         {/* SERVICE LIST — cards with image + title + description */}
         <section className="bg-white border-y border-teal-ink">
-          <div className="editorial-container py-10 md:py-14">
+          <div className="editorial-container-wide py-10 md:py-16">
             <SectionHeader title="Six gate services" subtitle="Every Surrey property type." />
-            <div className="space-y-6 md:space-y-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-12 gap-y-0 lg:gap-y-4">
               {services.map(service => (
-                <article key={service.id} className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-5 md:gap-8 pb-6 md:pb-8 border-b border-teal-line last:border-b-0">
+                <article key={service.id} className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-5 md:gap-8 py-6 md:py-8 border-b border-teal-line last:border-b-0 lg:last:border-b">
                   <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3' }}>
                     <Image
                       src={service.image}
                       alt={service.title}
                       fill
-                      sizes="(min-width: 768px) 200px, 100vw"
+                      sizes="(min-width: 1024px) 200px, (min-width: 768px) 200px, 100vw"
                       className="object-cover"
                     />
                   </div>

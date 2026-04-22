@@ -54,8 +54,8 @@ export function ServiceLocationClient({ params, intro }: ServiceLocationClientPr
 
         {/* BESPOKE INTRO + LEAD FORM */}
         <section className="bg-white border-y border-teal-ink">
-          <div className="editorial-container py-10 md:py-14">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 lg:gap-14">
+          <div className="editorial-container-wide py-10 md:py-16">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 lg:gap-16">
 
               {/* Bespoke intro from cityServiceContent.ts */}
               <div>

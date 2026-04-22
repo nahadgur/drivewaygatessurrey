@@ -14,8 +14,8 @@ interface CTACardProps {
 
 export function CTACard({ title, italicAccent, body, ctaLabel, onCtaClick, ctaHref }: CTACardProps) {
   return (
-    <div className="bg-white p-6 md:p-8 border-2 border-teal-ink">
-      <h3 className="font-display text-[1.4rem] leading-tight tracking-tight text-teal-ink mb-3" style={{ fontWeight: 400 }}>
+    <div className="bg-white p-6 md:p-10 lg:p-12 border-2 border-teal-ink">
+      <h3 className="font-display text-[1.4rem] md:text-[1.9rem] leading-tight tracking-tight text-teal-ink mb-3 md:mb-4" style={{ fontWeight: 400 }}>
         {title}
         {italicAccent && (
           <>
@@ -24,18 +24,20 @@ export function CTACard({ title, italicAccent, body, ctaLabel, onCtaClick, ctaHr
           </>
         )}
       </h3>
-      <p className="font-prose text-[15px] leading-relaxed text-teal-ink/80 mb-5">
+      <p className="font-prose text-[15px] md:text-[17px] leading-relaxed text-teal-ink/80 mb-5 md:mb-6 max-w-prose-editorial">
         {body}
       </p>
-      {ctaHref ? (
-        <Button href={ctaHref} variant="primary" fullWidth showArrow>
-          {ctaLabel}
-        </Button>
-      ) : (
-        <Button onClick={onCtaClick} variant="primary" fullWidth showArrow>
-          {ctaLabel}
-        </Button>
-      )}
+      <div className="max-w-[400px]">
+        {ctaHref ? (
+          <Button href={ctaHref} variant="primary" fullWidth showArrow>
+            {ctaLabel}
+          </Button>
+        ) : (
+          <Button onClick={onCtaClick} variant="primary" fullWidth showArrow>
+            {ctaLabel}
+          </Button>
+        )}
+      </div>
     </div>
   );
 }

@@ -65,7 +65,7 @@ export default function LocationIndexPage() {
 
         {/* LOCATIONS BY REGION */}
         <section className="bg-white border-y border-teal-ink">
-          <div className="editorial-container py-10 md:py-14">
+          <div className="editorial-container-wide py-10 md:py-16">
             <SectionHeader title="By region" subtitle="Surrey grouped by the areas our installers cover." />
             <div className="space-y-10">
               {Object.entries(filteredLocations).map(([region, cities]) => (
@@ -73,7 +73,7 @@ export default function LocationIndexPage() {
                   <h2 className="font-display text-[1.4rem] leading-tight tracking-tight text-teal-ink mb-4 pb-2 border-b-2 border-teal-ink" style={{ fontWeight: 500 }}>
                     {region}
                   </h2>
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-0">
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 lg:gap-x-10 gap-y-0">
                     {cities.map(city => (
                       <LocationPill key={city} name={city} href={`/location/${toSlug(city)}/`} />
                     ))}

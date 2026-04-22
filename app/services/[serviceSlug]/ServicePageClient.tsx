@@ -266,8 +266,8 @@ export function ServicePageClient({ params }: { params: { serviceSlug: string } 
 
         {/* LONG-FORM INTRO + LEAD FORM */}
         <section className="bg-white border-y border-teal-ink">
-          <div className="editorial-container py-10 md:py-14">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 lg:gap-14">
+          <div className="editorial-container-wide py-10 md:py-16">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 lg:gap-16">
               <div>
                 <SectionHeader
                   title={<>{service.title}<br /><span className="italic-voice">in context.</span></>}
@@ -286,12 +286,12 @@ export function ServicePageClient({ params }: { params: { serviceSlug: string } 
 
         {/* BENEFITS */}
         <section className="bg-paper">
-          <div className="editorial-container py-10 md:py-14">
+          <div className="editorial-container-wide py-10 md:py-16">
             <SectionHeader
               title={<>Benefits of <span className="italic-voice">{service.title.toLowerCase()}.</span></>}
               subtitle="Why this specification works."
             />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 md:gap-y-8">
               {content.benefits.map((b, i) => (
                 <div key={i} className="py-5 border-t border-teal-ink">
                   <div className="text-[11px] tracking-[0.2em] uppercase text-teal-brand font-medium mb-2">
@@ -363,7 +363,7 @@ export function ServicePageClient({ params }: { params: { serviceSlug: string } 
 
         {/* PRICING — reuses existing component */}
         <section className="bg-white border-y border-teal-ink">
-          <div className="editorial-container py-10 md:py-14">
+          <div className="editorial-container-wide py-10 md:py-16">
             <PricingSection serviceId={service.id} serviceName={service.title} />
           </div>
         </section>
@@ -371,7 +371,7 @@ export function ServicePageClient({ params }: { params: { serviceSlug: string } 
         {/* LOCATION FINDER */}
         {totalIndexedForService > 0 && (
           <section className="bg-paper">
-            <div className="editorial-container py-10 md:py-14">
+            <div className="editorial-container-wide py-10 md:py-16">
               <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-5">
                 <div>
                   <h2 className="section-heading">
@@ -418,7 +418,7 @@ export function ServicePageClient({ params }: { params: { serviceSlug: string } 
                       <h3 className="font-display text-[1.2rem] leading-tight tracking-tight text-teal-ink mb-3 pb-1 border-b-2 border-teal-ink" style={{ fontWeight: 500 }}>
                         {region}
                       </h3>
-                      <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-0">
+                      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 lg:gap-x-10 gap-y-0">
                         {cities.map((city) => (
                           <LocationPill
                             key={city}
@@ -464,9 +464,9 @@ export function ServicePageClient({ params }: { params: { serviceSlug: string } 
 
         {/* RELATED SERVICES */}
         <section className="bg-paper">
-          <div className="editorial-container py-10 md:py-14">
+          <div className="editorial-container-wide py-10 md:py-16">
             <SectionHeader title="Other gate services" subtitle="Explore the rest of the network." />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-0">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-12 gap-y-0">
               {relatedServices.map((s) => (
                 <LocationPill key={s.id} name={s.title} href={`/services/${s.slug}/`} />
               ))}

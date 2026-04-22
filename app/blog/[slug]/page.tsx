@@ -275,8 +275,8 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
 
         {/* CONTENT + SIDEBAR */}
         <section className="bg-white border-t border-teal-ink">
-          <div className="editorial-container py-10 md:py-14">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 lg:gap-14">
+          <div className="editorial-container-wide py-10 md:py-16">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-10 lg:gap-16">
 
               <article className="max-w-prose-editorial">
                 <ContentRenderer blocks={article.content} onOpenModal={() => setIsModalOpen(true)} />
@@ -364,7 +364,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
         {/* BOTTOM RELATED ARTICLES */}
         {bottomRelated.length > 0 && (
           <section className="bg-paper border-t border-teal-ink">
-            <div className="editorial-container py-10 md:py-14">
+            <div className="editorial-container-wide py-10 md:py-16">
               <div className="mb-6">
                 <h2 className="section-heading">
                   More <span className="italic-voice">to read.</span>

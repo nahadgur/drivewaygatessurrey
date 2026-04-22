@@ -61,8 +61,8 @@ export function LocationHubClient({ params, intro }: LocationHubClientProps) {
 
         {/* BESPOKE INTRO + LEAD FORM */}
         <section className="bg-white border-y border-teal-ink">
-          <div className="editorial-container py-10 md:py-14">
-            <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 lg:gap-14">
+          <div className="editorial-container-wide py-10 md:py-16">
+            <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-10 lg:gap-16">
 
               {/* Bespoke intro — 2 paragraphs from cityServiceContent.ts */}
               <div>
@@ -85,12 +85,12 @@ export function LocationHubClient({ params, intro }: LocationHubClientProps) {
         {/* SERVICES AVAILABLE IN THIS CITY */}
         {indexedServicesForCity.length > 0 && (
           <section className="bg-paper">
-            <div className="editorial-container py-10 md:py-14">
+            <div className="editorial-container-wide py-10 md:py-16">
               <SectionHeader
                 title={<>Services in <span className="italic-voice">{cityName}.</span></>}
                 subtitle="Each linked to a dedicated page for your area."
               />
-              <div>
+              <div className="md:grid md:grid-cols-2 md:gap-x-12">
                 {indexedServicesForCity.map((service) => (
                   <ServiceCard
                     key={service.id}

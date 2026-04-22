@@ -103,12 +103,12 @@ export function ContactClient() {
 
         {/* REASONS */}
         <section className="bg-paper">
-          <div className="editorial-container py-10 md:py-14">
+          <div className="editorial-container-wide py-10 md:py-16">
             <SectionHeader
               title="What to email us about"
               subtitle="Three common reasons."
             />
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mt-2">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-x-12 gap-y-6 md:gap-y-8 mt-2">
               {reasonCards.map((card, i) => (
                 <div key={card.title} className="py-5 border-t border-teal-ink">
                   <div className="text-teal-accent mb-3">

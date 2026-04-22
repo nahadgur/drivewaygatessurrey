@@ -57,7 +57,7 @@ export default function BlogIndexPage() {
 
         {/* FILTER BAR */}
         <section className="border-y border-teal-ink bg-white sticky top-[88px] z-20">
-          <div className="editorial-container py-4">
+          <div className="editorial-container-wide py-4">
             <div className="flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
 
               {/* Category pills */}
@@ -94,7 +94,7 @@ export default function BlogIndexPage() {
 
         {/* ARTICLE LIST */}
         <section className="bg-paper">
-          <div className="editorial-container py-10 md:py-14">
+          <div className="editorial-container-wide py-10 md:py-16">
 
             {filtered.length === 0 ? (
               <div className="py-16 text-center">
@@ -116,13 +116,13 @@ export default function BlogIndexPage() {
                     href={`/blog/${featured.slug}/`}
                     className="group block mb-12 border-t-2 border-b border-teal-ink pt-6 pb-8"
                   >
-                    <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] gap-6 md:gap-10">
+                    <div className="grid grid-cols-1 md:grid-cols-[240px_1fr] lg:grid-cols-[400px_1fr] gap-6 md:gap-10 lg:gap-14">
                       <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3' }}>
                         <Image
                           src={featured.featuredImage}
                           alt={featured.title}
                           fill
-                          sizes="(min-width: 768px) 240px, 100vw"
+                          sizes="(min-width: 1024px) 400px, (min-width: 768px) 240px, 100vw"
                           className="object-cover"
                         />
                       </div>
@@ -137,10 +137,10 @@ export default function BlogIndexPage() {
                               {featured.category}
                             </span>
                           </div>
-                          <h2 className="font-display text-[1.6rem] md:text-[2rem] leading-[1.05] tracking-tight text-teal-ink mb-3 group-hover:text-teal-brand transition-colors" style={{ fontWeight: 500 }}>
+                          <h2 className="font-display text-[1.6rem] md:text-[2rem] lg:text-[2.4rem] leading-[1.05] tracking-tight text-teal-ink mb-3 group-hover:text-teal-brand transition-colors" style={{ fontWeight: 500 }}>
                             {featured.title}
                           </h2>
-                          <p className="font-prose text-[15px] md:text-[16px] leading-[1.55] text-teal-ink/75 mb-4">
+                          <p className="font-prose text-[15px] md:text-[17px] leading-[1.55] text-teal-ink/75 mb-4">
                             {featured.excerpt}
                           </p>
                         </div>
@@ -159,7 +159,7 @@ export default function BlogIndexPage() {
 
                 {/* Grid of rest */}
                 {rest.length > 0 && (
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-10 gap-y-10">
                     {rest.map(article => (
                       <Link
                         key={article.slug}
@@ -171,7 +171,7 @@ export default function BlogIndexPage() {
                             src={article.featuredImage}
                             alt={article.title}
                             fill
-                            sizes="(min-width: 768px) 50vw, 100vw"
+                            sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                             className="object-cover"
                           />
                         </div>
