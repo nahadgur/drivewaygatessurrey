@@ -2,6 +2,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Image from 'next/image';
 import { Search } from 'lucide-react';
 import { LOCATIONS, toSlug } from '@/data/locations';
 import { FAQS_LOCATION } from '@/data/site';
@@ -40,26 +41,40 @@ export default function LocationIndexPage() {
       <main className="flex-grow">
 
         {/* HERO */}
-        <section className="editorial-container pt-6 pb-8">
+        <section className="editorial-container-wide pt-6 pb-10 md:pt-10 md:pb-16">
           <Breadcrumbs items={[{ label: 'Locations' }]} />
-          <h1 className="font-display text-[2.2rem] md:text-[2.8rem] leading-[0.98] tracking-tight text-teal-ink mb-4" style={{ fontWeight: 400 }}>
-            Gate installers<br />
-            across <span className="italic-voice">Surrey.</span>
-          </h1>
-          <p className="font-prose text-[17px] md:text-[18px] leading-[1.5] text-teal-ink/85 mb-6 max-w-prose-editorial">
-            {totalCount} towns covered across every part of the county, from the stockbroker belt in the north to the AONB villages in the south. Find a specialist for your area.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 lg:gap-16 lg:items-center mt-4">
+            <div>
+              <h1 className="font-display text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] leading-[0.98] tracking-tight text-teal-ink mb-4 md:mb-6" style={{ fontWeight: 400 }}>
+                Gate installers<br />
+                across <span className="italic-voice">Surrey.</span>
+              </h1>
+              <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 mb-6 max-w-prose-editorial">
+                {totalCount} towns covered across every part of the county, from the stockbroker belt in the north to the AONB villages in the south. Find a specialist for your area.
+              </p>
 
-          {/* Search */}
-          <div className="relative max-w-md">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-teal-muted w-5 h-5" strokeWidth={1.5} />
-            <input
-              type="text"
-              placeholder="Search your town or area..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3.5 border-2 border-teal-line bg-white text-teal-ink placeholder-teal-muted text-[15px] focus:outline-none focus:border-teal-brand transition-colors"
-            />
+              {/* Search */}
+              <div className="relative max-w-md">
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-teal-muted w-5 h-5" strokeWidth={1.5} />
+                <input
+                  type="text"
+                  placeholder="Search your town or area..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3.5 border-2 border-teal-line bg-white text-teal-ink placeholder-teal-muted text-[15px] focus:outline-none focus:border-teal-brand transition-colors"
+                />
+              </div>
+            </div>
+            <div className="relative w-full overflow-hidden" style={{ aspectRatio: '5/4' }}>
+              <Image
+                src="/images/gates/gate-aerial-wrought-iron-closed-topiary-gravel-circle.png"
+                alt="Aerial view of a Surrey estate with wrought iron driveway gates and a gravel circle drive"
+                fill
+                priority
+                sizes="(min-width: 1024px) 600px, 100vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </section>
 

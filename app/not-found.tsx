@@ -28,15 +28,15 @@ export default function NotFound() {
 
       <main className="flex-grow">
 
-        <section className="editorial-container pt-10 pb-10">
+        <section className="editorial-container-wide pt-10 pb-10 md:pt-16 md:pb-14">
           <div className="text-[11px] tracking-[0.3em] uppercase text-teal-brand font-medium mb-4">
             Error 404
           </div>
-          <h1 className="font-display text-[2.4rem] md:text-[3rem] leading-[0.98] tracking-tight text-teal-ink mb-4" style={{ fontWeight: 400 }}>
+          <h1 className="font-display text-[2.4rem] md:text-[3rem] lg:text-[3.5rem] leading-[0.98] tracking-tight text-teal-ink mb-4 md:mb-6" style={{ fontWeight: 400 }}>
             Page not<br />
             <span className="italic-voice">found.</span>
           </h1>
-          <p className="font-prose text-[17px] md:text-[18px] leading-[1.5] text-teal-ink/85 max-w-prose-editorial mb-7">
+          <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 max-w-prose-editorial mb-7">
             The page you asked for does not exist or has been moved. The most useful places to start are below.
           </p>
           <div className="flex gap-3 flex-wrap">
@@ -46,7 +46,7 @@ export default function NotFound() {
         </section>
 
         <section className="bg-white border-y border-teal-ink">
-          <div className="editorial-container py-10 md:py-14">
+          <div className="editorial-container-wide py-10 md:py-16">
             <SectionHeader title="Popular destinations" subtitle="Places the site is most often used." />
             <div>
               {popularPages.map((p) => (

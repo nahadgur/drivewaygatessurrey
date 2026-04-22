@@ -236,40 +236,42 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
 
       <main className="flex-grow">
 
-        {/* HERO — editorial. Image below the title, not a dark overlay. */}
-        <section className="editorial-container pt-6 pb-8">
+        {/* HERO — editorial two-column. Image right on desktop. */}
+        <section className="editorial-container-wide pt-6 pb-10 md:pt-10 md:pb-16">
           <Breadcrumbs items={[
             { label: 'Blog', href: '/blog/' },
             { label: article.category },
           ]} />
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 lg:gap-16 lg:items-center mt-4">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-[11px] tracking-[0.2em] uppercase text-teal-brand font-medium">
+                  {article.category}
+                </span>
+                <span className="text-teal-line">·</span>
+                <span className="font-mono text-[11px] tracking-wider uppercase text-teal-muted">
+                  {formatDate(article.publishDate)}
+                </span>
+              </div>
 
-          <div className="flex items-center gap-3 mb-4 mt-2">
-            <span className="text-[11px] tracking-[0.2em] uppercase text-teal-brand font-medium">
-              {article.category}
-            </span>
-            <span className="text-teal-line">·</span>
-            <span className="font-mono text-[11px] tracking-wider uppercase text-teal-muted">
-              {formatDate(article.publishDate)}
-            </span>
-          </div>
+              <h1 className="font-display text-[2.2rem] md:text-[3rem] lg:text-[3.4rem] leading-[1] tracking-tight text-teal-ink mb-5 md:mb-6" style={{ fontWeight: 400 }}>
+                {article.title}
+              </h1>
 
-          <h1 className="font-display text-[2.2rem] md:text-[2.8rem] leading-[1] tracking-tight text-teal-ink mb-6" style={{ fontWeight: 400 }}>
-            {article.title}
-          </h1>
-
-          <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 max-w-prose-editorial mb-6">
-            {article.excerpt}
-          </p>
-
-          <div className="relative w-full overflow-hidden mb-2 border border-teal-line" style={{ aspectRatio: '16/9' }}>
-            <Image
-              src={article.featuredImage}
-              alt={article.title}
-              fill
-              priority
-              sizes="(min-width: 1024px) 900px, 100vw"
-              className="object-cover"
-            />
+              <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 max-w-prose-editorial">
+                {article.excerpt}
+              </p>
+            </div>
+            <div className="relative w-full overflow-hidden border border-teal-line" style={{ aspectRatio: '5/4' }}>
+              <Image
+                src={article.featuredImage}
+                alt={article.title}
+                fill
+                priority
+                sizes="(min-width: 1024px) 600px, 100vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </section>
 

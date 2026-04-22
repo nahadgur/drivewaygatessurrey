@@ -2,6 +2,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { getServiceBySlug } from '@/data/services';
 import { getCityBySlug } from '@/data/locations';
@@ -37,19 +38,33 @@ export function ServiceLocationClient({ params, intro }: ServiceLocationClientPr
       <main className="flex-grow">
 
         {/* HERO */}
-        <section className="editorial-container pt-6 pb-8">
+        <section className="editorial-container-wide pt-6 pb-10 md:pt-10 md:pb-16">
           <Breadcrumbs items={[
             { label: 'Gate Services', href: '/services/' },
             { label: service.title, href: `/services/${service.slug}/` },
             { label: cityName },
           ]} />
-          <h1 className="font-display text-[2.2rem] md:text-[2.8rem] leading-[0.98] tracking-tight text-teal-ink mb-4" style={{ fontWeight: 400 }}>
-            {service.title}<br />
-            in <span className="italic-voice">{cityName}.</span>
-          </h1>
-          <p className="font-prose text-[17px] md:text-[18px] leading-[1.5] text-teal-ink/85 max-w-prose-editorial">
-            Surrey {service.title.toLowerCase()} specialists covering {cityName}. Free site survey, three written quotes, no obligation to proceed.
-          </p>
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-8 lg:gap-16 lg:items-center mt-4">
+            <div>
+              <h1 className="font-display text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] leading-[0.98] tracking-tight text-teal-ink mb-4 md:mb-6" style={{ fontWeight: 400 }}>
+                {service.title}<br />
+                in <span className="italic-voice">{cityName}.</span>
+              </h1>
+              <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 max-w-prose-editorial">
+                Surrey {service.title.toLowerCase()} specialists covering {cityName}. Free site survey, three written quotes, no obligation to proceed.
+              </p>
+            </div>
+            <div className="relative w-full overflow-hidden" style={{ aspectRatio: '5/4' }}>
+              <Image
+                src={service.image}
+                alt={`${service.title} in ${cityName}`}
+                fill
+                priority
+                sizes="(min-width: 1024px) 600px, 100vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
         </section>
 
         {/* BESPOKE INTRO + LEAD FORM */}

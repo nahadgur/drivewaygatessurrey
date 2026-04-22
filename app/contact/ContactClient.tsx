@@ -64,13 +64,13 @@ export function ContactClient() {
       <main className="flex-grow">
 
         {/* HERO */}
-        <section className="editorial-container pt-6 pb-10">
+        <section className="editorial-container-wide pt-6 pb-10 md:pt-10 md:pb-16">
           <Breadcrumbs items={[{ label: 'Contact' }]} />
-          <h1 className="font-display text-[2.2rem] md:text-[2.8rem] leading-[0.98] tracking-tight text-teal-ink mb-4" style={{ fontWeight: 400 }}>
+          <h1 className="font-display text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] leading-[0.98] tracking-tight text-teal-ink mb-4 md:mb-6 mt-4" style={{ fontWeight: 400 }}>
             Contact<br />
             <span className="italic-voice">Driveway Gates Surrey.</span>
           </h1>
-          <p className="font-prose text-[17px] md:text-[18px] leading-[1.5] text-teal-ink/85 max-w-prose-editorial">
+          <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 max-w-prose-editorial">
             The fastest way to get matched with vetted Surrey gate installers is the enquiry form on any page. For everything else, email us directly.
           </p>
         </section>

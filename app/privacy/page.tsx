@@ -33,9 +33,9 @@ export default function PrivacyPage() {
 
       <main className="flex-grow">
 
-        <section className="editorial-container pt-6 pb-10">
+        <section className="editorial-container-wide pt-6 pb-10 md:pt-10 md:pb-14">
           <Breadcrumbs items={[{ label: 'Privacy Policy' }]} />
-          <h1 className="font-display text-[2.2rem] md:text-[2.8rem] leading-[0.98] tracking-tight text-teal-ink mb-3" style={{ fontWeight: 400 }}>
+          <h1 className="font-display text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] leading-[0.98] tracking-tight text-teal-ink mb-3 mt-4" style={{ fontWeight: 400 }}>
             Privacy <span className="italic-voice">policy.</span>
           </h1>
           <p className="font-mono text-[12px] tracking-wider text-teal-muted uppercase">

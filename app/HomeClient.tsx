@@ -172,9 +172,9 @@ export function HomeClient() {
               />
             </div>
 
-            {/* RIGHT COLUMN (desktop only): taller image */}
+            {/* RIGHT COLUMN (desktop only): landscape image */}
             <div className="hidden lg:block">
-              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/5' }}>
+              <div className="relative w-full overflow-hidden" style={{ aspectRatio: '5/4' }}>
                 <Image
                   src="/images/gates/gate-wrought-iron-open-manor-brick-pillars.png"
                   alt="Ornate wrought iron driveway gates opened between brick piers on a Surrey manor house"
