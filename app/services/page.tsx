@@ -2,13 +2,15 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import { services } from '@/data/services';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { Hero } from '@/components/Hero';
 import { LeadFormModal } from '@/components/LeadFormModal';
+import { SectionHeader } from '@/components/ui/SectionHeader';
+import { ServiceCard } from '@/components/ui/ServiceCard';
+import { CTACard } from '@/components/ui/CTACard';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export default function ServicesIndexPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,36 +19,68 @@ export default function ServicesIndexPage() {
     <>
       <LeadFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <Header onOpenModal={() => setIsModalOpen(true)} />
+
       <main className="flex-grow">
-        <Hero
-          title="Surrey Driveway Gate Services"
-          subtitle="Wrought iron, hardwood, fabricated steel, aluminium sliding, full automation, and repair. Specialists for every gate type and every Surrey property."
-          image="/images/gates/gate-aluminium-sliding-horizontal-modern-new-build.png"
-          showCta={false}
-          showTrust={false}
-        />
-        <section className="section-padding">
-          <div className="container-width">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        {/* HERO */}
+        <section className="editorial-container pt-6 pb-10">
+          <Breadcrumbs items={[{ label: 'Gate Services' }]} />
+          <h1 className="font-display text-[2.2rem] md:text-[2.8rem] leading-[0.98] tracking-tight text-teal-ink mb-4" style={{ fontWeight: 400 }}>
+            Surrey driveway<br />
+            gate <span className="italic-voice">services.</span>
+          </h1>
+          <p className="font-prose text-[17px] md:text-[18px] leading-[1.5] text-teal-ink/85 max-w-prose-editorial">
+            Wrought iron, hardwood, sliding, swing, and full automation. A vetted network of Surrey specialists, each focused on residential gate installation as their primary trade.
+          </p>
+        </section>
+
+        {/* SERVICE LIST — cards with image + title + description */}
+        <section className="bg-white border-y border-teal-ink">
+          <div className="editorial-container py-10 md:py-14">
+            <SectionHeader title="Six gate services" subtitle="Every Surrey property type." />
+            <div className="space-y-6 md:space-y-8">
               {services.map(service => (
-                <Link key={service.id} href={`/services/${service.slug}/`} className="group flex gap-6 p-6 bg-white rounded-2xl border border-gray-100 hover:border-brand-300 hover:shadow-lg transition-all">
-                  <div className="w-32 h-32 rounded-xl overflow-hidden flex-shrink-0">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={service.image} alt={service.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                <article key={service.id} className="grid grid-cols-1 md:grid-cols-[200px_1fr] gap-5 md:gap-8 pb-6 md:pb-8 border-b border-teal-line last:border-b-0">
+                  <div className="relative w-full overflow-hidden" style={{ aspectRatio: '4/3' }}>
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(min-width: 768px) 200px, 100vw"
+                      className="object-cover"
+                    />
                   </div>
-                  <div className="flex flex-col">
-                    <h2 className="text-xl font-display font-bold text-gray-900 group-hover:text-brand-600 mb-2">{service.title}</h2>
-                    <p className="text-sm text-gray-600 mb-4 flex-grow">{service.description}</p>
-                    <span className="text-brand-600 font-medium text-sm flex items-center">
-                      Find installers <ArrowRight className="w-4 h-4 ml-1" />
-                    </span>
+                  <div>
+                    <ServiceCard
+                      title={service.title}
+                      subtitle=""
+                      href={`/services/${service.slug}/`}
+                    />
+                    <p className="font-prose text-[15px] leading-[1.55] text-teal-ink/80 mt-3">
+                      {service.description}
+                    </p>
                   </div>
-                </Link>
+                </article>
               ))}
             </div>
           </div>
         </section>
+
+        {/* FINAL CTA */}
+        <section className="bg-paper">
+          <div className="editorial-container py-10 md:py-14">
+            <CTACard
+              title="Not sure which service you need?"
+              italicAccent="We'll help you decide."
+              body="Submit your postcode and rough brief. We match you with installers whose experience covers your specific specification, and they advise at the site survey."
+              ctaLabel="Request Your Quotes"
+              onCtaClick={() => setIsModalOpen(true)}
+            />
+          </div>
+        </section>
+
       </main>
+
       <Footer />
     </>
   );

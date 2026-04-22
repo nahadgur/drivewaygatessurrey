@@ -2,82 +2,165 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
- * Fonts loaded via next/font in app/layout.tsx:
- *   DM Sans   -> --font-sans    (body)
- *   Fraunces  -> --font-display (headings)
- *
- * tailwind.config.js reads these CSS variables in its fontFamily config,
- * so font-sans, font-body, and font-display utilities resolve correctly.
- */
-
+/* =========================================================
+   BASE
+   ========================================================= */
 :root {
-  --brand-50: #F7F5F0;
-  --brand-100: #EDE8DC;
-  --brand-200: #DDD4C0;
-  --brand-300: #C9BA9C;
-  --brand-400: #B39D78;
-  --brand-500: #9A7D56;
-  --brand-600: #7D6343;
-  --brand-700: #614B33;
-  --brand-800: #463525;
-  --brand-900: #2E231A;
-  --brand-950: #1A150D;
+  --bg-paper: #f6f3ed;
+  --bg-soft:  #e4ecee;
+  --ink:      #15363d;
+  --deep:     #2b5863;
+  --brand:    #3e6e7a;
+  --muted:    #6a8088;
+  --line:     #cfd4d5;
+  --accent:   #c8a87a;
 }
 
-@layer base {
-  body {
-    @apply font-body text-gray-800 antialiased;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-display;
-  }
+html, body {
+  background-color: var(--bg-paper);
+  color: var(--ink);
 }
 
+body {
+  font-feature-settings: 'ss01', 'cv11';
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   COMPONENT LAYER
+   ========================================================= */
 @layer components {
-  .container-width {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  /* Standard mobile-first container with editorial padding. */
+  .editorial-container {
+    @apply px-5 max-w-[640px] mx-auto w-full;
   }
 
-  .section-padding {
-    @apply py-16 md:py-24;
+  /* Section spacing rhythm for mobile-first pages. */
+  .editorial-section {
+    @apply py-10 md:py-14;
   }
 
+  /* Reusable tight-stack for metadata rows (e.g. CTA meta under buttons). */
+  .meta-row {
+    @apply text-[11px] tracking-wide font-medium text-teal-brand;
+  }
+
+  /* Button base. Use via <Button /> component below or apply directly. */
+  .btn-base {
+    @apply inline-flex items-center justify-center gap-2 font-display font-medium
+           transition-transform active:scale-[0.99] focus-visible:outline-none
+           focus-visible:ring-2 focus-visible:ring-teal-brand focus-visible:ring-offset-2
+           focus-visible:ring-offset-paper;
+  }
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 active:bg-brand-700 text-white font-bold py-3 px-6 rounded-xl transition-all shadow-sm hover:shadow-md;
+    @apply btn-base bg-teal-ink text-white py-4 px-6 text-[17px] tracking-tight
+           shadow-cta;
   }
-
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-50 text-gray-800 font-bold py-3 px-6 rounded-xl border-2 border-gray-200 hover:border-brand-300 transition-all;
+    @apply btn-base bg-white text-teal-ink py-3.5 px-6 text-[15px] tracking-tight
+           border-2 border-teal-ink;
+  }
+  .btn-ghost {
+    @apply btn-base text-teal-brand text-[14px] font-medium py-2 px-0;
+  }
+
+  /* Editorial prose body. Applied to <div> or <article> wrapping long-form text. */
+  .prose-editorial {
+    @apply font-prose text-[17px] leading-[1.55] text-teal-ink/85;
+  }
+  .prose-editorial > * + * {
+    @apply mt-4;
+  }
+  .prose-editorial p {
+    @apply mb-0;
+  }
+  .prose-editorial a {
+    @apply text-teal-brand underline underline-offset-2 decoration-teal-brand/30
+           hover:decoration-teal-brand transition-colors;
+  }
+  .prose-editorial em,
+  .prose-editorial i {
+    @apply font-editorial italic text-teal-ink;
+  }
+  .prose-editorial strong {
+    @apply font-medium text-teal-ink;
+  }
+
+  /* Section headings inside pages. */
+  .section-heading {
+    @apply font-display text-[1.8rem] leading-tight tracking-tight text-teal-ink;
+    font-weight: 400;
+  }
+  .section-subheading {
+    @apply font-prose text-[16px] text-teal-ink/70 mt-1;
+  }
+
+  /* Editorial pill used in brass moments (CTA meta, hero tags). */
+  .editorial-pill {
+    @apply inline-flex items-center gap-1.5 text-[11px] font-medium text-teal-brand;
+  }
+
+  /* Hairline divider */
+  .hairline {
+    @apply border-t border-teal-line;
+  }
+  .hairline-strong {
+    @apply border-t border-teal-ink;
   }
 }
 
+/* =========================================================
+   UTILITIES
+   ========================================================= */
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  /* Italic editorial voice — apply to spans for the italic moments */
+  .italic-voice {
+    @apply font-editorial italic text-teal-brand;
+    font-weight: 400;
+  }
+
+  /* Brass gilded accent for small details */
+  .text-accent { color: var(--accent); }
+  .bg-accent   { background-color: var(--accent); }
+
+  /* Scrollbar hide */
+  .hide-scrollbar::-webkit-scrollbar { display: none; }
+  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+  /* First-letter editorial drop (for lede paragraphs on pages that need it) */
+  .first-letter-editorial::first-letter {
+    @apply font-display text-[3.2rem] leading-[0.9] float-left mr-2 mt-1;
+    color: var(--ink);
+    font-weight: 500;
   }
 }
 
-/* Modal animations */
-@keyframes backdrop-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* =========================================================
+   FOCUS STATES
+   ========================================================= */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
 }
-@keyframes backdrop-out {
-  from { opacity: 1; }
-  to { opacity: 0; }
-}
+
+/* =========================================================
+   MODAL ANIMATIONS — preserved from previous build
+   ========================================================= */
+.backdrop-in { animation: backdrop-in 0.3s ease-out forwards; }
+.backdrop-out { animation: backdrop-out 0.3s ease-in forwards; }
+.modal-in { animation: modal-in 0.3s ease-out forwards; }
+.modal-out { animation: modal-out 0.3s ease-in forwards; }
+
+@keyframes backdrop-in { from { opacity: 0 } to { opacity: 1 } }
+@keyframes backdrop-out { from { opacity: 1 } to { opacity: 0 } }
 @keyframes modal-in {
-  from { opacity: 0; transform: scale(0.95) translateY(10px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
 }
 @keyframes modal-out {
   from { opacity: 1; transform: scale(1) translateY(0); }
-  to { opacity: 0; transform: scale(0.95) translateY(10px); }
+  to   { opacity: 0; transform: scale(0.9) translateY(20px); }
 }
-
-.animate-backdrop-in { animation: backdrop-in 0.2s ease-out forwards; }
-.animate-backdrop-out { animation: backdrop-out 0.2s ease-in forwards; }
-.animate-modal-in { animation: modal-in 0.3s ease-out forwards; }
-.animate-modal-out { animation: modal-out 0.2s ease-in forwards; }

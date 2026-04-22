@@ -7,8 +7,9 @@ import { homepageFaqs } from './home-data';
 import { HomeClient } from './HomeClient';
 
 export const metadata: Metadata = {
-  title: 'Driveway Gates Surrey | Find Trusted Gate Installers Across Surrey',
-  description: siteConfig.description,
+  title: 'Driveway Gates Surrey | Vetted Installer Network, Free Quotes',
+  description:
+    'A vetted network of Surrey driveway gate installers. Wrought iron, hardwood, electric and sliding gates across Weybridge, Cobham, Guildford, Farnham and beyond. Free site surveys, three written quotes, no obligation.',
   alternates: { canonical: `${siteConfig.url}/` },
 };
 

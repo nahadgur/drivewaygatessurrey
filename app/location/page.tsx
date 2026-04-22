@@ -2,15 +2,17 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Link from 'next/link';
-import { MapPin, Search } from 'lucide-react';
+import { Search } from 'lucide-react';
 import { LOCATIONS, toSlug } from '@/data/locations';
 import { FAQS_LOCATION } from '@/data/site';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
-import { Hero } from '@/components/Hero';
-import { FAQ } from '@/components/FAQ';
 import { LeadFormModal } from '@/components/LeadFormModal';
+import { SectionHeader } from '@/components/ui/SectionHeader';
+import { LocationPill } from '@/components/ui/LocationPill';
+import { FAQAccordion } from '@/components/ui/FAQAccordion';
+import { CTACard } from '@/components/ui/CTACard';
+import { Breadcrumbs } from '@/components/Breadcrumbs';
 
 export default function LocationIndexPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,69 +22,99 @@ export default function LocationIndexPage() {
     if (!searchQuery) return LOCATIONS;
     const result: Record<string, string[]> = {};
     Object.entries(LOCATIONS).forEach(([region, cities]) => {
-      const filtered = cities.filter(city => city.toLowerCase().includes(searchQuery.toLowerCase()));
+      const filtered = cities.filter(city =>
+        city.toLowerCase().includes(searchQuery.toLowerCase())
+      );
       if (filtered.length > 0) result[region] = filtered;
     });
     return result;
   }, [searchQuery]);
 
+  const totalCount = Object.values(LOCATIONS).flat().length;
+
   return (
     <>
       <LeadFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
       <Header onOpenModal={() => setIsModalOpen(true)} />
+
       <main className="flex-grow">
-        <Hero
-          title="Gate Installers Across Surrey"
-          subtitle="75 towns covered across every part of the county. Find a specialist for your area and get free quotes with no obligation."
-          image="/images/gates/gate-aerial-wrought-iron-closed-topiary-gravel-circle.png"
-          onOpenModal={() => setIsModalOpen(true)}
-        />
 
-        <section className="section-padding">
-          <div className="container-width">
-            <div className="max-w-xl mx-auto mb-12">
-              <div className="relative">
-                <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
-                <input
-                  type="text"
-                  placeholder="Search your town or area..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition"
-                />
-              </div>
-            </div>
+        {/* HERO */}
+        <section className="editorial-container pt-6 pb-8">
+          <Breadcrumbs items={[{ label: 'Locations' }]} />
+          <h1 className="font-display text-[2.2rem] md:text-[2.8rem] leading-[0.98] tracking-tight text-teal-ink mb-4" style={{ fontWeight: 400 }}>
+            Gate installers<br />
+            across <span className="italic-voice">Surrey.</span>
+          </h1>
+          <p className="font-prose text-[17px] md:text-[18px] leading-[1.5] text-teal-ink/85 mb-6 max-w-prose-editorial">
+            {totalCount} towns covered across every part of the county, from the stockbroker belt in the north to the AONB villages in the south. Find a specialist for your area.
+          </p>
 
-            <div className="space-y-12">
+          {/* Search */}
+          <div className="relative max-w-md">
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-teal-muted w-5 h-5" strokeWidth={1.5} />
+            <input
+              type="text"
+              placeholder="Search your town or area..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-12 pr-4 py-3.5 border-2 border-teal-line bg-white text-teal-ink placeholder-teal-muted text-[15px] focus:outline-none focus:border-teal-brand transition-colors"
+            />
+          </div>
+        </section>
+
+        {/* LOCATIONS BY REGION */}
+        <section className="bg-white border-y border-teal-ink">
+          <div className="editorial-container py-10 md:py-14">
+            <SectionHeader title="By region" subtitle="Surrey grouped by the areas our installers cover." />
+            <div className="space-y-10">
               {Object.entries(filteredLocations).map(([region, cities]) => (
                 <div key={region}>
-                  <h2 className="text-2xl font-display font-bold text-gray-900 mb-6">{region}</h2>
-                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                  <h2 className="font-display text-[1.4rem] leading-tight tracking-tight text-teal-ink mb-4 pb-2 border-b-2 border-teal-ink" style={{ fontWeight: 500 }}>
+                    {region}
+                  </h2>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-0">
                     {cities.map(city => (
-                      <Link
-                        key={city}
-                        href={`/location/${toSlug(city)}/`}
-                        className="group block bg-gray-50 hover:bg-brand-50 border border-gray-100 hover:border-brand-200 rounded-xl p-4 transition-all"
-                      >
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-brand-500 flex-shrink-0" />
-                          <span className="font-medium text-gray-700 group-hover:text-brand-700 text-sm">{city}</span>
-                        </div>
-                      </Link>
+                      <LocationPill key={city} name={city} href={`/location/${toSlug(city)}/`} />
                     ))}
                   </div>
                 </div>
               ))}
+              {Object.keys(filteredLocations).length === 0 && (
+                <p className="font-prose text-[17px] text-teal-ink/70 italic">
+                  No towns matching "{searchQuery}". Try a nearby area or contact us directly.
+                </p>
+              )}
             </div>
           </div>
         </section>
 
-        <section className="section-padding bg-gray-50">
-          <div className="container-width max-w-3xl">
-            <FAQ faqs={FAQS_LOCATION} />
+        {/* FAQ */}
+        <section className="bg-paper">
+          <div className="editorial-container py-10 md:py-14">
+            <SectionHeader title="Common questions" subtitle="About gate installation across Surrey." />
+            <FAQAccordion
+              faqs={FAQS_LOCATION.map((f: { question: string; answer: string }) => ({ q: f.question, a: f.answer }))}
+              defaultOpenIndex={-1}
+            />
           </div>
         </section>
+
+        {/* CTA */}
+        <section className="bg-white border-t border-teal-ink">
+          <div className="editorial-container py-10 md:py-14">
+            <CTACard
+              title="Ready for three installer quotes?"
+              italicAccent="Anywhere in Surrey."
+              body="Submit your postcode and gate type. We match you with three vetted specialists covering your area. Free site surveys, detailed written quotes."
+              ctaLabel="Request Your Quotes"
+              onCtaClick={() => setIsModalOpen(true)}
+            />
+          </div>
+        </section>
+
       </main>
+
       <Footer />
     </>
   );

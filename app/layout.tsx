@@ -1,19 +1,19 @@
 // app/layout.tsx
 import type { Metadata } from 'next';
 import Script from 'next/script';
-import { DM_Sans, Fraunces } from 'next/font/google';
+import { Inter, Fraunces, Cormorant_Garamond, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/data/site';
 
-// Body / sans font. DM Sans (variable).
-const dmSans = DM_Sans({
+// Sans / body — Inter, variable weight
+const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-sans',
   weight: 'variable',
 });
 
-// Display / heading font. Fraunces (variable, optical size + weight).
+// Display — Fraunces, variable (optical size + weight)
 const fraunces = Fraunces({
   subsets: ['latin'],
   display: 'swap',
@@ -21,10 +21,28 @@ const fraunces = Fraunces({
   weight: 'variable',
 });
 
+// Body prose — Cormorant Garamond for lede and quoted body copy
+const cormorant = Cormorant_Garamond({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-prose',
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
+});
+
+// Editorial voice — Instrument Serif italic for display moments
+const instrumentSerif = Instrument_Serif({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-editorial',
+  weight: '400',
+  style: ['normal', 'italic'],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'Driveway Gates Surrey | Find Trusted Gate Installers Across Surrey',
+    default: 'Driveway Gates Surrey | Vetted Installer Network, Free Quotes',
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -33,8 +51,6 @@ export const metadata: Metadata = {
   verification: {
     google: 'BZ06Ie51Fvg9VOX2DO_coCDz6ijU9ozLRkTW6gIOFWM',
     other: {
-      // Bing Webmaster Tools verification. Placeholder until the real code
-      // is added to siteConfig.bingSiteVerification in data/site.ts.
       'msvalidate.01': siteConfig.bingSiteVerification,
     },
   },
@@ -89,13 +105,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     },
   };
 
+  const classes = [
+    inter.variable,
+    fraunces.variable,
+    cormorant.variable,
+    instrumentSerif.variable,
+  ].join(' ');
+
   return (
-    <html lang="en-GB" className={`${dmSans.variable} ${fraunces.variable}`}>
+    <html lang="en-GB" className={classes}>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body className="min-h-screen flex flex-col bg-paper text-teal-ink font-sans antialiased">
         <Script src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaId}`} strategy="afterInteractive" />
         <Script id="gtag-init" strategy="afterInteractive">
           {`window.dataLayer = window.dataLayer || [];

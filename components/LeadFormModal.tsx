@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useId } from 'react';
 import Link from 'next/link';
-import { CheckCircle, X, AlertCircle } from 'lucide-react';
+import { CheckCircle, X, AlertCircle, ArrowUpRight } from 'lucide-react';
 
 interface LeadFormModalProps {
   isOpen: boolean;
@@ -11,6 +11,15 @@ interface LeadFormModalProps {
 
 const GOOGLE_SCRIPT_URL =
   'https://script.google.com/macros/s/AKfycbzO3JHqZBfqP95SeuyFCwFWDfzxShx7n-jcS3M4aqc-iY-h5zYMHQMZKrDBzuehEGlB/exec';
+
+const GATE_TYPES = [
+  'Wooden Driveway Gates',
+  'Metal Driveway Gates',
+  'Electric Sliding Gates',
+  'Electric Swing Gates',
+  'Automated Gate Systems',
+  'Gate Repair and Maintenance',
+];
 
 const FOCUSABLE_SELECTOR =
   'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
@@ -35,10 +44,10 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
     email: '',
     phone: '',
     location: '',
+    treatment: '',
     consent: false,
   });
 
-  // Open / close lifecycle: remember trigger, open, animate, focus first field.
   useEffect(() => {
     if (isOpen) {
       triggerRef.current = (document.activeElement as HTMLElement) || null;
@@ -49,7 +58,6 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
       const timer = setTimeout(() => {
         setShouldRender(false);
         setAnimationState('idle');
-        // Restore focus to the element that opened the modal.
         if (triggerRef.current && typeof triggerRef.current.focus === 'function') {
           triggerRef.current.focus();
         }
@@ -58,26 +66,20 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
     }
   }, [isOpen, shouldRender]);
 
-  // Body scroll lock while open.
   useEffect(() => {
     if (!shouldRender) return;
     const originalOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = originalOverflow;
-    };
+    return () => { document.body.style.overflow = originalOverflow; };
   }, [shouldRender]);
 
-  // Auto-focus first input when dialog enters.
   useEffect(() => {
     if (animationState === 'entering' && firstFieldRef.current) {
-      // slight delay so the input is in the DOM and visible before focus
       const t = setTimeout(() => firstFieldRef.current?.focus(), 50);
       return () => clearTimeout(t);
     }
   }, [animationState]);
 
-  // Keyboard handling: Escape closes, Tab wraps within the dialog.
   useEffect(() => {
     if (!shouldRender) return;
     const onKeyDown = (e: KeyboardEvent) => {
@@ -113,12 +115,14 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
 
   if (!shouldRender) return null;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    const target = e.target;
+    const name = target.name;
+    if (target instanceof HTMLInputElement && target.type === 'checkbox') {
+      setFormData((prev) => ({ ...prev, [name]: target.checked }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: target.value }));
+    }
     if (errorMessage) setErrorMessage(null);
   };
 
@@ -136,21 +140,15 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
         email: formData.email,
         phone: formData.phone,
         location: formData.location,
+        treatment: formData.treatment,
         page: window.location.href,
         source: 'Driveway Gates Surrey',
       };
-
-      const res = await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        body: JSON.stringify(payload),
-      });
-
+      const res = await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload) });
       const text = await res.text();
       let data: { ok?: boolean; error?: string } = {};
       try { data = JSON.parse(text); } catch {}
-
       if (data && data.ok === false) throw new Error(data.error || 'Submission failed');
-
       setIsSubmitting(false);
       setIsSuccess(true);
       setTimeout(() => { setIsSuccess(false); onClose(); }, 3000);
@@ -166,11 +164,12 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
   };
 
   const inputClass =
-    "w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 text-gray-900 placeholder-gray-400 text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition";
+    'w-full px-4 py-3.5 border-2 border-teal-line bg-white text-teal-ink placeholder-teal-muted text-[15px] font-sans ' +
+    'focus:outline-none focus:border-teal-brand focus:ring-0 transition-colors';
 
   return (
     <div
-      className={`fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/60 backdrop-blur-sm
+      className={`fixed inset-0 z-50 flex items-end md:items-center justify-center p-0 md:p-4 bg-teal-ink/60 backdrop-blur-sm
         ${animationState === 'entering' ? 'animate-backdrop-in' : animationState === 'exiting' ? 'animate-backdrop-out' : 'opacity-100'}`}
       onClick={handleBackdropClick}
     >
@@ -180,51 +179,55 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
         aria-modal="true"
         aria-labelledby={titleId}
         aria-describedby={descId}
-        className={`relative w-full max-w-lg overflow-hidden bg-white rounded-2xl shadow-2xl
+        className={`relative w-full max-w-lg overflow-hidden bg-paper border-2 border-teal-ink
+          max-h-[95vh] overflow-y-auto
           ${animationState === 'entering' ? 'animate-modal-in' : 'animate-modal-out'}`}
       >
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-full transition-all z-10"
+          className="absolute top-4 right-4 p-2 text-teal-muted hover:text-teal-ink transition-colors z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-brand"
           aria-label="Close"
         >
-          <X className="w-5 h-5" />
+          <X className="w-5 h-5" strokeWidth={1.5} />
         </button>
 
-        <div className="p-8">
-          {isSuccess ? (
-            <div className="flex flex-col items-center text-center py-8 space-y-4">
-              <div className="w-16 h-16 bg-green-50 text-green-500 rounded-full flex items-center justify-center">
-                <CheckCircle className="w-10 h-10" />
-              </div>
-              <h2 id={titleId} className="text-2xl font-display font-bold text-gray-900">Request Received!</h2>
-              <p id={descId} className="text-gray-600">We&apos;ve matched you with a vetted installer. Check your email for next steps.</p>
+        {isSuccess ? (
+          <div className="flex flex-col items-center text-center p-8 space-y-4">
+            <div className="w-14 h-14 bg-teal-soft text-teal-deep rounded-full flex items-center justify-center">
+              <CheckCircle className="w-8 h-8" strokeWidth={1.5} />
             </div>
-          ) : (
-            <>
-              <div className="mb-6">
-                <span className="inline-block px-3 py-1 bg-brand-50 text-brand-600 text-xs font-bold uppercase tracking-wider rounded-full mb-3">
-                  Free Matching Service
-                </span>
-                <h2 id={titleId} className="text-2xl font-display font-bold text-gray-900">Find Your Gate Installer</h2>
-                <p id={descId} className="text-gray-600 text-sm mt-1">Complete the form to get matched with vetted Surrey gate installers.</p>
+            <h3 id={titleId} className="font-display text-[1.6rem] leading-tight tracking-tight text-teal-ink" style={{ fontWeight: 500 }}>
+              Request received.
+            </h3>
+            <p id={descId} className="font-prose text-[16px] leading-relaxed text-teal-ink/80 max-w-sm">
+              We&apos;ve matched your enquiry with a vetted Surrey installer. Check your email — we&apos;ll be in touch within four working hours.
+            </p>
+          </div>
+        ) : (
+          <>
+            <div className="px-6 md:px-8 pt-8 pb-5 border-b border-teal-line">
+              <div className="text-[11px] tracking-[0.2em] uppercase text-teal-brand font-medium mb-2">
+                Free quote request
               </div>
+              <h3 id={titleId} className="font-display text-[1.6rem] leading-tight tracking-tight text-teal-ink" style={{ fontWeight: 500 }}>
+                Three installer quotes, <span className="font-editorial italic font-normal text-teal-brand">delivered.</span>
+              </h3>
+              <p id={descId} className="font-prose text-[15px] leading-relaxed text-teal-ink/70 mt-1.5">
+                Vetted Surrey specialists reply within four working hours. Free, no obligation at any stage.
+              </p>
+            </div>
 
+            <div className="p-6 md:p-8">
               {errorMessage && (
                 <div
                   id={errorId}
                   role="alert"
-                  className="mb-4 flex items-start gap-3 p-3 rounded-xl bg-red-50 border border-red-100 text-red-700 text-sm"
+                  className="mb-4 flex items-start gap-3 p-3 border-2 border-red-300 bg-red-50 text-red-900 text-sm"
                 >
                   <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" aria-hidden="true" />
                   <div className="flex-1">{errorMessage}</div>
-                  <button
-                    type="button"
-                    onClick={() => setErrorMessage(null)}
-                    className="text-red-500 hover:text-red-700"
-                    aria-label="Dismiss error"
-                  >
+                  <button type="button" onClick={() => setErrorMessage(null)} className="text-red-700 hover:text-red-900" aria-label="Dismiss error">
                     <X className="w-4 h-4" />
                   </button>
                 </div>
@@ -245,79 +248,70 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
                   className={inputClass}
                 />
 
-                <div className="grid grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div>
                     <label className="sr-only" htmlFor="lfm-phone">Phone number</label>
-                    <input
-                      id="lfm-phone"
-                      required
-                      name="phone"
-                      type="tel"
-                      autoComplete="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder="Phone number"
-                      className={inputClass}
-                    />
+                    <input id="lfm-phone" required name="phone" type="tel" autoComplete="tel"
+                      value={formData.phone} onChange={handleChange} placeholder="Phone" className={inputClass} />
                   </div>
                   <div>
                     <label className="sr-only" htmlFor="lfm-email">Email address</label>
-                    <input
-                      id="lfm-email"
-                      required
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="Email address"
-                      className={inputClass}
-                    />
+                    <input id="lfm-email" required name="email" type="email" autoComplete="email"
+                      value={formData.email} onChange={handleChange} placeholder="Email" className={inputClass} />
+                  </div>
+                </div>
+
+                <label className="sr-only" htmlFor="lfm-treatment">Gate type</label>
+                <div className="relative">
+                  <select
+                    id="lfm-treatment"
+                    required
+                    name="treatment"
+                    value={formData.treatment}
+                    onChange={handleChange}
+                    className={inputClass + ' appearance-none cursor-pointer pr-10'}
+                  >
+                    <option value="" disabled>Type of gate</option>
+                    {GATE_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
+                  </select>
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-teal-brand">
+                    <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                    </svg>
                   </div>
                 </div>
 
                 <label className="sr-only" htmlFor="lfm-location">Surrey town or postcode</label>
-                <input
-                  id="lfm-location"
-                  required
-                  name="location"
-                  type="text"
-                  autoComplete="postal-code"
-                  value={formData.location}
-                  onChange={handleChange}
-                  placeholder="Your Surrey town or postcode"
-                  className={inputClass}
-                />
+                <input id="lfm-location" required name="location" type="text" autoComplete="postal-code"
+                  value={formData.location} onChange={handleChange} placeholder="Surrey town or postcode" className={inputClass} />
 
-                <label htmlFor={consentId} className="flex items-start gap-3 mt-2 text-xs text-gray-600 leading-relaxed cursor-pointer select-none">
+                <label htmlFor={consentId} className="flex items-start gap-3 mt-2 text-[12px] text-teal-ink/75 leading-relaxed cursor-pointer select-none">
                   <input
                     id={consentId}
                     type="checkbox"
                     name="consent"
                     checked={formData.consent}
                     onChange={handleChange}
-                    className="mt-0.5 h-4 w-4 rounded border-gray-300 text-brand-600 focus:ring-brand-500"
+                    className="mt-0.5 h-4 w-4 border-teal-line text-teal-brand focus:ring-teal-brand focus:ring-offset-0"
                   />
                   <span>
-                    I agree that my details will be shared with a carefully selected UK gate installer in our network who will contact me directly. See our <Link href="/privacy/" className="text-brand-600 hover:underline">privacy policy</Link>.
+                    I agree my details will be shared with a selected UK gate installer in the Driveway Gates Surrey network, who will contact me directly. See our <Link href="/privacy/" className="text-teal-brand underline underline-offset-2 hover:text-teal-ink">privacy policy</Link>.
                   </span>
                 </label>
 
                 <button
-                  type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-brand-500 hover:bg-brand-600 disabled:opacity-60 text-white font-semibold py-3 px-6 rounded-xl transition-colors text-sm mt-1"
+                  type="submit"
+                  aria-describedby={errorMessage ? errorId : undefined}
+                  className="btn-primary w-full justify-between mt-2 disabled:opacity-60"
                 >
-                  {isSubmitting ? 'Sending...' : 'Check Availability'}
+                  <span>{isSubmitting ? 'Sending...' : 'Get Three Free Quotes'}</span>
+                  {!isSubmitting && <ArrowUpRight className="w-5 h-5" strokeWidth={1.5} />}
                 </button>
-
-                <p className="text-center text-xs text-gray-400 mt-1">
-                  Free service. No obligation. No spam.
-                </p>
               </form>
-            </>
-          )}
-        </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );

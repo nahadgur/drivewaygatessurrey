@@ -1,179 +1,148 @@
 // components/Header.tsx
 'use client';
 
-import { useState, useEffect, useRef, useId } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Menu, X, MapPin, ChevronDown } from 'lucide-react';
-import { services } from '@/data/services';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 
 interface HeaderProps {
   onOpenModal?: () => void;
 }
 
+const NAV_SECTIONS: { title: string; links: { label: string; href: string }[] }[] = [
+  {
+    title: 'Gate Services',
+    links: [
+      { label: 'Wooden Driveway Gates', href: '/services/wooden-driveway-gates/' },
+      { label: 'Metal & Wrought Iron Gates', href: '/services/metal-driveway-gates/' },
+      { label: 'Electric Sliding Gates', href: '/services/electric-sliding-gates/' },
+      { label: 'Electric Swing Gates', href: '/services/electric-swing-gates/' },
+      { label: 'Automated Gate Systems', href: '/services/automated-gate-systems/' },
+      { label: 'Gate Repair & Maintenance', href: '/services/gate-repair-and-maintenance/' },
+    ],
+  },
+  {
+    title: 'Areas',
+    links: [
+      { label: 'All Surrey Locations', href: '/location/' },
+      { label: 'Weybridge', href: '/location/weybridge/' },
+      { label: 'Cobham', href: '/location/cobham/' },
+      { label: 'Farnham', href: '/location/farnham/' },
+      { label: 'Guildford', href: '/location/guildford/' },
+      { label: 'Reigate', href: '/location/reigate/' },
+    ],
+  },
+  {
+    title: 'Site',
+    links: [
+      { label: 'Blog', href: '/blog/' },
+      { label: 'Contact', href: '/contact/' },
+    ],
+  },
+];
+
 export function Header({ onOpenModal }: HeaderProps) {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
+  const panelRef = useRef<HTMLDivElement>(null);
 
-  const servicesMenuId = useId();
-  const mobileMenuId = useId();
-  const servicesWrapperRef = useRef<HTMLDivElement>(null);
-
-  // Close all menus on route change
   useEffect(() => {
-    setMobileOpen(false);
-    setServicesOpen(false);
-  }, [pathname]);
-
-  // Scroll shadow
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  // Outside click + Escape for the services dropdown
-  useEffect(() => {
-    if (!servicesOpen) return;
-    const onDocClick = (e: MouseEvent) => {
-      if (servicesWrapperRef.current && !servicesWrapperRef.current.contains(e.target as Node)) {
-        setServicesOpen(false);
-      }
-    };
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setServicesOpen(false);
-    };
-    document.addEventListener('mousedown', onDocClick);
-    document.addEventListener('keydown', onKeyDown);
+    if (!menuOpen) return;
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') setMenuOpen(false); };
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', handler);
     return () => {
-      document.removeEventListener('mousedown', onDocClick);
-      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = '';
+      document.removeEventListener('keydown', handler);
     };
-  }, [servicesOpen]);
+  }, [menuOpen]);
 
   return (
-    <>
-      {/* Top Bar */}
-      <div className="bg-brand-900 text-brand-50 py-2 px-4 text-sm hidden md:block">
-        <div className="container-width flex justify-between items-center">
-          <span className="flex items-center gap-2">
-            <MapPin className="w-4 h-4" /> Vetted Driveway Gate Installers Across Surrey
-          </span>
-        </div>
+    <header className="editorial-container pt-5 pb-4 border-b border-teal-ink sticky top-0 bg-paper z-30">
+      <div className="flex items-end justify-between">
+        <Link href="/" className="focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-brand">
+          <div className="font-display text-[1.35rem] leading-none tracking-tight text-teal-ink" style={{ fontWeight: 500 }}>
+            Driveway Gates Surrey
+          </div>
+          <div className="font-editorial italic text-[15px] -mt-0.5 text-teal-brand">
+            vetted installers, free quotes
+          </div>
+        </Link>
+        <button
+          onClick={() => setMenuOpen(true)}
+          aria-label="Open menu"
+          aria-expanded={menuOpen}
+          className="mb-1 p-1 -mr-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-brand"
+        >
+          <Menu className="w-5 h-5" strokeWidth={1.5} />
+        </button>
       </div>
 
-      {/* Main Header */}
-      <header className={`sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b transition-shadow duration-200 ${scrolled ? 'shadow-md border-gray-200' : 'shadow-sm border-gray-100'}`}>
-        <div className="container-width">
-          <div className="flex justify-between items-center h-20">
-            {/* Logo */}
-            <Link href="/" className="flex items-center gap-2.5 group">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/logo.png" alt="Driveway Gates Surrey" className="h-10 w-auto" />
-              <div className="flex flex-col">
-                <span className="font-display font-bold text-xl leading-none text-gray-900">Driveway Gates</span>
-                <span className="text-xs text-brand-500 font-semibold tracking-widest uppercase">Surrey</span>
+      {/* SLIDE-IN MENU PANEL */}
+      {menuOpen && (
+        <>
+          <button
+            aria-label="Close menu"
+            className="fixed inset-0 bg-teal-ink/40 z-40 animate-backdrop-in"
+            onClick={() => setMenuOpen(false)}
+          />
+          <div
+            ref={panelRef}
+            className="fixed top-0 right-0 h-full w-[85%] max-w-md bg-paper z-50 flex flex-col modal-in"
+            role="dialog"
+            aria-modal="true"
+          >
+            <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-teal-ink">
+              <div>
+                <div className="font-display text-lg leading-none tracking-tight text-teal-ink" style={{ fontWeight: 500 }}>
+                  Driveway Gates Surrey
+                </div>
+                <div className="font-editorial italic text-sm text-teal-brand">vetted installers</div>
               </div>
-            </Link>
+              <button
+                onClick={() => setMenuOpen(false)}
+                aria-label="Close menu"
+                className="p-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-brand"
+              >
+                <X className="w-5 h-5" strokeWidth={1.5} />
+              </button>
+            </div>
 
-            {/* Desktop Nav */}
-            <nav className="hidden lg:flex items-center gap-1" aria-label="Primary">
-              <Link href="/" className="px-3 py-2 text-gray-600 hover:text-brand-600 font-medium transition-colors rounded-lg hover:bg-brand-50">Home</Link>
-
-              <div className="relative" ref={servicesWrapperRef}>
-                <button
-                  type="button"
-                  onClick={() => setServicesOpen((o) => !o)}
-                  className={`flex items-center gap-1 px-3 py-2 font-medium transition-colors rounded-lg ${servicesOpen ? 'text-brand-600 bg-brand-50' : 'text-gray-600 hover:text-brand-600 hover:bg-brand-50'}`}
-                  aria-haspopup="menu"
-                  aria-expanded={servicesOpen}
-                  aria-controls={servicesMenuId}
-                >
-                  Services
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${servicesOpen ? 'rotate-180' : ''}`} aria-hidden="true" />
-                </button>
-                {servicesOpen && (
-                  <div
-                    id={servicesMenuId}
-                    role="menu"
-                    className="absolute top-full left-0 w-72 bg-white rounded-xl shadow-xl border border-gray-100 p-2 z-50 mt-1"
-                  >
-                    <Link
-                      href="/services/"
-                      role="menuitem"
-                      className="block px-4 py-2.5 text-sm font-semibold text-gray-900 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition-colors"
-                    >
-                      All Gate Types
-                    </Link>
-                    <div className="my-1 border-t border-gray-100" />
-                    {services.map((service) => (
-                      <Link
-                        key={service.id}
-                        href={`/services/${service.slug}/`}
-                        role="menuitem"
-                        className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-brand-50 hover:text-brand-700 rounded-lg transition-colors"
-                      >
-                        {service.title}
-                      </Link>
-                    ))}
+            <nav className="flex-1 overflow-y-auto px-6 py-6">
+              {NAV_SECTIONS.map((section) => (
+                <div key={section.title} className="mb-8 last:mb-0">
+                  <div className="text-[11px] tracking-[0.2em] uppercase text-teal-brand font-medium mb-3">
+                    {section.title}
                   </div>
-                )}
-              </div>
-
-              <Link href="/location/" className="px-3 py-2 text-gray-600 hover:text-brand-600 font-medium transition-colors rounded-lg hover:bg-brand-50">Locations</Link>
-              <Link href="/blog/" className="px-3 py-2 text-gray-600 hover:text-brand-600 font-medium transition-colors rounded-lg hover:bg-brand-50">Blog</Link>
-              <Link href="/contact/" className="px-3 py-2 text-gray-600 hover:text-brand-600 font-medium transition-colors rounded-lg hover:bg-brand-50">Contact</Link>
-
-              {onOpenModal && (
-                <button onClick={onOpenModal} className="ml-3 btn-primary text-sm !py-2.5 !px-5 rounded-full">
-                  Get Free Quotes
-                </button>
-              )}
+                  <ul className="space-y-3">
+                    {section.links.map((link) => (
+                      <li key={link.href}>
+                        <Link
+                          href={link.href}
+                          onClick={() => setMenuOpen(false)}
+                          className="font-display text-[1.1rem] leading-tight tracking-tight text-teal-ink hover:text-teal-brand transition-colors flex items-center gap-2"
+                          style={{ fontWeight: 500 }}
+                        >
+                          {link.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </nav>
 
-            {/* Mobile Toggle */}
-            <button
-              type="button"
-              className="lg:hidden p-2 text-gray-600"
-              onClick={() => setMobileOpen((o) => !o)}
-              aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={mobileOpen}
-              aria-controls={mobileMenuId}
-            >
-              {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {mobileOpen && (
-          <div
-            id={mobileMenuId}
-            className="lg:hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-xl z-50 max-h-[80vh] overflow-y-auto"
-          >
-            <div className="px-4 pt-2 pb-6 space-y-1">
-              <Link href="/" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg">Home</Link>
-              <div className="px-3 py-2">
-                <div className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2">Gate Types</div>
-                <Link href="/services/" className="block py-2 text-sm font-semibold text-gray-900 hover:text-brand-600">All Gate Types</Link>
-                {services.map((s) => (
-                  <Link key={s.id} href={`/services/${s.slug}/`} className="block py-2 text-sm text-gray-600 hover:text-brand-600">{s.title}</Link>
-                ))}
-              </div>
-              <Link href="/location/" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg">Locations</Link>
-              <Link href="/blog/" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg">Blog</Link>
-              <Link href="/contact/" className="block px-3 py-3 text-base font-medium text-gray-700 hover:bg-gray-50 rounded-lg">Contact</Link>
-              {onOpenModal && (
-                <div className="pt-4 px-3">
-                  <button onClick={() => { onOpenModal?.(); setMobileOpen(false); }} className="block w-full btn-primary text-center">Get Free Quotes</button>
-                </div>
-              )}
+            <div className="px-6 pt-4 pb-6 border-t border-teal-line">
+              <button
+                onClick={() => { setMenuOpen(false); onOpenModal?.(); }}
+                className="btn-primary w-full justify-between"
+              >
+                <span>Get Three Free Quotes</span>
+                <ArrowUpRight className="w-5 h-5" strokeWidth={1.5} />
+              </button>
             </div>
           </div>
-        )}
-      </header>
-    </>
+        </>
+      )}
+    </header>
   );
 }
