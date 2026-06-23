@@ -14,6 +14,31 @@ import { Breadcrumbs } from '@/components/Breadcrumbs';
 import { Button } from '@/components/ui/Button';
 import { CTACard } from '@/components/ui/CTACard';
 
+/* Inline markdown-link parser: [text](url) rendered inline in prose.
+   Internal (root-relative) links use next/link; external links open in a new tab.
+   Backward-compatible: plain text with no [..](..) is returned unchanged. */
+function renderInline(text: string): React.ReactNode[] {
+  const out: React.ReactNode[] = [];
+  const re = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let last = 0;
+  let m: RegExpExecArray | null;
+  let k = 0;
+  const cls = 'text-teal-ink underline underline-offset-2 decoration-1 hover:opacity-70 transition-opacity';
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) out.push(text.slice(last, m.index));
+    const label = m[1];
+    const href = m[2];
+    if (href.startsWith('/')) {
+      out.push(<Link key={`il-${k++}`} href={href} className={cls}>{label}</Link>);
+    } else {
+      out.push(<a key={`il-${k++}`} href={href} target="_blank" rel="noopener noreferrer" className={cls}>{label}</a>);
+    }
+    last = re.lastIndex;
+  }
+  if (last < text.length) out.push(text.slice(last));
+  return out;
+}
+
 // Sidebar service links — curated for relevance from a blog post.
 const SIDEBAR_SERVICE_LINKS = [
   { label: 'Electric Sliding Gates in Guildford', href: '/services/electric-sliding-gates/guildford/' },
@@ -139,7 +164,7 @@ function ContentRenderer({ blocks, onOpenModal }: { blocks: ContentBlock[]; onOp
                 key={i}
                 className="font-prose text-[17px] leading-[1.6] text-teal-ink/85 mb-5"
               >
-                {block.text}
+                {renderInline(block.text)}
               </p>
             );
             break;

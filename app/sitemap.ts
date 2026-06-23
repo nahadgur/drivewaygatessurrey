@@ -8,6 +8,13 @@ import {
   isLocationHubIndexed,
   isServiceHubIndexed,
 } from '@/data/indexing-tiers';
+import { blogArticles } from '@/data/blog';
+import { BLOG_SITEMAP_RELEASE, releasedBlogSlugs } from '@/data/blogReleaseSchedule';
+
+// Re-evaluate daily so drip-fed blog posts enter on their (static) release date
+// without a redeploy. Each post's lastModified stays a fixed date, so this does
+// not introduce the dynamic-freshness signal the policy above warns against.
+export const revalidate = 86400;
 
 // Static lastModified constants. Do not replace with new Date().
 // Inflated freshness signals from dynamic sitemap dates are discounted by Google.
@@ -74,5 +81,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
 
-  return [...staticPages, ...servicePages, ...locationPages, ...serviceLocationPages];
+  // Drip-fed blog posts: only those whose release date has arrived. lastModified
+  // is the fixed release date (static, per the policy above).
+  const released = new Set(releasedBlogSlugs());
+  const blogPages: MetadataRoute.Sitemap = blogArticles
+    .filter((a) => released.has(a.slug))
+    .map((a) => ({
+      url: `${base}/blog/${a.slug}/`,
+      lastModified: new Date(BLOG_SITEMAP_RELEASE[a.slug]),
+      changeFrequency: 'yearly' as const,
+      priority: 0.6,
+    }));
+
+  return [...staticPages, ...servicePages, ...locationPages, ...serviceLocationPages, ...blogPages];
 }

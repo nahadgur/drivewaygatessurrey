@@ -6,7 +6,8 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Search, ChevronDown } from 'lucide-react';
-import { services, getServiceBySlug } from '@/data/services';
+import { services, getServiceBySlug, serviceRelatedPosts } from '@/data/services';
+import { blogArticles } from '@/data/blog';
 import { LOCATIONS, toSlug } from '@/data/locations';
 import { FAQS_SERVICES } from '@/data/site';
 import { isServiceLocationIndexed } from '@/data/indexing-tiers';
@@ -210,6 +211,11 @@ export function ServicePageClient({ params }: { params: { serviceSlug: string } 
 
   const content = serviceContent[service.id] || serviceContent['electric-swing'];
   const relatedServices = services.filter((s) => s.id !== service.id);
+
+  // Silo down-links: resolve this pillar's supporting blog spokes to render as cards.
+  const relatedPosts = (serviceRelatedPosts[service.slug] ?? [])
+    .map((slug) => blogArticles.find((b) => b.slug === slug))
+    .filter((b): b is NonNullable<typeof b> => Boolean(b));
 
   // Only offer links to service × location combinations that are actually
   // indexed. All other combinations are noindex and linking to them from
@@ -488,6 +494,28 @@ export function ServicePageClient({ params }: { params: { serviceSlug: string } 
             </div>
           </div>
         </section>
+
+        {/* GUIDES & ARTICLES (silo down-links to the blog) */}
+        {relatedPosts.length > 0 && (
+          <section className="bg-white border-t border-teal-ink/15">
+            <div className="editorial-container-wide py-10 md:py-16">
+              <SectionHeader title="Guides & articles" subtitle={`Reading on ${service.title.toLowerCase()}.`} />
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {relatedPosts.map((post) => (
+                  <Link key={post.slug} href={`/blog/${post.slug}/`} className="group block">
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-paper mb-4">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img src={post.featuredImage} alt={post.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+                    </div>
+                    <p className="text-[11px] font-bold uppercase tracking-widest text-teal-ink/50 mb-1">{post.category}</p>
+                    <h3 className="font-display text-lg leading-snug text-teal-ink group-hover:opacity-70 transition-opacity">{post.title}</h3>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* FINAL CTA */}
         <section className="bg-white border-t border-teal-ink">

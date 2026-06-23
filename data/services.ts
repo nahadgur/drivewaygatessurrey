@@ -159,3 +159,16 @@ export const services: Service[] = [
 
 export const getAllServiceSlugs = (): string[] => services.map(s => s.slug);
 export const getServiceBySlug = (slug: string): Service | undefined => services.find(s => s.slug === slug);
+
+/* Down-links from each service pillar to its supporting blog spokes (the silo
+   DOWN links). Keyed by service slug; slugs reference data/blog.ts. Rendered as
+   a "Guides and articles" block on each service page so the indexed pillars pass
+   crawl and authority into the blog. */
+export const serviceRelatedPosts: Record<string, string[]> = {
+  'electric-sliding-gates': ['electric-sliding-vs-swing-gates-surrey', 'how-much-do-driveway-gates-cost-surrey-2026', 'underground-motor-gate-installation-surrey'],
+  'electric-swing-gates': ['electric-sliding-vs-swing-gates-surrey', 'driveway-gates-north-surrey-weybridge-cobham-esher', 'aerial-view-driveway-gate-design-surrey-estates'],
+  'wooden-driveway-gates': ['wooden-driveway-gates-surrey-iroko-oak-accoya', 'driveway-gates-surrey-hills-aonb', 'best-gate-material-surrey'],
+  'metal-driveway-gates': ['best-gate-material-surrey', 'wrought-iron-driveway-gates-surrey-guide', 'steel-aluminium-driveway-gates-surrey-guide'],
+  'automated-gate-systems': ['electric-gate-automation-retrofit-surrey', 'gate-video-intercom-access-control-surrey', 'underground-motor-gate-installation-surrey'],
+  'gate-repair-and-maintenance': ['electric-gate-maintenance-surrey', 'gate-repair-common-faults-surrey', 'gate-installer-commissioning-bs-en-12453-surrey'],
+};
