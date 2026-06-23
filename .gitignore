@@ -1,0 +1,7 @@
+node_modules
+
+# Build output and caches (rebuilt by Vercel on deploy)
+.next/
+out/
+*.tsbuildinfo
+.vercel
