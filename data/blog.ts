@@ -743,11 +743,64 @@ const articleJ: BlogArticle = {
   ],
 };
 
+const articleK: BlogArticle = {
+  slug: 'electric-gate-child-and-pet-safety-surrey',
+  title: 'Child and Pet Safety with Electric Driveway Gates in Surrey',
+  metaTitle: 'Electric Gate Child and Pet Safety Surrey | 2026 Guide',
+  metaDescription: 'How to keep children and pets safe around an automated driveway gate in Surrey. Safety edges, photocells, force limiting, soft close, the BS EN 12453 requirement, and the manual override explained.',
+  category: 'Safety',
+  publishDate: '2026-06-23',
+  featuredImage: '/images/gates/gate-automation-commissioning-tablet-installer.png',
+  excerpt: 'An automated gate is a powerful machine that moves close to where children play and pets roam. With the right safety systems and a few household habits, the risk is very low. Here is what keeps a Surrey family gate safe.',
+  content: [
+    { type: 'p', text: 'An automated driveway gate is a heavy machine that opens and closes in the part of the property where children play and pets come and go. For most Surrey families this is the entrance they use several times a day, often with young children in the car or a dog underfoot. A correctly specified and commissioned gate is designed to detect a person or animal in its path and stop before any harm is done, but that protection depends on the safety systems being present, calibrated, and maintained. This guide explains the systems that keep a family gate safe, the standard that governs them, and the household habits that matter just as much as the hardware.' },
+    { type: 'p', text: 'The reassuring point to start with is that a gate installed and commissioned to the correct standard, by an installer who carries the right test equipment, is a low-risk feature of a home. The incidents that have occurred in the UK have almost always involved gates with absent or wrongly adjusted safety systems. The way to keep your family safe is to insist on a properly commissioned installation and to understand how it protects the people and animals around it.' },
+    { type: 'h2', text: 'The Safety Systems That Protect Children and Pets' },
+    { type: 'p', text: 'A family gate relies on several layers of protection that work together. No single device is relied upon on its own, which is why a properly specified gate remains safe even if one element is briefly compromised.' },
+    { type: 'list', items: [
+      'Safety edges: pressure-sensitive strips on the leading face of each gate leaf that stop and reverse the gate the moment they touch an obstruction, including a small child or a pet.',
+      'Photocells: infrared beams across the opening that hold the gate open, or reverse it, if anything breaks the beam while the gate is closing.',
+      'Force limiting: the motor control is set so the impact force at the leading edge stays within safe limits, so even a missed contact is gentle rather than crushing.',
+      'Soft close and soft start: the gate slows as it approaches the closed position rather than slamming, which reduces both the impact and the risk of a trapped finger or paw.',
+      'Manual override: a key release that disconnects the motor so the gate can be moved by hand in a power cut or an emergency.',
+    ]},
+    { type: 'p', text: 'Photocells deserve particular attention where children are involved. A single beam set at adult waist height will not detect a toddler or a crouching child, so a compliant installation protects the opening at low level as well. Ask your installer to confirm the photocell heights are set to catch a small child, not just a standing adult.' },
+    { type: 'h2', text: 'The BS EN 12453 Force Requirement' },
+    { type: 'p', text: 'BS EN 12453 is the standard that governs the safe operation of powered gates in the UK, and the part that matters most for child and pet safety is the force limit at the leading edge. A gate that can trap a person against a fixed structure must be set so the impact force is measured and held within defined limits, rather than left at whatever the motor is capable of delivering. This is not something an installer can judge by eye. It requires a calibrated force measurement device, a process of testing and adjustment, and a written record of the readings at handover.' },
+    { type: 'p', text: 'Before you engage anyone to install or service a family gate, ask two direct questions: do you carry a force tester, and will you give me a written commissioning record. An installer who cannot answer yes to both is not in a position to commission your gate to the standard, and you should not let them work on a gate that children and pets pass through every day. The detail of what the standard requires and how to verify it is covered in our [BS EN 12453 commissioning guide](/blog/gate-installer-commissioning-bs-en-12453-surrey/).' },
+    { type: 'external-link', href: 'https://www.hse.gov.uk/work-equipment-machinery/electric-gates.htm', text: 'HSE guidance on the safety of powered gates', source: 'Health and Safety Executive', rel: 'noopener noreferrer' },
+    { type: 'h2', text: 'Supervising Children and Animals Near a Moving Gate' },
+    { type: 'p', text: 'Safety systems are designed to catch the moment a person or animal is in the wrong place, but they are a backstop, not a substitute for supervision. The habits that keep a family safe are simple and worth establishing from the day the gate is commissioned.' },
+    { type: 'list', items: [
+      'Never let children play on, around, or near the gate or its opening arc. A gate is not a swing or a climbing frame, and children should understand it is off limits.',
+      'Keep remote controls and key fobs out of the reach of children so the gate cannot be operated as a toy.',
+      'Watch the gate complete its travel before driving through, and keep children and pets inside the car or well clear of the opening until it has stopped.',
+      'Walk dogs through the opening on a lead rather than letting them run ahead or linger in the gate path.',
+      'Teach older children that the photocells and safety edges are protection of last resort, not something to test deliberately.',
+    ]},
+    { type: 'p', text: 'For a county with a high proportion of family homes on generous plots, where the gate is part of daily life, these habits become second nature quickly. They are no different in principle from teaching children to be careful around a garage door or any other powered domestic machine.' },
+    { type: 'h2', text: 'The Manual Override and Power Cuts' },
+    { type: 'p', text: 'Every automated gate includes a manual release that disconnects the motor and allows the gate to be moved by hand. This matters for safety in two situations: a power cut that leaves the gate stuck, and any emergency where the gate needs to be opened or closed immediately without waiting for the motor. The release is operated with a key, and the method varies between motor brands. Your installer should demonstrate it at handover and the procedure should be written in your handover pack. Make sure every adult in the household knows where the key is kept and how to use the release before you need it in a hurry.' },
+    { type: 'p', text: 'It is worth practising the manual release once so it is familiar. A release you have used calmly in daylight is far easier to operate than one you are reaching for in the dark during an emergency. Keep the release key somewhere accessible to adults but not to children.' },
+    { type: 'h2', text: 'Keeping the Gate Safe Over Time' },
+    { type: 'p', text: 'Safety is not a one-time setting applied at installation. Safety edges wear, photocell alignment drifts, and motor torque rises as mechanical parts age, all of which can quietly erode the protection the gate was commissioned with. An annual service by a competent engineer should include re-testing of the force limits and the safety sensor response, not just lubrication and a visual check. Ask your service engineer explicitly whether force testing is part of the service, because many routine visits do not include it. Our [gate maintenance guide](/blog/electric-gate-maintenance-surrey/) sets out what a thorough annual service should cover.' },
+    { type: 'p', text: 'A gate is also one element of overall property security, and the same closed gate that keeps a vehicle safe also keeps a young child from wandering toward the road. The balance between the security benefit and the family safety considerations is worth thinking through together, and our guide to [driveway gates and home security in Surrey](/blog/driveway-gates-home-security-surrey/) covers the wider picture.' },
+    { type: 'external-link', href: 'https://www.gatesafe.org/', text: 'Gate Safe charity advice on automated gate safety', source: 'Gate Safe', rel: 'noopener noreferrer' },
+    { type: 'cta' },
+    { type: 'related-articles', articles: [
+      { slug: 'gate-installer-commissioning-bs-en-12453-surrey', title: 'BS EN 12453 and Your Electric Gate: What Surrey Homeowners Need to Know', category: 'Safety' },
+      { slug: 'electric-gate-maintenance-surrey', title: 'Electric Gate Maintenance in Surrey: What Your Annual Service Should Cover', category: 'Maintenance' },
+      { slug: 'driveway-gates-home-security-surrey', title: 'How Much Do Driveway Gates Actually Improve Home Security in Surrey?', category: 'Security' },
+    ]},
+  ],
+};
+
 export const blogArticles: BlogArticle[] = [
   article1, article2, article3, article4, article5,
   article6, article7, article8, article9, article10,
   articleA, articleB, articleC, articleD, articleE,
   articleF, articleG, articleH, articleI, articleJ,
+  articleK,
 ];
 
 export function getArticleBySlug(slug: string): BlogArticle | undefined {
