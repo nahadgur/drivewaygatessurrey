@@ -44,6 +44,9 @@ export const BLOG_SITEMAP_RELEASE: Record<string, string> = {
   'gate-repair-common-faults-surrey': '2026-07-28',
   'gate-installer-commissioning-bs-en-12453-surrey': '2026-07-28',
   'aerial-view-driveway-gate-design-surrey-estates': '2026-07-28',
+
+  // Batch 7 — 2026-08-04 (DRAFT: not yet released; flip the date to today to publish)
+  'wind-load-wide-estate-gates-surrey': '2026-08-04',
 };
 
 // Slugs whose release date is on or before `now` (ISO YYYY-MM-DD compares chronologically).
