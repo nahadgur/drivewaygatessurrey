@@ -47,6 +47,12 @@ export const BLOG_SITEMAP_RELEASE: Record<string, string> = {
 
   // Batch 7 — 2026-08-04 (DRAFT: not yet released; flip the date to today to publish)
   'wind-load-wide-estate-gates-surrey': '2026-08-04',
+
+  // Batch 8 — 2026-08-11 (DRAFT: not yet released; flip each date to today to publish)
+  'integrating-gates-with-estate-cctv-and-alarm-surrey': '2026-08-11',
+  'smart-home-gate-control-surrey': '2026-08-11',
+  'best-electric-gate-motor-brands-surrey': '2026-08-11',
+  'do-electric-gates-add-value-surrey': '2026-08-11',
 };
 
 // Slugs whose release date is on or before `now` (ISO YYYY-MM-DD compares chronologically).
