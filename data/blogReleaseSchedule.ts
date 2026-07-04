@@ -45,8 +45,8 @@ export const BLOG_SITEMAP_RELEASE: Record<string, string> = {
   'gate-installer-commissioning-bs-en-12453-surrey': '2026-07-28',
   'aerial-view-driveway-gate-design-surrey-estates': '2026-07-28',
 
-  // Batch 7 — 2026-08-04 (DRAFT: not yet released; flip the date to today to publish)
-  'wind-load-wide-estate-gates-surrey': '2026-08-04',
+  // Batch 7 — published 2026-07-05
+  'wind-load-wide-estate-gates-surrey': '2026-07-05',
 
   // Batch 8 — 2026-08-11 (DRAFT: not yet released; flip each date to today to publish)
   'integrating-gates-with-estate-cctv-and-alarm-surrey': '2026-08-11',
