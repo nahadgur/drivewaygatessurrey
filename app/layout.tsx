@@ -1,9 +1,9 @@
 // app/layout.tsx
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { Inter, Fraunces, Cormorant_Garamond, Instrument_Serif } from 'next/font/google';
 import './globals.css';
 import { siteConfig } from '@/data/site';
+import { ConsentBanner } from '@/components/ConsentBanner';
 
 // Sans / body — Inter, variable weight
 const inter = Inter({
@@ -119,14 +119,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
       </head>
       <body className="min-h-screen flex flex-col bg-paper text-teal-ink font-sans antialiased">
-        <Script src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.gaId}`} strategy="afterInteractive" />
-        <Script id="gtag-init" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', '${siteConfig.gaId}');`}
-        </Script>
+        {/* GA4 is loaded inside ConsentBanner only after the visitor opts in (UK PECR) */}
         {children}
+        <ConsentBanner />
       </body>
     </html>
   );
