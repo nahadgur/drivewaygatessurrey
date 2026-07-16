@@ -164,7 +164,7 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
   };
 
   const inputClass =
-    'w-full px-4 py-3.5 border-2 border-teal-line bg-white text-teal-ink placeholder-teal-muted text-[15px] font-sans ' +
+    'w-full px-4 py-3.5 border-2 border-teal-line bg-white text-teal-ink placeholder-teal-muted text-base font-sans ' +
     'focus:outline-none focus:border-teal-brand focus:ring-0 transition-colors';
 
   return (
