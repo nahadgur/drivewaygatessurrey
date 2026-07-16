@@ -138,9 +138,11 @@ export default function PrivacyPage() {
               <LegalH2 n="7">Cookies</LegalH2>
               <p>
                 This site uses essential cookies to make the site function, and Google Analytics
-                cookies to measure traffic. Analytics cookies are set only after a reasonable
-                opportunity has passed for the page to load. You can block cookies through your
-                browser settings, though doing so may affect site functionality.
+                cookies to measure traffic. Analytics cookies are set only if you click Accept
+                on the cookie banner; if you reject them or ignore the banner, no analytics
+                cookies are set. Your choice is stored in your browser so we do not ask again on
+                every visit, and you can clear it at any time by deleting this site&apos;s data
+                in your browser settings.
               </p>
 
               <LegalH2 n="8">Changes to this policy</LegalH2>
