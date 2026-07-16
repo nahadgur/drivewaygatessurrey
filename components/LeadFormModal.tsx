@@ -164,7 +164,7 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
   };
 
   const inputClass =
-    'w-full px-4 py-3.5 border-2 border-teal-line bg-white text-teal-ink placeholder-teal-muted text-base font-sans ' +
+    'w-full px-4 py-2.5 md:py-3.5 border-2 border-teal-line bg-white text-teal-ink placeholder-teal-muted text-base font-sans ' +
     'focus:outline-none focus:border-teal-brand focus:ring-0 transition-colors';
 
   return (
@@ -206,19 +206,19 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
           </div>
         ) : (
           <>
-            <div className="px-6 md:px-8 pt-8 pb-5 border-b border-teal-line">
-              <div className="text-[11px] tracking-[0.2em] uppercase text-teal-brand font-medium mb-2">
+            <div className="px-6 md:px-8 pt-6 md:pt-8 pb-4 md:pb-5 border-b border-teal-line">
+              <div className="hidden md:block text-[11px] tracking-[0.2em] uppercase text-teal-brand font-medium mb-2">
                 Free quote request
               </div>
-              <h3 id={titleId} className="font-display text-[1.6rem] leading-tight tracking-tight text-teal-ink" style={{ fontWeight: 500 }}>
+              <h3 id={titleId} className="font-display text-[1.35rem] md:text-[1.6rem] leading-tight tracking-tight text-teal-ink" style={{ fontWeight: 500 }}>
                 Three installer quotes, <span className="font-editorial italic font-normal text-teal-brand">delivered.</span>
               </h3>
-              <p id={descId} className="font-prose text-[15px] leading-relaxed text-teal-ink/70 mt-1.5">
+              <p id={descId} className="hidden md:block font-prose text-[15px] leading-relaxed text-teal-ink/70 mt-1.5">
                 Vetted Surrey specialists reply within four working hours. Free, no obligation at any stage.
               </p>
             </div>
 
-            <div className="p-6 md:p-8">
+            <div className="p-5 md:p-8">
               {errorMessage && (
                 <div
                   id={errorId}
@@ -233,7 +233,7 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
                 </div>
               )}
 
-              <form onSubmit={handleSubmit} className="flex flex-col gap-3" noValidate>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-2.5 md:gap-3" noValidate>
                 <label className="sr-only" htmlFor="lfm-fullName">Full name</label>
                 <input
                   ref={firstFieldRef}
