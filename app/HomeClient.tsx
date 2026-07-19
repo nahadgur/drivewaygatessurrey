@@ -134,8 +134,8 @@ export function HomeClient() {
             {/* LEFT COLUMN: H1, lede, CTA */}
             <div>
               <h1 className="font-display text-[2.2rem] md:text-[3rem] lg:text-[3.5rem] leading-[0.98] tracking-tight text-teal-ink mb-4 md:mb-6" style={{ fontWeight: 400 }}>
-                Driveway Gates<br />
-                in <span className="italic-voice">Surrey.</span>
+                Driveway Gates in Surrey,{' '}<br />
+                <span className="italic-voice">fitted and automated.</span>
               </h1>
 
               <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 mb-3 max-w-prose-editorial">
