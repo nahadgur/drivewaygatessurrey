@@ -58,7 +58,7 @@ export function LocationHubClient({ params, intro }: LocationHubClientProps) {
                 in <span className="italic-voice">{cityName}.</span>
               </h1>
               <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 max-w-prose-editorial">
-                Surrey gate specialists serving {cityName}. Every installer in our network focuses on residential gates as their primary trade, with verified project history before we refer a single enquiry.
+                Surrey gate specialists serving {cityName}.
               </p>
             </div>
             <div className="relative w-full overflow-hidden" style={{ aspectRatio: '5/4' }}>
@@ -141,7 +141,7 @@ export function LocationHubClient({ params, intro }: LocationHubClientProps) {
             <CTACard
               title={`Get matched with gate installers in ${cityName}.`}
               italicAccent="Two minutes, three quotes."
-              body={`Submit your enquiry and we identify up to three vetted installers covering ${cityName}. Free site surveys, detailed written quotes, no obligation at any stage.`}
+              body={`Submit your enquiry and we identify up to three installers covering ${cityName}. Free site surveys, detailed written quotes, no obligation at any stage.`}
               ctaLabel="Get Your Free Quotes"
               onCtaClick={() => setIsModalOpen(true)}
             />

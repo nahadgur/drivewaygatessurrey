@@ -73,8 +73,7 @@ export default function TermsPage() {
                 We exercise reasonable care in selecting the gate installers we refer enquiries
                 to. Our vetting covers verified residential gate project history, current public
                 liability insurance, and the provision of written warranties on both the gate
-                and the automation. We monitor customer feedback and remove installers from the
-                network where quality falls below our standards.
+                and the automation.
               </p>
               <p>
                 However, we are not responsible for the work carried out by an installer, their

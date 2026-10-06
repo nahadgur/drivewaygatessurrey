@@ -42,7 +42,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'Driveway Gates Surrey | Vetted Installer Network, Free Quotes',
+    default: 'Driveway Gates Surrey | Free Quotes From Local Installers',
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,

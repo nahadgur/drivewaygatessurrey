@@ -1,7 +1,7 @@
 // components/PricingSection.tsx
 'use client';
 
-import { pricingTiers, treatmentIncludes, financeInfo, getPricingForService } from '@/data/pricing';
+import { pricingTiers, treatmentIncludes, getPricingForService } from '@/data/pricing';
 import { Check } from 'lucide-react';
 import { SectionHeader } from './ui/SectionHeader';
 
@@ -92,7 +92,7 @@ export function PricingSection({ cityName, serviceId, serviceName }: PricingSect
       </div>
 
       {/* Included + Finance */}
-      <div className="grid md:grid-cols-2 gap-4 md:gap-6">
+      <div className="grid gap-4 md:gap-6">
         <div className="bg-white border-2 border-teal-ink p-6">
           <div className="text-[11px] tracking-[0.2em] uppercase text-teal-brand font-medium mb-3">
             What's included
@@ -106,28 +106,13 @@ export function PricingSection({ cityName, serviceId, serviceName }: PricingSect
             ))}
           </ul>
         </div>
-
-        <div className="bg-paper border-2 border-teal-ink p-6">
-          <div className="text-[11px] tracking-[0.2em] uppercase text-teal-brand font-medium mb-2">
-            0% finance available
-          </div>
-          <h3 className="font-display text-[1.3rem] leading-tight tracking-tight text-teal-ink mb-3" style={{ fontWeight: 500 }}>
-            From &pound;{financeInfo.monthlyFrom}<span className="font-editorial italic font-normal text-teal-brand">/month.</span>
-          </h3>
-          <p className="font-prose text-[15px] leading-[1.55] text-teal-ink/80 mb-0">
-            {financeInfo.description}
-          </p>
-          <p className="font-prose text-[13px] text-teal-ink/60 mt-3 italic">
-            Spread over {financeInfo.spreadOver} at 0% APR representative. Subject to status.
-          </p>
-        </div>
       </div>
 
       {/* City-specific SEO paragraph */}
       {cityName && (
         <div className="mt-8 prose-editorial max-w-prose-editorial">
           <p>
-            The cost of driveway gates in {cityName} depends on material (wood, steel, aluminium, or wrought iron), automation, entrance width, and any bespoke design requirements. Prices vary across Surrey with site conditions and specification, but installers in our {cityName} network are competitively priced for the quality of work delivered. Every installer offers a free site survey with an itemised written quote before you commit.
+            The cost of driveway gates in {cityName} depends on material (wood, steel, aluminium, or wrought iron), automation, entrance width, and any bespoke design requirements. Prices vary across Surrey with site conditions and specification. Ask for an itemised written quote after a site survey before you commit to anything.
           </p>
         </div>
       )}

@@ -59,7 +59,7 @@ export function Header({ onOpenModal }: HeaderProps) {
             Driveway Gates Surrey
           </div>
           <div className="font-editorial italic text-[15px] -mt-0.5 text-teal-brand">
-            vetted installers, free quotes
+            local installers, free quotes
           </div>
         </Link>
 

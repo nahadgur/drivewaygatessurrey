@@ -71,19 +71,19 @@ const FEATURED_LOCATIONS = [
 
 const WHY_US = [
   {
-    title: 'Specialists only.',
-    italicAccent: 'Never general builders.',
-    body: 'Every installer we refer works on residential driveway gates as their primary trade, with a verified history of completed Surrey projects before receiving a single enquiry.',
+    title: 'Ask the right questions.',
+    italicAccent: 'Insurance, training, paperwork.',
+    body: 'Before you agree anything, ask each installer for proof of insurance, their gate safety training and the Declaration of Conformity an automated gate should come with.',
   },
   {
     title: 'Surrey planning knowledge.',
     italicAccent: 'AONB, Green Belt, conservation areas.',
-    body: 'Surrey has more planning designations than most counties. Installers in our network know which rules apply where before they set foot on your driveway.',
+    body: 'Surrey has more planning designations than most counties. Ask each installer how they apply to your address before you commit to a design.',
   },
   {
     title: 'Free site survey.',
     italicAccent: 'No remote estimates.',
-    body: 'Every installer we refer quotes after a proper site visit. You get a considered specification, not a phone estimate.',
+    body: 'A quote should follow a proper site visit, so you get a considered specification, not a phone estimate.',
   },
   {
     title: 'Three independent quotes.',
@@ -101,7 +101,7 @@ const HOW_IT_WORKS = [
   {
     n: 'II',
     title: 'We introduce the installers',
-    body: 'Up to three vetted Surrey gate specialists whose experience matches your project. Each contacts you to arrange a free site survey at a time that suits you.',
+    body: 'Up to three Surrey gate installers covering your area. Each contacts you to arrange a free site survey at a time that suits you.',
   },
   {
     n: 'III',
@@ -139,7 +139,7 @@ export function HomeClient() {
               </h1>
 
               <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 mb-3 max-w-prose-editorial">
-                A vetted network of Surrey driveway gate installers. Hand-forged wrought iron in Weybridge and Cobham. Hardwood gates in Farnham, Guildford, and the Surrey Hills. Electric and sliding gates across the county.
+                Driveway gate installers across Surrey. Hand-forged wrought iron in Weybridge and Cobham. Hardwood gates in Farnham, Guildford, and the Surrey Hills. Electric and sliding gates across the county.
               </p>
               <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 mb-7 max-w-prose-editorial">
                 Free site survey, three written quotes, no obligation.
@@ -209,7 +209,7 @@ export function HomeClient() {
                 Surrey has no shortage of tradespeople who will quote for driveway gates. It has a much smaller number who do it as their primary trade, who understand the planning sensitivities of the Surrey Hills AONB and the county&apos;s conservation areas, and who can specify the kind of wrought iron, hardwood, and underground-motor installations that the premium end of the county expects.
               </p>
               <p>
-                The gap between those two groups is where most gate problems originate. Posts set without adequate foundation for the motor load. Motors undersized for the gate weight. Automation commissioned without the <em>BS EN 12453</em> safety testing that a proper handover requires. We built this service to close that gap: every installer in our network is a gate specialist first, with verified project history before we refer a single enquiry their way.
+                The gap between those two groups is where most gate problems originate. Posts set without adequate foundation for the motor load. Motors undersized for the gate weight. Automation commissioned without the <em>BS EN 12453</em> safety testing that a proper handover requires. Before you choose anyone, ask how many automated gates they fitted last year, whether they force test at handover, and what paperwork you will receive.
               </p>
             </div>
             <div className="mt-7">
@@ -229,7 +229,7 @@ export function HomeClient() {
           <div className="editorial-container-wide py-10 md:py-16">
             <SectionHeader
               title="Surrey gate services"
-              subtitle="Six specialisms, one vetted network."
+              subtitle="Six specialisms across Surrey."
             />
             <div className="md:grid md:grid-cols-2 md:gap-x-12">
               {SERVICE_INDEX.map((s) => (
@@ -356,7 +356,7 @@ export function HomeClient() {
             <CTACard
               title="Ready for three installer quotes?"
               italicAccent="Surrey-wide."
-              body="Tell us your postcode and gate type. We match you with three vetted Surrey specialists. Free site surveys, detailed written quotes, no obligation at any stage."
+              body="Tell us your postcode and gate type. Up to three Surrey installers will be in touch. Free site surveys, detailed written quotes, no obligation at any stage."
               ctaLabel="Request Your Quotes"
               onCtaClick={openModal}
             />

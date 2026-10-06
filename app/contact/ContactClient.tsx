@@ -71,7 +71,7 @@ export function ContactClient() {
             <span className="italic-voice">Driveway Gates Surrey.</span>
           </h1>
           <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 max-w-prose-editorial">
-            The fastest way to get matched with vetted Surrey gate installers is the enquiry form on any page. For everything else, email us directly.
+            The fastest way to get quotes from Surrey gate installers is the enquiry form on any page. For everything else, email us directly.
           </p>
         </section>
 

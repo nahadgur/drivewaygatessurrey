@@ -7,9 +7,9 @@ import { homepageFaqs } from './home-data';
 import { HomeClient } from './HomeClient';
 
 export const metadata: Metadata = {
-  title: 'Driveway Gates Surrey | Vetted Installer Network, Free Quotes',
+  title: 'Driveway Gates Surrey | Free Quotes From Local Installers',
   description:
-    'A vetted network of Surrey driveway gate installers. Wrought iron, hardwood, electric and sliding gates across Weybridge, Cobham, Guildford, Farnham and beyond. Free site surveys, three written quotes, no obligation.',
+    'Driveway gate installers across Surrey. Wrought iron, hardwood, electric and sliding gates across Weybridge, Cobham, Guildford, Farnham and beyond. Free site surveys, three written quotes, no obligation.',
   alternates: { canonical: `${siteConfig.url}/` },
 };
 
@@ -26,7 +26,7 @@ export default function HomePage() {
   const referralServiceSchema = buildReferralServiceSchema({
     pageUrl,
     name: 'Driveway gate installer referral and matching service',
-    description: 'Free service matching Surrey homeowners with vetted, insured driveway gate installers. Up to three quotes from independent specialists, no obligation.',
+    description: 'Free service connecting Surrey homeowners with driveway gate installers. Up to three quotes from independent specialists, no obligation.',
     serviceId: '/#referral-service',
   });
 

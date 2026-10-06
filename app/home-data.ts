@@ -25,7 +25,7 @@ export const homepageFaqs = [
   },
   {
     question: 'How does the installer matching service work?',
-    answer: 'We are a matching service, not a gate company. You submit your details (Surrey postcode, gate type, approximate budget) and we identify up to three specialist gate installers from our vetted network who cover your area and have relevant experience with your project type. Each installer contacts you directly to arrange a free site survey. You receive a detailed written quote from each one and choose who to proceed with, or nobody if the timing is not right. There is no fee to use the service at any point. We receive a referral fee from the installer after a project is confirmed.',
+    answer: 'We are a matching service, not a gate company. You submit your details (Surrey postcode, gate type, approximate budget) and we identify up to three specialist gate installers who cover your area and have relevant experience with your project type. Each installer contacts you directly to arrange a free site survey. You receive a detailed written quote from each one and choose who to proceed with, or nobody if the timing is not right. There is no fee to use the service at any point. We receive a referral fee from the installer after a project is confirmed.',
   },
   {
     question: 'What should I look for in a Surrey gate installer?',

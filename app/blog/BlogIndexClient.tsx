@@ -160,7 +160,7 @@ export default function BlogIndexPage() {
             <CTACard
               title="Ready for three installer quotes?"
               italicAccent="Surrey-wide, no obligation."
-              body="Submit your postcode and gate type. We match you with three vetted Surrey specialists for free site surveys and detailed written quotes."
+              body="Submit your postcode and gate type. Up to three Surrey installers will arrange site surveys and detailed written quotes."
               ctaLabel="Request Your Quotes"
               onCtaClick={() => setIsModalOpen(true)}
             />

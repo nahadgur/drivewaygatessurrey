@@ -66,7 +66,7 @@ function BlogCtaBanner({ onOpenModal }: { onOpenModal: () => void }) {
       </div>
       <h3 className="font-display text-[1.4rem] leading-tight tracking-tight text-teal-ink mb-3" style={{ fontWeight: 500 }}>
         Ready for driveway gate quotes?<br />
-        <span className="italic-voice">Three vetted Surrey installers.</span>
+        <span className="italic-voice">Three Surrey installers.</span>
       </h3>
       <p className="font-prose text-[15px] leading-[1.55] text-teal-ink/80 mb-5">
         Free site surveys, detailed written quotes, no obligation. We match you with up to three specialists who cover your Surrey postcode.
@@ -320,7 +320,7 @@ export default function BlogArticlePage({ params }: { params: { slug: string } }
                     Get your free gate quotes
                   </h3>
                   <p className="font-prose text-[14px] leading-[1.55] text-teal-ink/75 mb-4">
-                    Compare up to three vetted Surrey installers. Free, no obligation.
+                    Compare up to three Surrey installers. Free, no obligation.
                   </p>
                   <Button onClick={() => setIsModalOpen(true)} variant="primary" fullWidth showArrow>
                     Find Installers

@@ -201,7 +201,7 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
               Request received.
             </h3>
             <p id={descId} className="font-prose text-[16px] leading-relaxed text-teal-ink/80 max-w-sm">
-              We&apos;ve matched your enquiry with a vetted Surrey installer. Check your email — we&apos;ll be in touch within four working hours.
+              Thanks, your enquiry has been sent to up to three Surrey installers. Check your email — we&apos;ll be in touch within four working hours.
             </p>
           </div>
         ) : (
@@ -214,7 +214,7 @@ export function LeadFormModal({ isOpen, onClose }: LeadFormModalProps) {
                 Three installer quotes, <span className="font-editorial italic font-normal text-teal-brand">delivered.</span>
               </h3>
               <p id={descId} className="hidden md:block font-prose text-[15px] leading-relaxed text-teal-ink/70 mt-1.5">
-                Vetted Surrey specialists reply within four working hours. Free, no obligation at any stage.
+                Up to three Surrey installers will be in touch. Free, no obligation at any stage.
               </p>
             </div>
 

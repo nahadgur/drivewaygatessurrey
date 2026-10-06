@@ -32,7 +32,7 @@ export default function ServicesIndexPage() {
                 gate <span className="italic-voice">services.</span>
               </h1>
               <p className="font-prose text-[17px] md:text-[19px] leading-[1.5] text-teal-ink/85 max-w-prose-editorial">
-                Wrought iron, hardwood, sliding, swing, and full automation. A vetted network of Surrey specialists, each focused on residential gate installation as their primary trade.
+                Wrought iron, hardwood, sliding, swing, and full automation. Installers across Surrey for every type of driveway gate.
               </p>
             </div>
             <div className="relative w-full overflow-hidden" style={{ aspectRatio: '5/4' }}>

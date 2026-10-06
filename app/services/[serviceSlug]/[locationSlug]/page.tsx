@@ -34,8 +34,8 @@ export function generateMetadata({
   const indexed = isServiceLocationIndexed(service.slug, params.locationSlug);
 
   return {
-    title: `${service.title} in ${cityName} | Vetted Installers, Free Quotes`,
-    description: `Matching service connecting homeowners in ${cityName}, Surrey with vetted, independent ${service.title.toLowerCase()} specialists. Free site survey, written quotes, no obligation.`,
+    title: `${service.title} in ${cityName} | Installers and Free Quotes`,
+    description: `Matching service connecting homeowners in ${cityName}, Surrey with independent ${service.title.toLowerCase()} specialists. Free site survey, written quotes, no obligation.`,
     alternates: { canonical: pageUrl },
     // Culled combinations stay reachable (direct visitors, LLM citations,
     // inbound links still work) but are removed from the index. follow:true
@@ -68,14 +68,14 @@ export default function ServiceLocationPage({
     const webPageSchema = buildWebPageSchema({
       pageUrl,
       name: `${service.title} in ${cityName}`,
-      description: `Matching service connecting homeowners in ${cityName}, Surrey with vetted, independent ${service.title.toLowerCase()} specialists.`,
+      description: `Matching service connecting homeowners in ${cityName}, Surrey with independent ${service.title.toLowerCase()} specialists.`,
       breadcrumbId: `${pageUrl}#breadcrumb`,
     });
 
     const referralServiceSchema = buildReferralServiceSchema({
       pageUrl,
       name: `${service.title} Installer Matching, ${cityName}`,
-      description: `Matching service connecting homeowners in ${cityName}, Surrey with vetted, independent ${service.title.toLowerCase()} specialists. Free site survey, written quotes, no obligation.`,
+      description: `Matching service connecting homeowners in ${cityName}, Surrey with independent ${service.title.toLowerCase()} specialists. Free site survey, written quotes, no obligation.`,
       areaServed: {
         '@type': 'City',
         name: cityName,

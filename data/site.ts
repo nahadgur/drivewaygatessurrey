@@ -2,9 +2,9 @@
 
 export const siteConfig = {
   name: 'Driveway Gates Surrey',
-  tagline: 'Surrey Gate Installers, Vetted and Ready',
+  tagline: 'Driveway Gate Installers Across Surrey',
   url: 'https://www.drivewaygatessurrey.uk',
-  description: 'Find vetted driveway gate installers across Surrey. Compare free quotes for electric sliding gates, swing gates, hardwood gates, metal gates, automation systems, and repairs.',
+  description: 'Compare free quotes from driveway gate installers across Surrey. Compare free quotes for electric sliding gates, swing gates, hardwood gates, metal gates, automation systems, and repairs.',
   contactEmail: 'hello@drivewaygatessurrey.uk',
   gaId: 'G-TSR9FSETF5',
   // Replace with the real Bing Webmaster verification code.
@@ -27,34 +27,29 @@ export const TESTIMONIALS: Array<{
 export const TRUST_BADGES = [
   {
     icon: 'Award',
-    title: 'Verified Specialists Only',
-    description: 'Every Surrey installer in our network is a gate specialist with a verified project history, not a general builder who takes occasional gate work',
+    title: 'Ask for Gate Experience',
+    description: 'Ask each installer how many automated gates they fit and for references from gate jobs, not general building work',
   },
   {
     icon: 'ShieldCheck',
-    title: 'Insured and Warranted',
-    description: 'Public liability cover and written warranties on both the gate and the automation are required from every installer before we refer a single enquiry',
+    title: 'Insurance and Warranties',
+    description: 'Ask for proof of public liability cover and written warranties on both the gate and the automation before you sign',
   },
   {
     icon: 'UserCheck',
     title: 'Free Site Survey, No Commitment',
-    description: 'Every installer offers a no-obligation site survey before quoting. No pressure, no commitment required until you are ready to proceed',
-  },
-  {
-    icon: 'PoundSterling',
-    title: '0% Finance Available',
-    description: 'Spread your installation cost over 6 to 36 months interest-free through selected Surrey installers in our network, subject to status',
+    description: 'A quote should follow a site survey, with no commitment required until you are ready to proceed',
   },
 ];
 
 export const FAQS_HOME = [
   {
     question: 'How is using this service different from finding an installer yourself?',
-    answer: 'The difference is the vetting. Any installer can appear in a Google search. Every installer we refer has been assessed against specific criteria: a verified project history of completed residential gate installations, active public liability insurance, and a track record of providing written warranties on both the gate and the automation. We also monitor ongoing customer feedback and remove firms whose standards slip. You get the benefit of that due diligence without spending hours researching it yourself.',
+    answer: 'You describe your project once, and up to three Surrey installers covering your area contact you to arrange a site survey and a written quote, so you can compare them side by side. Check each one yourself before you agree anything: ask for proof of insurance, references from automated gate jobs, their gate safety training, and the Declaration of Conformity an automated gate should come with.',
   },
   {
     question: 'How do you match me with the right Surrey installer?',
-    answer: 'We use your postcode, gate type, and budget to identify the most relevant specialists in our network for your specific project. A sliding gate installer who works predominantly in North Surrey may not be the right fit for a bespoke wrought iron project in the Surrey Hills, and we account for those differences. You receive contact from up to three relevant installers who will each arrange a free site survey and provide a detailed written quote.',
+    answer: 'We use your postcode, gate type and budget to pass your enquiry to installers who cover your area and fit that type of gate. Each then contacts you to arrange a site survey and a written quote.',
   },
   {
     question: 'What does this service cost?',
@@ -83,16 +78,16 @@ export const FAQS_SERVICES = [
 
 export const FAQS_LOCATION = [
   {
-    question: 'How do you vet installers before adding them to your Surrey network?',
-    answer: 'We require evidence of a verified residential gate project history before any installer is accepted into the network. We check that public liability insurance is current and covers the full scope of gate installation work. We confirm that written warranties are offered on both the gate and the automation as a standard practice, not an optional extra. We monitor customer feedback on an ongoing basis and remove any firm whose quality or responsiveness falls below our standards.',
+    question: 'How do I check a gate installer before hiring them?',
+    answer: 'Installers are independent businesses, so check each one yourself before you agree anything. Ask for proof of public liability insurance, written warranties on the gate and the automation, references from automated gate jobs, Gate Safe or DHF training, and the force test results and Declaration of Conformity an automated gate should be handed over with.',
   },
   {
     question: 'Do you cover my area of Surrey?',
-    answer: 'Our network covers the whole of Surrey, from Staines-upon-Thames and Egham in the north to Haslemere and Cranleigh in the south, and from Farnham in the west to Oxted and Caterham in the east. We also cover the Surrey borders into parts of Kent, Sussex, Hampshire, and Berkshire. If your town is not listed on the site, submit an enquiry with your postcode and we will confirm coverage directly.',
+    answer: 'Enquiries are taken from the whole of Surrey, from Staines-upon-Thames and Egham in the north to Haslemere and Cranleigh in the south, and from Farnham in the west to Oxted and Caterham in the east. If your town is not listed on the site, send an enquiry with your postcode.',
   },
   {
     question: 'Can Surrey installers handle planning applications for conservation areas and the AONB?',
-    answer: 'Installers in our Surrey network who regularly work in the Surrey Hills AONB, the Green Belt villages, and the historic towns of Guildford, Farnham, and Godalming are familiar with the planning requirements for these areas. They can advise on whether a planning application is required, help you design a gate that is sympathetic to the area character, and support a pre-application enquiry to the local authority where needed.',
+    answer: 'Installers who regularly work in the Surrey Hills AONB, the Green Belt villages, and the historic towns of Guildford, Farnham, and Godalming are familiar with the planning requirements for these areas. They can advise on whether a planning application is required, help you design a gate that is sympathetic to the area character, and support a pre-application enquiry to the local authority where needed.',
   },
 ];
 

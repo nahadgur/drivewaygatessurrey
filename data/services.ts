@@ -105,7 +105,7 @@ export const services: Service[] = [
       },
       {
         question: 'Can I commission a bespoke design for a metal gate in Surrey?',
-        answer: 'Yes. Bespoke fabrication is standard practice for metal gates in Surrey, and the majority of installations in our network involve a custom design rather than an off-the-shelf product. Installers work with specialist fabricators who can produce anything from a straightforward horizontal-bar contemporary gate to an ornate estate gate with scrollwork, a family crest, and gilded finials. Most fabricators provide detailed CAD drawings and, for larger projects, 3D renders showing the gate in position on your property. The design and approval process typically adds 2 to 4 weeks before fabrication begins.',
+        answer: 'Yes. Bespoke fabrication is standard practice for metal gates in Surrey, and most metal gate installations involve a custom design rather than an off-the-shelf product. Installers work with specialist fabricators who can produce anything from a straightforward horizontal-bar contemporary gate to an ornate estate gate with scrollwork, a family crest, and gilded finials. Most fabricators provide detailed CAD drawings and, for larger projects, 3D renders showing the gate in position on your property. The design and approval process typically adds 2 to 4 weeks before fabrication begins.',
       },
     ],
   },
@@ -151,7 +151,7 @@ export const services: Service[] = [
       },
       {
         question: 'How much does a gate repair callout cost in Surrey?',
-        answer: 'Surrey gate engineers typically charge a callout and diagnostic fee of £90 to £150, which covers the visit and a full assessment of the fault. Labour and parts are additional. Most common repairs, including motor replacement, photocell realignment, control board replacement, and hinge adjustment, come to between £250 and £650 all in on a single visit. Engineers in our network carry the most common spare parts for FAAC, BFT, CAME, Nice, and Beninca systems on the van, which means the majority of faults are resolved the same day without a return visit.',
+        answer: 'Surrey gate engineers typically charge a callout and diagnostic fee of £90 to £150, which covers the visit and a full assessment of the fault. Labour and parts are additional. Most common repairs, including motor replacement, photocell realignment, control board replacement, and hinge adjustment, come to between £250 and £650 all in on a single visit. Ask whether the engineer carries common spare parts for your motor brand (FAAC, BFT, CAME, Nice or Beninca), because that decides whether a fault can be fixed on the first visit.',
       },
     ],
   },

@@ -122,7 +122,7 @@ const serviceContent: Record<
     intro: [
       'Surrey is one of the strongest markets for metal driveway gates in England, and the county illustrates the full range of what the material category covers. At the top end of the market, hand-forged wrought iron gates on brick piers with gilded finials and underground motors are a recurring specification in the Weybridge, Cobham, and Esher area. At the other end, a precision-cut aluminium sliding gate in anthracite powder coat is the functional, contemporary solution for a new-build in Woking or Camberley. Between these points sits the majority of Surrey metal gate installations: mild steel fabricated to a bespoke design, hot-dip galvanised, and finished in whatever colour the property requires.',
       'The treatment specification separates quality installations from inadequate ones, and this matters more than any other single decision in the specification process. Steel corrodes. The only way to prevent it from doing so over a 20-year-plus service life is to encase the metal in zinc before the decorative coating is applied. Hot-dip galvanising immerses the fabricated gate in molten zinc, bonding a zinc layer to every surface including internal faces, weld points, and cut edges. The powder coat is then applied over the zinc. When the powder coat is chipped or scratched, it exposes zinc rather than steel, and the zinc continues to protect through a sacrificial mechanism. An installation specified without this step will show rust at damaged points within a few seasons.',
-      'Design flexibility in fabricated metal is substantial. Laser cutting allows intricate patterns, personalised house names or numbers, and geometric motifs to be cut from flat plate with precision that hand fabrication cannot match. Traditional profiles with curved heads, spear finials, and collar scrollwork are well within the capability of most Surrey fabricators and are widely specified on period properties and in conservation areas. CAD drawings before cutting and 3D renders for larger projects are standard practice across the fabricators our network works with.',
+      'Design flexibility in fabricated metal is substantial. Laser cutting allows intricate patterns, personalised house names or numbers, and geometric motifs to be cut from flat plate with precision that hand fabrication cannot match. Traditional profiles with curved heads, spear finials, and collar scrollwork are well within the capability of most Surrey fabricators and are widely specified on period properties and in conservation areas. CAD drawings before cutting and 3D renders for larger projects are worth asking any fabricator for.',
     ],
     benefits: [
       { title: 'Exceptional longevity when correctly specified', desc: 'A galvanised and powder-coated steel gate installed to quality standards will require no significant remedial work for two decades. Aluminium has no corrosion mechanism at all and carries an indefinite functional life with no additional treatment.' },
@@ -181,7 +181,7 @@ const serviceContent: Record<
     benefits: [
       { title: 'Same-day or next-day emergency response', desc: 'For a gate that has failed and left the property insecure, response time is the primary specification. Installers in our Surrey network carry common spares and are equipped for first-visit repair on the majority of fault types.' },
       { title: 'Written fault diagnosis before work begins', desc: 'A proper diagnostic visit produces a written fault report and a repair quote before any work proceeds. You see what is wrong, what the fix involves, and what it costs before committing.' },
-      { title: 'Access to all major motor brands', desc: 'Our network installers maintain parts supply relationships with FAAC, BFT, CAME, NICE, and Beninca. Whatever brand your gate is running, we can find an installer who carries or can source the right parts.' },
+      { title: 'Access to all major motor brands', desc: 'Ask whether the installer carries parts for FAAC, BFT, CAME, NICE or Beninca, whichever brand they fit. Whatever brand your gate is running, we can find an installer who carries or can source the right parts.' },
       { title: 'Safety recommissioning to current standard', desc: 'Repair work on older gates is an opportunity to bring the safety system up to current BS EN 12453 standard. Photocell retrofit, force-limit recalibration, and auto-reverse testing can be included as part of the repair scope.' },
     ],
     candidateIntro: 'Call out a Surrey gate repair specialist if:',
@@ -523,7 +523,7 @@ export function ServicePageClient({ params }: { params: { serviceSlug: string } 
             <CTACard
               title={`Get ${service.title.toLowerCase()} quotes.`}
               italicAccent="Across Surrey."
-              body={`Submit your postcode and we match you with up to three vetted ${service.title.toLowerCase()} specialists. Free surveys, detailed written quotes, no obligation.`}
+              body={`Submit your postcode and up to three ${service.title.toLowerCase()} specialists. Free surveys, detailed written quotes, no obligation.`}
               ctaLabel="Get Free Quotes"
               onCtaClick={() => setIsModalOpen(true)}
             />

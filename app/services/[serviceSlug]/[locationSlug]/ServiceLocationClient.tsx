@@ -113,7 +113,7 @@ export function ServiceLocationClient({ params, intro }: ServiceLocationClientPr
             <CTACard
               title={`Get ${service.title.toLowerCase()} quotes in ${cityName}.`}
               italicAccent="Two minutes, three quotes."
-              body={`Submit your enquiry and we match you with up to three vetted ${cityName} installers. Free site surveys, detailed written quotes, no obligation at any stage.`}
+              body={`Submit your enquiry and up to three ${cityName} installers. Free site surveys, detailed written quotes, no obligation at any stage.`}
               ctaLabel="Get Your Free Quotes"
               onCtaClick={() => setIsModalOpen(true)}
             />

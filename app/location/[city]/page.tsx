@@ -21,8 +21,8 @@ export function generateMetadata({ params }: { params: { city: string } }): Meta
   const indexed = isLocationHubIndexed(params.city);
 
   return {
-    title: `Driveway Gate Installers in ${cityName} | Vetted, Insured, Surrey`,
-    description: `Find vetted driveway gate installers in ${cityName}, Surrey. Free site surveys, written quotes, and up to three options with no obligation.`,
+    title: `Driveway Gate Installers in ${cityName}, Surrey`,
+    description: `Find driveway gate installers in ${cityName}, Surrey. Free site surveys, written quotes, and up to three options with no obligation.`,
     alternates: { canonical: pageUrl },
     robots: indexed
       ? { index: true, follow: true }
@@ -45,14 +45,14 @@ export default function CityPage({ params }: { params: { city: string } }) {
     const webPageSchema = buildWebPageSchema({
       pageUrl,
       name: `Driveway Gate Installers in ${cityName}`,
-      description: `Matching service connecting homeowners in ${cityName}, Surrey with vetted, independent driveway gate installers.`,
+      description: `Matching service connecting homeowners in ${cityName}, Surrey with independent driveway gate installers.`,
       breadcrumbId: `${pageUrl}#breadcrumb`,
     });
 
     const referralServiceSchema = buildReferralServiceSchema({
       pageUrl,
       name: `Driveway Gate Installer Matching, ${cityName}`,
-      description: `Matching service connecting homeowners in ${cityName}, Surrey with vetted, independent driveway gate installers. Free site surveys, written quotes, and up to three options with no obligation.`,
+      description: `Matching service connecting homeowners in ${cityName}, Surrey with independent driveway gate installers. Free site surveys, written quotes, and up to three options with no obligation.`,
       areaServed: {
         '@type': 'City',
         name: cityName,

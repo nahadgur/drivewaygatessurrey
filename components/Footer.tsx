@@ -45,7 +45,7 @@ export function Footer() {
             Driveway Gates in <span className="italic-voice">Surrey.</span>
           </div>
           <p className="font-prose text-[15px] text-teal-ink/75 leading-relaxed max-w-prose-editorial">
-            A vetted network of Surrey driveway gate installers. Matching homeowners with specialists in hardwood, wrought iron, and automated gate installation since 2011.
+            Driveway gate installers across Surrey. Matching homeowners with specialists in hardwood, wrought iron, and automated gate installation since 2011.
           </p>
         </div>
 

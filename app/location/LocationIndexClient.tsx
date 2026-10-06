@@ -121,7 +121,7 @@ export default function LocationIndexPage() {
             <CTACard
               title="Ready for three installer quotes?"
               italicAccent="Anywhere in Surrey."
-              body="Submit your postcode and gate type. We match you with three vetted specialists covering your area. Free site surveys, detailed written quotes."
+              body="Submit your postcode and gate type. Up to three installers covering your area will be in touch. Free site surveys, detailed written quotes."
               ctaLabel="Request Your Quotes"
               onCtaClick={() => setIsModalOpen(true)}
             />

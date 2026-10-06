@@ -94,7 +94,7 @@ export function HeroLeadForm({ city, service }: HeroLeadFormProps) {
           Request received.
         </h3>
         <p className="font-prose text-[16px] leading-relaxed text-teal-ink/80 max-w-sm">
-          We&apos;ve matched your enquiry with a vetted installer{city ? ` in ${city}` : ''}. Check your email — we&apos;ll be in touch within four working hours.
+          Thanks, your enquiry has been sent to up to three installers{city ? ` in ${city}` : ''}. Check your email — we&apos;ll be in touch within four working hours.
         </p>
       </div>
     );
@@ -116,7 +116,7 @@ export function HeroLeadForm({ city, service }: HeroLeadFormProps) {
           )}
         </h3>
         <p className="font-prose text-[15px] leading-relaxed text-teal-ink/70 mt-1.5">
-          Vetted Surrey specialists reply within four working hours.
+          Up to three Surrey installers will be in touch.
         </p>
       </div>
 

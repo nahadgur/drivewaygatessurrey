@@ -16,7 +16,7 @@ export function generateMetadata({ params }: { params: { serviceSlug: string } }
   if (!service) return {};
   const pageUrl = `${siteConfig.url}/services/${service.slug}/`;
   return {
-    title: `${service.title} in Surrey | Vetted Installers, Free Quotes`,
+    title: `${service.title} in Surrey | Installers and Free Quotes`,
     description: service.description,
     alternates: { canonical: pageUrl },
   };
@@ -39,7 +39,7 @@ export default function ServicePage({ params }: { params: { serviceSlug: string 
   const referralServiceSchema = buildReferralServiceSchema({
     pageUrl,
     name: `${service.title} Installer Matching, Surrey`,
-    description: `Matching service connecting homeowners across Surrey with vetted, independent ${service.title.toLowerCase()} specialists. Free site survey, written quotes, no obligation.`,
+    description: `Matching service connecting homeowners across Surrey with independent ${service.title.toLowerCase()} specialists. Free site survey, written quotes, no obligation.`,
   });
 
   const faqSchema = buildFaqSchema(combinedFaqs);

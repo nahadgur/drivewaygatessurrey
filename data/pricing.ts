@@ -64,7 +64,7 @@ export const pricingTiers: PricingTier[] = [
     priceTo: 800,
     typicalDuration: 'Same day to 2 days',
     alignerSets: 'Callout + labour + parts',
-    description: 'Covers diagnostic callouts, motor and control board repair or replacement, hinge realignment, safety sensor recalibration, intercom faults, and remote reprogramming. Annual service packages covering all mechanical and electronic elements available from most Surrey engineers in our network.',
+    description: 'Covers diagnostic callouts, motor and control board repair or replacement, hinge realignment, safety sensor recalibration, intercom faults, and remote reprogramming. Annual service packages covering all mechanical and electronic elements available from most Surrey gate engineers.',
   },
 ];
 
@@ -91,10 +91,3 @@ export const treatmentIncludes = [
   'Full BS EN 12453 commissioning, testing, and written handover',
 ];
 
-export const financeInfo = {
-  available: true,
-  interestFree: true,
-  monthlyFrom: 99,
-  spreadOver: '6 to 36 months',
-  description: 'Most Surrey installers in our network offer 0% interest finance on gate installations. Spread the cost of your project over 6 to 36 months from as little as £99 per month, with nothing to pay upfront at many providers. Subject to status and approval.',
-};
