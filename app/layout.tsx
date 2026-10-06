@@ -46,7 +46,6 @@ export const metadata: Metadata = {
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  alternates: { canonical: siteConfig.url },
   robots: { index: true, follow: true },
   verification: {
     google: 'BZ06Ie51Fvg9VOX2DO_coCDz6ijU9ozLRkTW6gIOFWM',
