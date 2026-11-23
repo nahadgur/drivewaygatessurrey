@@ -66,7 +66,7 @@ export function HeroLeadForm({ city, service }: HeroLeadFormProps) {
         page: window.location.href,
         source: 'Driveway Gates Surrey',
       };
-      const res = await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', body: JSON.stringify(payload) });
+      const res = await fetch(GOOGLE_SCRIPT_URL, { method: 'POST', signal: AbortSignal.timeout?.(20000), body: JSON.stringify(payload) });
       const text = await res.text();
       let data: { ok?: boolean; error?: string } = {};
       try { data = JSON.parse(text); } catch {}
